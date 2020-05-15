@@ -1,0 +1,43 @@
+<aside id="languageMenu" class="languageMenu menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+	<div class="menubox__wrapper">
+		<div class="menubox__top">
+            <div class="menubox__header">
+                <div class="menubox__header__title-wrapper">
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span ng-if="!vm.selected" translate="phrases.changeLanguage"></span>
+                    </div>
+                </div>
+				<div class="menubox__header__description text-center" ng-if="vm.suggestedLanguage.matched && vm.suggestedLanguage.matched !== vm.chosenLocale">
+                    <div>
+						<a href="" ng-click="vm.chosenLocale = vm.suggestedLanguage.matched; vm.changeLanguage()" class="gb-button--brand">{{vm.LOCALE_MAPPINGS.localNames[vm.suggestedLanguage.matched]}}</a>
+                    </div>
+				</div>
+            </div>
+        </div>
+		<div class="menubox__content">
+			<div class="menubox__section">
+				<div class="menubox__section__content" dir="{{vm.IS_RTL ? 'rtl' : 'ltr'}}">
+					<md-radio-group ng-model="vm.chosenLocale" ng-change="vm.changeLanguage()">
+						<md-radio-button 
+							ng-value="locale" 
+							class="md-primary" 
+							ng-repeat="locale in vm.locales"
+							ng-class="{'m-b-0': $last}"
+							>
+							<div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}">
+								<span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}">{{vm.LOCALE_MAPPINGS.localNames[locale]}}</span>
+								<span class="discreet--very ltr-text" ng-if="locale !== 'en'">
+								(
+									<span translate="language.{{vm.LOCALE_MAPPINGS.translation[locale]}}" translate-language="en"></span>
+								)
+								</span>
+							</div>
+						</md-radio-button>
+					</md-radio-group>
+				</div>
+			</div>
+		</div>
+	</div>
+</aside>

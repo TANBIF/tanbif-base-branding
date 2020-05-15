@@ -96,13 +96,13 @@
 <link rel="stylesheet" href="css/app.css">
 <link rel="stylesheet" type="text/css" href="css/vendor/vendor.css?v=1585166682129">
 
-<link rel="stylesheet" type="text/css" href="css/base/shared/style/index.css?v=1585166682129">
-<link rel="stylesheet" type="text/css" href="css/base/page/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="css/base/shared/style/index.css?v=1585166682129">
 
 
 <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
       rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
 
 <!--[if !IE]> -->
 <!-- <![endif]-->
@@ -761,31 +761,11 @@
                         <div class="home__header__name">
                             <span data-i18n="general.orgshortname"></span> | <span data-i18n="general.orgfullname"></span>
                         </div>
-                        <h1>
-                            Free and open access to biodiversity data for sustainable socioeconomic development
+                        <h1 style="font-size: 100px;">
+                          Contact
                         </h1>
-                        <div class="home__searchFilters">
-                            <a href="/occurrence/search" class="inherit noUnderline" ng-href="#">Occurrences</a>
-                            <a href="/species/search" class="inherit noUnderline" ng-href="#">Species</a>
-                            <a href="/dataset/search" class="inherit noUnderline" ng-href="#">Datasets</a>
-                            <a href="/publisher/search" class="inherit noUnderline" ng-href="#">Publishers</a>
-                            <a href="/resource/search" class="inherit noUnderline" ng-href="#">Resources</a>
-                        </div>
-                        <div class="home__header__search-bar search-box">
-                            <form action="#"
-                                  ng-submit="home.updateSearch()">
-                                <input id="siteSearchInputHome" type="text" placeholder="Search" name="q" autocomplete="off"
-                                       value=""
-                                       ng-init="home.freeTextQuery == ''"
-                                       ng-model="home.freeTextQuery"
-                                       aria-invalid="false"
-                                       focus-me="true">
-                                <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                   ng-href="#" type="submit">
-                                    <span class="sr-only">Search</span>
-                                </a>
-                            </form>
-                        </div>
+
+
                         <div class="home__quicklinks">
                             <a href="#" class="gb-button--brand--transparent">What is TANBIF?</a>
                             <a ng-href="#" class="gb-button--brand--transparent ng-cloak" ng-if="home.country.countryCode"><span translate="homepage.aboutGbifCountry" translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
@@ -797,247 +777,32 @@
                 </div>
             </div>
         </div>
-
-        <div class="horizontal-stripe light-background p-t-05">
-            <div class="container--desktop">
-                <div class="home__counts">
-                    <article class="article-box article-box--stats">
-                        <a ng-href="#" class="inherit noUnderline">
-                            <h3 class="discreet">Occurrence records</h3>
-                            <div id="occurrence"><div class="lds-ellipsis" id="occurrence-lds"><div></div><div></div><div></div><div></div></div></div>
-                            <!-- <div count="//api.gbif.org/v1/occurrence/search">1.000,000,000</div> -->
-                        </a>
-                    </article>
-                    <article class="article-box article-box--stats">
-                        <a ng-href="#h" class="inherit noUnderline">
-                            <h3 class="discreet">Datasets</h3>
-                            <div id="datasets"><div class="lds-ellipsis" id="datasets-lds"><div></div><div></div><div></div><div></div></div></div>
-                            <!-- <div count="//api.gbif.org/v1/dataset/search2">40,000</div> -->
-                        </a>
-                    </article>
-                    <article class="article-box article-box--stats">
-                        <a ng-href="#" class="inherit noUnderline">
-                            <h3 class="discreet">Publishing Institutions</h3>
-                            <div id="institutions"><div class="lds-ellipsis" id="institutions-lds"><div></div><div></div><div></div><div></div></div></div>
-                            <!-- <div count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing">1,300</div> -->
-                        </a>
-                    </article>
-                    <article class="article-box article-box--stats">
-                        <a ng-href="#" class="inherit noUnderline">
-                            <h3 class="discreet">Collections</h3>
-                            <div id="collections"><div class="lds-ellipsis" id="collections-lds"><div></div><div></div><div></div><div></div></div></div>
-                            <!-- <div count="//api.gbif.org/v1/organization">3,450</div> -->
-                        </a>
-                    </article>
-                </div>
-
-
-                    <div class="home__news">
-                        <div class="articles">
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="http://biodiversity-informatics-training.org/" class="card__stripe article-box__image">
-                    <img src="images/card-img-1.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="http://biodiversity-informatics-training.org/" class="inherit"><p>Biodiversity Informatics Training Curriculum</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://living-atlases.gbif.org/" class="card__stripe article-box__image">
-                    <img src="images/card-img-2.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://living-atlases.gbif.org/" class="inherit"><p>Living Atlas Community</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://africanbiodiversity.org/" class="card__stripe article-box__image">
-                    <img src="images/card-img-3.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">Data use</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://www.eac.int/environment/natural-resources-management/biodiversity-forestry" class="inherit"><p>Biodiversity & Forestry</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4" class="card__stripe article-box__image">
-                    <img src="images/card-img-4.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://jrsbiodiversity.org/grants/suaplanning/" class="inherit"><p>Tanzania Fresh Water Biodiversity Information System Project</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://www.gbif.org/publishing-data" class="card__stripe article-box__image">
-                    <img src="images/card-img-5.png"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://www.gbif.org/publishing-data" class="inherit"><p>Quick guide to publishing data through GBIF.org</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://jrsbiodiversity.org/how-to-apply/current-opportunities/2020rfp/" class="card__stripe article-box__image">
-                    <img src="images/card-img-6.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://jrsbiodiversity.org/how-to-apply/current-opportunities/2020rfp/" class="inherit"><p>2020 Call for Proposals - JRS Biodiversity Foundation</p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://jrsbiodiversity.org/grants/suaplanning/" class="card__stripe article-box__image">
-                    <img src="images/card-img-7.jpg"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">News</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4" class="inherit"><p>Specie List of Mammals in Tanzania </p></a>
-                    </h4>
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-
-
-
-        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                <a href="https://bid.gbif.org/" class="card__stripe article-box__image">
-                    <img src="images/card-img-8.png"
-                         alt="" class="article-thumb">
-                    <span class="article-box__type">Taxonomy</span>
-                </a>
-
-            <div class="card__stripe--expandable inherit">
-                <div class="card__content">
-                    <h4 class="article-box__title">
-                        <a href="https://bid.gbif.org/" class="inherit"><p>BID: <em> Biodiversity Information for Development</em></p></a>
-                    </h4>
-
-
-                </div>
-            </div>
-        </article>
-
-
-
-
-                        </div>
-                    </div>
-
-            </div>
+        <div class="col-md-2"></div>
+        <div class="col-md-8" style="padding: 50px">
+          <!-- contact section -->
+          <div class="col-md-8">
+            <h3> Principal</h3>
+            <ul>
+              <li><i class="fas fa-building"></i>  Dar es Salaam Institute of Technology (DIT)</li>
+              <li><i class="fas fa-envelope"></i> P.O. BOX 2958</li>
+              <li><i class="fas fa-at"></i> <a href="mailto:principal@dit.ac.tz"></a> principal@dit.ac.tz</li>
+              <li><i class="fas fa-globe-africa"></i> <a href="www.dit.ac.tz"></a> www.dit.ac.tz</li>
+              <li><i class="fas fa-map-marker-alt"></i> Dar es Salaam.</li>
+            </ul>
+          </div>
+          <div class="col-md-8">
+            <h3>Director General,</h3>
+            <ul>
+              <li><i class="fas fa-building"></i>  Tanzania Commission for Science and Technology (COSTECH)</li>
+              <li><i class="fas fa-envelope"></i> P.O. Box 4302, Ali Hassan Mwinyi Road, Kijitonyama </li>
+              <li><i class="fas fa-at"></i> <a href="mailto:principal@dit.ac.tz"></a> dg@costech.or.tz</li>
+              <li><i class="fas fa-globe-africa"></i> <a href="www.dit.ac.tz"></a> http://www.costech.or.tz</li>
+              <li><i class="fas fa-map-marker-alt"></i> Dar es Salaam.</li>
+            </ul>
+          </div>
         </div>
-
-
-
+        <div class="col-md-2"></div>
     </div>
-
                 </div>
             </div>
         </div>
@@ -1051,9 +816,6 @@
           <a href="https://www.dit.ac.tz"> <img  src="images/dit.png" style="height: 100px"></a>
           <a href="http://www.costech.or.tz">  <img  src="images/costech.jpg" style="height: 100px"></a>
           <a href="https://jrsbiodiversity.org/"> <img  src="images/jrs.png" style="height: 100px"></a>
-
-
-
         </center>
       </div>
         <div class="horizontal-stripe light-background site-footer__upper">
@@ -1127,13 +889,7 @@
 <script src="js/base/custom.js?v=1585166682129"></script>
 
 <script src="js/base/pages/home.js?v=1585166682129"></script>
-<script src="js/base/pages/dashboard.js"></script>
 
 
 </body>
 </html>
-<!--
-https://collections.tanbif.ditnet.ac.tz/ws/institution/count
-https://collections.tanbif.ditnet.ac.tz/ws/collection/count
-https://records-ws.tanbif.ditnet.ac.tz/occurrences/
-https://collections.ala.org.au/ws/dataResource/count -->
