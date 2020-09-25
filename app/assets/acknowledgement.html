@@ -216,505 +216,196 @@
                 <ul>
 
 
-                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'Get data'}"
-                                >
-                                <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('Get data')" dir="auto">Our Services</a>
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Get data'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Get data')" dir="auto">Our Services</a>
 
-                                <!-- <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a> -->
-                                <ul class="mainMenu__childGroup">
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Species</h2>
-                                                <ul class="mainMenu__childItem">
-                                                    <li >
-                                                        <a data-i18n="nav.species" class="mdl-navigation__link" href="https://species.tanbif.ditnet.ac.tz">Species</a>
-                                                    </li>
-                                                   <li>
-                                                       <a data-i18n="nav.species-lists" class="mdl-navigation__link" href="https://lists.tanbif.ditnet.ac.tz">Species Lists</a>
-                                                   </li>
-                                                   <li>
-                                                       <a data-i18n="nav.spatial" class="mdl-navigation__link" href="https://spatial.tanbif.ditnet.ac.tz">Spatial Portal</a>
-                                                   </li>
-                                                </ul>
-                                            </nav>
+                        <!-- <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a> -->
+                        <ul class="mainMenu__childGroup">
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Species</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li >
+                                            <a data-i18n="nav.species" class="mdl-navigation__link" href="https://species.tanbif.ditnet.ac.tz">Species</a>
                                         </li>
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Collections</h2>
-                                                <ul class="mainMenu__childItem">
-                                                    <li >
-                                                        <a data-i18n="nav.collectory" class="mdl-navigation__link" href="https://collections.tanbif.ditnet.ac.tz">Collections</a>
-                                                    </li>
-                                                    <li >
-                                                        <a data-i18n="nav.datasets" class="mdl-navigation__link" href="https://collections.tanbif.ditnet.ac.tz/datasets">Datasets</a>
-                                                    </li>
-                                                    <li >
-                                                        <a data-i18n="nav.regions" class="mdl-navigation__link" href="https://regions.tanbif.ditnet.ac.tz">Regions</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                        <li>
+                                            <a data-i18n="nav.species-lists" class="mdl-navigation__link" href="https://lists.tanbif.ditnet.ac.tz">Species Lists</a>
                                         </li>
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Other </h2>
-                                                <ul class="mainMenu__childItem">
-                                                    <li>
-                                                        <a data-i18n="nav.biocache" class="mdl-navigation__link" href="https://records.tanbif.ditnet.ac.tz/">Occurrences</a>
-                                                    </li>
-                                                    <li >
-                                                        <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
-                                                    </li>
-                                                    <li >
-                                                        <a  class="mdl-navigation__link" href="#">IPT</a>
-                                                    </li>
-                                                </ul>
-                                            </nav>
+                                        <li>
+                                            <a data-i18n="nav.spatial" class="mdl-navigation__link" href="https://spatial.tanbif.ditnet.ac.tz">Spatial Portal</a>
                                         </li>
-                                </ul>
+                                    </ul>
+                                </nav>
+                            </li>
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Collections</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li >
+                                            <a data-i18n="nav.collectory" class="mdl-navigation__link" href="https://collections.tanbif.ditnet.ac.tz">Collections</a>
+                                        </li>
+                                        <li >
+                                            <a data-i18n="nav.datasets" class="mdl-navigation__link" href="https://collections.tanbif.ditnet.ac.tz/datasets">Datasets</a>
+                                        </li>
+                                        <li >
+                                            <a data-i18n="nav.regions" class="mdl-navigation__link" href="https://regions.tanbif.ditnet.ac.tz">Regions</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Other </h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li>
+                                            <a data-i18n="nav.biocache" class="mdl-navigation__link" href="https://records.tanbif.ditnet.ac.tz/">Occurrences</a>
+                                        </li>
+                                        <li >
+                                            <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
+                                        </li>
+                                        <li >
+                                            <a  class="mdl-navigation__link" href="#">IPT</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+
+
+
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'How-to'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a>
+                        <ul class="mainMenu__childGroup">
+
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Share data</h2>
+                                    <ul class="mainMenu__childItem">
+
+                                        <li >
+                                            <a href="/quick-start.html" dir="auto">Quick-start guide
+
+                                            </a>
+                                        </li>
+
+                                        <li >
+                                            <a href="/standards.html" dir="auto">Standards
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
                             </li>
 
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Publisher</h2>
+                                    <ul class="mainMenu__childItem">
 
+                                        <li >
+                                            <a href="/become-a-publisher.html" dir="auto">Become a publisher
 
-
-
-                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'How-to'}"
-                                >
-                                <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a>
-                                <ul class="mainMenu__childGroup">
-
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Share data</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/publishing-data" dir="auto">Quick-start guide
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/dataset-classes" dir="auto">Dataset classes
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/article/4qfLORxmM8kYOIwSYSMc2M/data-hosting" dir="auto">Data hosting
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/standards" dir="auto">Standards
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/become-a-publisher" dir="auto">Become a publisher
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/data-quality-requirements" dir="auto">Data quality
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/data-papers" dir="auto">Data papers
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
+                                            </a>
                                         </li>
 
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Use data</h2>
-                                                <ul class="mainMenu__childItem">
+                                        <li >
+                                            <a href="/data-quality-requirements.html" dir="auto">Data quality
 
-                                                        <li >
-                                                            <a href="/resources/search?contentType=dataUse" dir="auto">Featured data use
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/citation-guidelines" dir="auto">Citation guidelines
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
+                                            </a>
                                         </li>
 
-                                </ul>
+                                    </ul>
+                                </nav>
                             </li>
 
+                        </ul>
+                    </li>
 
 
 
-                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'Tools'}"
-                                >
-                                <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('Tools')" dir="auto">Tools</a>
-                                <ul class="mainMenu__childGroup">
 
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Publishers</h2>
-                                                <ul class="mainMenu__childItem">
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Tools'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Tools')" dir="auto">Tools</a>
+                        <ul class="mainMenu__childGroup">
 
-                                                        <li >
-                                                            <a href="/ipt" dir="auto">IPT
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Publishers</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <!--TODO: TanBif Api-->
+                                        <li >
+                                            <a href="#" dir="auto">IPT
 
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tools/data-validator" dir="auto">Data validator
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/suggest-dataset" dir="auto">Suggest a dataset
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
+                                            </a>
                                         </li>
-
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Users</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/developer/summary" dir="auto">TANBIF API
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/data-processing" dir="auto">Data processing
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tool/81747" dir="auto">rgbif
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tool/81279" dir="auto">MAXENT
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/resource/search?contentType=tool" dir="auto">Tools catalogue
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">TANBIF labs</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/tools/species-lookup" dir="auto">Species matching
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tools/name-parser" dir="auto">Name parser
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tools/sequence-id" dir="auto">Sequence ID
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/tools/observation-trends" dir="auto">Relative observation trends
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="https://data-blog.gbif.org/" dir="auto">TANBIF data blog
-
-                                                                    <span class="gb-icon-link"></span>
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                </ul>
+                                    </ul>
+                                </nav>
                             </li>
 
+                        </ul>
+                    </li>
 
 
 
-                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'Community'}"
-                                >
-                                <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('Community')" dir="auto">Community</a>
-                                <ul class="mainMenu__childGroup">
 
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Network</h2>
-                                                <ul class="mainMenu__childItem">
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Community'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Community')" dir="auto">Community</a>
+                        <ul class="mainMenu__childGroup">
 
-                                                        <li >
-                                                            <a href="/the-gbif-network" dir="auto">Participants
+                            <li class="mainMenu__columns" >
+                                <nav><h2 dir="auto">Network</h2>
+                                    <ul class="mainMenu__childItem">
 
-                                                            </a>
-                                                        </li>
+                                        <li >
+                                            <a href="https://github.com/TANBIF" dir="auto">GitHub
 
-                                                        <li >
-                                                            <a href="/article/T5SQrMJAU1OdFtHTNOWgN/" dir="auto">Nodes
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/publisher/search" dir="auto">Publishers
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/contact-us/directory?group=nsg" dir="auto">Network contacts
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="https://discourse.gbif.org/" dir="auto">Community forum
-
-                                                                    <span class="gb-icon-link"></span>
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="https://www.allianceforbio.org" dir="auto">alliance for biodiversity knowledge
-
-                                                                    <span class="gb-icon-link"></span>
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
+                                            </a>
                                         </li>
 
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Volunteers</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/article/5SExsCfj7UaUkMCsuc6Oec" dir="auto">Mentors
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/article/6dNF1d0tgcI4cmqeoS2sQ4" dir="auto">Ambassadors
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/translators" dir="auto">Translators
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/citizen-science" dir="auto">Citizen scientists
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Activities</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/article/7sL3m3zzN5MUuaOuEhtLuZ/" dir="auto">Capacity enhancement
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/article/2IE7tH4dlcik1BnmniIPAc/" dir="auto">Training and e-Learning
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/resource/search?contentType=programme" dir="auto">Programmes &amp; projects
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="http://living-atlases.gbif.org/" dir="auto">Living Atlases
-
-                                                                    <span class="gb-icon-link"></span>
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                </ul>
+                                    </ul>
+                                </nav>
                             </li>
 
+                            <!--                                        <li class="mainMenu__columns" >-->
+                            <!--                                            <nav><h2 dir="auto">Volunteers</h2>-->
+                            <!--                                                <ul class="mainMenu__childItem">-->
 
 
 
-                            <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                                ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}"
-                                >
-                                <a class=" mainMenu__parentItem" href=""
-                                   ng-click="nav.toggleMenu('About')" dir="auto">About</a>
-                                <ul class="mainMenu__childGroup">
+                            <!--                                                </ul>-->
+                            <!--                                            </nav>-->
+                            <!--                                        </li>-->
 
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">Inside TANBIF</h2>
-                                                <ul class="mainMenu__childItem">
+                            <!--                                        <li class="mainMenu__columns" >-->
+                            <!--                                            <nav><h2 dir="auto">Activities</h2>-->
+                            <!--                                                <ul class="mainMenu__childItem">-->
 
-                                                        <li >
-                                                            <a href="/what-is-gbif" dir="auto">What is TANBIF?
+                            <!--                                                       -->
+                            <!--                                                </ul>-->
+                            <!--                                            </nav>-->
+                            <!--                                        </li>-->
 
-                                                            </a>
-                                                        </li>
+                        </ul>
+                    </li>
 
-                                                        <li >
-                                                            <a href="/become-member" dir="auto">Become a member
 
-                                                            </a>
-                                                        </li>
 
-                                                        <li >
-                                                            <a href="/governance" dir="auto">Governance
 
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/funders" dir="auto">Funders
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/partners" dir="auto">Partnerships
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/strategic-plan" dir="auto">Implementation plan
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/contact-us" dir="auto">Contacts
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                        <li class="mainMenu__columns" >
-                                            <nav><h2 dir="auto">News &amp; outreach</h2>
-                                                <ul class="mainMenu__childItem">
-
-                                                        <li >
-                                                            <a href="/resource/search?contentType=news" dir="auto">News
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/newsletters" dir="auto">Newsletters and lists
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/resource/search?contentType=event" dir="auto">Events
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/article/1G82GL7jw08kS0g6k6MuSa" dir="auto">Ebbe Nielsen Challenge
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/article/44SftFORi0A6mwGK4sgAKW/" dir="auto">Young Researchers Award
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="/science-review" dir="auto">Science Review
-
-                                                            </a>
-                                                        </li>
-
-                                                        <li >
-                                                            <a href="https://discourse.gbif.org/" dir="auto">Community forum
-
-                                                                    <span class="gb-icon-link"></span>
-
-                                                            </a>
-                                                        </li>
-
-                                                </ul>
-                                            </nav>
-                                        </li>
-
-                                </ul>
-                            </li>
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}"
+                    >
+                        <a class=" mainMenu__parentItem" href="about.html" dir="auto">About</a>
+                    </li>
 
 
                     <li class="mainMenu__firstLevel hide-on-laptop">
