@@ -129,22 +129,22 @@
 
 <script>
     function attachGoogleAnalytics() {
-        console.log('Terms accepted. Attach Google analytics');
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-        ga('send', 'pageview');
-        window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
+        // console.log('Terms accepted. Attach Google analytics');
+        // (function (i, s, o, g, r, a, m) {
+        //     i['GoogleAnalyticsObject'] = r;
+        //     i[r] = i[r] || function () {
+        //                 (i[r].q = i[r].q || []).push(arguments)
+        //             }, i[r].l = 1 * new Date();
+        //     a = s.createElement(o),
+        //             m = s.getElementsByTagName(o)[0];
+        //     a.async = 1;
+        //     a.src = g;
+        //     m.parentNode.insertBefore(a, m)
+        // })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+        //
+        // ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
+        // ga('send', 'pageview');
+        // window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
     }
 </script>
 
@@ -206,7 +206,7 @@
             <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
                 <span class="service-menu__button hoverBox">
                     <div class="inline-block">
-                        <span class="ng-cloak" data-i18n="nav.login"></span>
+                        <span class="ng-cloak" data-i18n="nav.login">Login</span>
                     </div>
                 </span>
             </a>
@@ -265,7 +265,7 @@
                                                         <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
                                                     </li>
                                                     <li >
-                                                        <a  class="mdl-navigation__link" href="#">IPT</a>
+                                                        <a  class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -341,7 +341,7 @@
                                                 <ul class="mainMenu__childItem">
                                                     <!--TODO: TanBif Api-->
                                                         <li >
-                                                            <a href="#" dir="auto">IPT
+                                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
 
                                                             </a>
                                                         </li>
@@ -457,11 +457,11 @@
                         </h1>
                         <div class="home__searchFilters">
                             <!--TODO: search link-->
-                            <a href="/occurrence/search" id="occurrenceSearch" class="inherit noUnderline" ng-href="occurrence-search.html?q=*">Occurrences</a>
-                            <a href="/species/search" id="speciesSearch" class="inherit noUnderline" ng-href="#">Species</a>
-                            <a href="/dataset/search" id="datasetSearch" class="inherit noUnderline" ng-href="#">Datasets</a>
-                            <a href="/publisher/search" id="publisherSearch" class="inherit noUnderline" ng-href="#">Publishers</a>
-                            <a href="/resource/search" id="resourceSearch" class="inherit noUnderline" ng-href="#">Resources</a>
+                            <a href="" id="occurrenceSearch" class="inherit noUnderline" ng-href="occurrence-search.html?q=*">Occurrences</a>
+                            <a href="" id="speciesSearch" class="inherit noUnderline" ng-href="#">Species</a>
+                            <a href="" id="datasetSearch" class="inherit noUnderline" ng-href="#">Datasets</a>
+                            <a href="" id="publisherSearch" class="inherit noUnderline" ng-href="#">Publishers</a>
+                            <a href="" id="resourceSearch" class="inherit noUnderline" ng-href="#">Resources</a>
                         </div>
                         <div class="home__header__search-bar search-box">
                             <form action="#"
@@ -473,7 +473,7 @@
                                        aria-invalid="false"
                                        focus-me="true">
                                 <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                   ng-href="#" type="submit">
+                                   ng-href="#" type="submit" id="all">
                                     <span class="sr-only">Search</span>
                                 </a>
                             </form>
@@ -822,7 +822,9 @@
 <script src="js/base/pages/dashboard.js"></script>
 <script>
     //TODO: JS for search
+    setQuery("*");
     $(document).ready(function () {
+
         var siteSearch = $("#siteSearchInputHome");
         siteSearch.keyup(function () {
             var query =  siteSearch.val().trim();
@@ -834,6 +836,11 @@
     });
     function setQuery(query) {
         $("#occurrenceSearch").attr("href","occurrence-search.html?q="+query);
+        $("#speciesSearch").attr("href","species-search.html?q="+query);
+        $("#datasetSearch").attr("href","datasets-search.html?q="+query);
+        $("#publisherSearch").attr("href","publishers-search.html?q="+query);
+        $("#resourceSearch").attr("href","resources-search.html?q="+query);
+        $("#all").attr("href","all.html?q="+query);
         console.log(query);
     }
 </script>

@@ -1,0 +1,27 @@
+<aside id="notifications" class="menubox menubox--notifications ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.isActive = false">
+    <div class="menubox__wrapper">
+        <div class="menubox__top {{ vm.notifications.severity.className }}">
+            <div class="menubox__header">
+                <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                <div class="menubox__header__title text-center">
+                    <span translate="healthSummary.systemHealth"></span>
+                </div>
+            </div>
+        </div>
+        <div class="menubox__content">
+            <div class="menubox__section menubox__section--issues">
+                <div class="menubox__section menubox__section--select">
+                    <ul>
+                        <li ng-repeat="notification in vm.notifications.results" class="status--{{ notification.severity | lowercase }}">
+                            <a ng-href="{{ vm.URL_PREFIX }}/health" class="inherit noUnderline">
+                                <h4 class="statusLabel">{{ notification.title }}</h4>
+                                <div class="small" ng-bind-html="notification.summary | md2html"></div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</aside>

@@ -113,28 +113,11 @@
     <!--[if lt IE 9]>
 
     <![endif]-->
-
     <script>
         function attachGoogleAnalytics() {
-            console.log('Terms accepted. Attach Google analytics');
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-            ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-            ga('send', 'pageview');
-            window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
         }
     </script>
-
     <noscript>
         <style>
             body {display: block !important}
@@ -144,9 +127,12 @@
         </style>
     </noscript>
 
-
-
-
+    <style>
+        .container-tb{
+            width: auto !important;
+            padding: 10px 100px;
+        }
+    </style>
 
 
 
@@ -184,7 +170,7 @@
             <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
                 <span class="service-menu__button hoverBox">
                     <div class="inline-block">
-                        <span class="ng-cloak" data-i18n="nav.login"></span>
+                        <span class="ng-cloak" data-i18n="nav.login">Login</span>
                     </div>
                 </span>
             </a>
@@ -243,7 +229,7 @@
                                             <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
                                         </li>
                                         <li >
-                                            <a  class="mdl-navigation__link" href="#">IPT</a>
+                                            <a  class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -319,7 +305,7 @@
                                     <ul class="mainMenu__childItem">
                                         <!--TODO: TanBif Api-->
                                         <li >
-                                            <a href="#" dir="auto">IPT
+                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
 
                                             </a>
                                         </li>
@@ -425,8 +411,9 @@
                                 <div class="container--narrow">
                                     <div class="row">
                                         <div class="col-xs-12">
+                                            <!--TODO: Search-->
                                             <form class="search-box ng-pristine ng-valid" ng-submit="rootSearch.updateSearch()">
-                                                <input type="text" id="siteSearch" autocomplete="off" ng-init="rootSearch.freeTextQuery == ''" ng-model="rootSearch.freeTextQuery" placeholder="Occurrences, species, news ..." ng-keydown="rootSearch.closeOnEsc($event)" class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false" style="">
+                                                <input type="text" id="siteSearch" autocomplete="off" ng-init="rootSearch.freeTextQuery == ''" ng-model="rootSearch.freeTextQuery" placeholder="Occurrences, species, news ..." class="ng-pristine ng-valid ng-empty ng-touched" aria-invalid="false" name="q" style="">
                                                 <a href="" type="submit" style="cursor:pointer" class="search-box__submit gb-icon-search2 inherit" ng-click="rootSearch.updateSearch()">
                                                     <span class="sr-only ng-scope" translate="search.search">Search</span>
                                                 </a>
@@ -436,29 +423,29 @@
                                         <div class="col-xs-12">
                                             <nav class="tabs">
                                                 <ul>
-                                                    <!--TODO: Add Translation & also TAB-->
-                                                    <li class="tab ">
-                                                        <a href="/search" ui-sref="omniSearch({q: undefined})" class="ng-scope">ALL</a>
+                                                    <!--TODO: Add Transilation-->
+                                                    <li class="tab">
+                                                        <a href="all.html?=*"  class="ng-scope">ALL</a>
                                                     </li>
 
                                                     <li class="tab isActive">
-                                                        <a href="/occurrence/search" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" translate="search.occurrences" class="ng-scope">Occurrences</a>
+                                                        <a href="occurrence-search.html?q=*"  translate="search.occurrences" class="ng-scope">Occurrences</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/species/search" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" translate="search.species" class="ng-scope">Species</a>
+                                                        <a href="species-search.html?q=*"  translate="search.species" class="ng-scope">Species</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/dataset/search" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" translate="search.datasets" class="ng-scope">Datasets</a>
+                                                        <a href="datasets-search.html?q=*"  translate="search.datasets" class="ng-scope">Datasets</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/publisher/search" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" translate="search.publishers" class="ng-scope">Publishers</a>
+                                                        <a href="publishers-search.html?p=*"  translate="search.publishers" class="ng-scope">Publishers</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/resource/search" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" translate="search.resources" class="ng-scope">Resources</a>
+                                                        <a href="resources-search.html?q=*"  translate="search.resources" class="ng-scope">Resources</a>
                                                     </li>
 
                                                 </ul>
@@ -469,7 +456,7 @@
                                 </div>
                             </div>
                             <div class="horizontal-stripe--paddingless">
-                                <div class="container--narrow">
+                                <div class="container container-tb">
                                     <div class="row">
                                         <!--TODO: add card search-->
                                         <div  class="ng-scope">
@@ -480,7 +467,7 @@
                                             <div>
                                                 <div class="scrollable-y">
                                                     <div class="table-container">
-                                                       <table id="dataTable" class=" table table-bordered table-striped center" width="100%">
+                                                       <table id="dataTable" class=" table table-bordered table-striped center">
                                                            <thead>
                                                                 <tr>
                                                                     <th >#</th>
@@ -522,9 +509,6 @@
                 <a href="https://www.dit.ac.tz"> <img  src="images/dit.png" style="height: 100px"></a>
                 <a href="http://www.costech.or.tz">  <img  src="images/costech.jpg" style="height: 100px"></a>
                 <a href="https://jrsbiodiversity.org/"> <img  src="images/jrs.png" style="height: 100px"></a>
-
-
-
             </center>
         </div>
         <div class="horizontal-stripe light-background site-footer__upper">
@@ -603,12 +587,22 @@
             var data = window.location.search.split('?')[1];
             var key = data.split("=")[0];
             var query = data.split("=")[1];
+            if(query == "*")
+                $('#siteSearch').val("");
+            else
+                $('#siteSearch').val(query);
             getData(query);
         }
         else {
             getData("*");
         }
-
+        $('#siteSearch').keyup(function () {
+           var q = $('#siteSearch').val();
+           if (q.trim() == "")
+               getData("*");
+           else
+               getData(q);
+        });
         function getData(query) {
             $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>Loading...</center></td></tr>');
             $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q='+query,function (data) {
@@ -617,7 +611,7 @@
 
                 $("#tbody").html("");
                 if (occurrences.length == 0)
-                    $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>No data available in table</center></td></tr>');
+                    $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>No data </center></td></tr>');
                 for (index in occurrences){
 
                     var occurrence = occurrences[index];

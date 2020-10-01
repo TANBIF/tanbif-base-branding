@@ -1,0 +1,186 @@
+<aside id="feedback" class="feedback menubox ng-cloak" ng-class="{'is-active': vm.isActive}"
+       click-outside="vm.clickedOutside()">
+    <div class="menubox__wrapper">
+        <div class="menubox__top">
+            <div class="menubox__header">
+                <div class="menubox__header__title-wrapper">
+                    <a href="" ng-click="vm.gotoRoot()" class="inherit noUnderline menubox__back gb-icon-angle-left"
+                       ng-if="vm.selected"></a>
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span ng-if="!vm.selected" translate="feedback.intro.title"></span>
+                        <span ng-if="vm.selected" translate="feedback.{{ vm.selected }}.title"></span>
+                    </div>
+                </div>
+                <div class="menubox__header__description text-center">
+                    <p ng-if="!vm.selected" translate="feedback.intro.example"></p>
+                    <p ng-if="vm.selected && vm.selected != vm.ISSUES"
+                       translate="feedback.{{ vm.selected }}.example"></p>
+                    <p ng-if="vm.selected == vm.ISSUES">
+                        
+                        
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()" translate="feedback.issues.create"></a>
+                    </p>
+
+                    <p ng-if="vm.selected == vm.CONFIRMATION">
+                        <a ng-href="{{ vm.referenceId }}" class="gb-button--brand text-uppercase inherit"
+                           ng-if="vm.referenceId" translate="feedback.confirmation.seeIssue"></a>
+                        <a href="" class="gb-button--brand text-uppercase" ng-click="vm.gotoRoot()" translate="feedback.issues.create"></a>
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="menubox__content">
+
+            
+            <div class="menubox__section menubox__section--issues" ng-if="vm.selected == vm.ISSUES">
+
+                <ul>
+                    <li ng-repeat="item in vm.comments.results">
+                        <article class="card menubox__card">
+                            <a class="card__stripe inherit noUnderline" ng-href="{{ item.url }}" target="_blank">
+                                <div class="card__content">
+                                    <h5>{{ item.title }}</h5>
+                                    <div class="feedback__comment">
+                                        {{ item.createdAt | momentFromNow}}
+                                    </div>
+                                </div>
+                            </a>
+                        </article>
+                    </li>
+                </ul>
+                <div class="menubox__section__content clearfix" ng-if="vm.comments.count > vm.comments.results.length">
+                    <a ng-href="{{ vm.comments.url }}" target="_blank" class="btn btn-default flat pull-right-rtl" translate="feedback.seeAllComments"></a>
+                </div>
+            </div>
+
+            
+            <div class="menubox__section menubox__section--select" ng-if="!vm.selected">
+                <ul>
+                    <li ng-repeat="type in vm.type">
+                        <a ng-if="type == vm.type.CONTENT && vm.comments.count > 0" href=""
+                           class="feedback__issuesToggle pull-right-rtl"
+                           ng-class="{isActive: vm.selected == vm.ISSUES}"
+                           ng-click="vm.selected = vm.ISSUES">
+                            <div class="comment-bubble">{{ vm.comments.count }}</div>
+                        </a>
+                        <a href="" class="inherit" ng-click="vm.toggle(type)">
+                            <h4 translate="feedback.{{ type }}.title"></h4>
+                            <p class="small" translate="feedback.{{ type }}.example"></p>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+
+            
+            <div class="menubox__section" ng-if="vm.type.CONTENT == vm.selected">
+                <div ng-if="vm.contentFeedback.type == 'CUSTOM'" class="menubox__section__content">
+                    <div ng-if="!vm.forceShowForm">
+                        <p translate="feedback.data content.annotate"></p>
+                        <p class="menubox__section__content__annotate">
+                            <a class="gb-button--brand inherit"
+                               target="_blank"
+                               ng-href="{{ vm.contentFeedback.annotation.url }}">{{ vm.contentFeedback.annotation.name }}</a>
+                        </p>
+                        <div class="text-center">
+                            <a href="" class="inherit gg-button--flat" ng-click="vm.forceShowForm = true">
+                                <span translate="feedback.tellGbif"></span> <span class="gb-icon-angle-down large"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-if="vm.forceShowForm" class="feedback__comment" ng-bind-html="'feedback.weRecommendX' | translate:{NAME: vm.contentFeedback.annotation.name, LINK: vm.contentFeedback.annotation.url} | md2html"></div>
+                </div>
+
+                <div ng-if="vm.contentFeedback.type == 'MAIL'" class="menubox__section__content">
+
+                    <div ng-if="!vm.forceShowForm">
+                        <p translate="feedback.data content.contactPerMail"></p>
+                        <div class="card m-b-1">
+                            <div class="card__content">
+                                <div>
+                                    <span><strong>{{ vm.contentFeedback.contacts.firstContact.firstName }} {{ vm.contentFeedback.contacts.firstContact.lastName }}</strong></span><br>
+                                    <span>{{ vm.contentFeedback.contacts.firstContact.organization }}</span><br>
+                                    <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?cc=helpdesk@gbif.org&subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
+                                        <span ng-click="vm.gaEvent('datasetContact', 'primarySuggestion')">{{ vm.contentFeedback.contacts.firstContact.email }}</span>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="text-center">
+                            <a href="" class="inherit gg-button--flat" ng-click="vm.forceShowForm = true; vm.gaEvent('datasetContact', 'discarded')">
+                                <span translate="feedback.tellGbif"></span> <span class="gb-icon-angle-down large"></span>
+                            </a>
+                        </div>
+                    </div>
+                    <div ng-if="vm.forceShowForm" class="feedback__comment">
+                        <span translate="feedback.recommendMail"></span>
+                        <a ng-href="mailto:{{ vm.contentFeedback.contacts.firstContact.email }}?cc=helpdesk@gbif.org&subject=GBIF.org feedback&body=Feedback from GBIF.org regarding: {{ vm.getUrl() }}&cc={{ vm.contentFeedback.ccContacts.firstContact.email }}">
+                            <span ng-click="vm.gaEvent('datasetContact', 'reminder')" >{{ vm.contentFeedback.contacts.firstContact.email }}</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            
+            <div class="menubox__section menubox__section--issue seperator"
+                 ng-if="vm.type.QUESTION == vm.selected || vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || ( (!vm.contentFeedback.type || vm.forceShowForm) && vm.type.CONTENT == vm.selected)">
+
+                 <div ng-if="!vm.hasUserToken()" class="menubox__section__content">
+                     <div ng-bind-html="'feedback.pleaseLogin' | translate | md2html"></div>
+                 </div>
+                <div ng-if="vm.hasUserToken()">
+                    <form name="vm.functionalityForm" novalidate>
+                        <div class="feedback-input">
+                            <label>
+                                <span translate="feedback.placeholders.summary"></span>
+                                <input type="text"
+                                       ng-model="vm.issue.title"
+                                       placeholder="{{ 'feedback.placeholders.summary' | translate }}"
+                                       focus-me="true" required>
+                            </label>
+                        </div>
+
+                        <div class="feedback__textarea">
+                            <label>
+                                <span translate="feedback.placeholders.description"></span>
+                                <textarea rows="3"
+                                          ng-model="vm.issue.description"
+                                          placeholder="{{ 'feedback.placeholders.description' | translate }}" ng->
+                                </textarea>
+                                <div class="feedback-input__info" ng-if="!(vm.issue.description.length > 200)">
+                                    <a href="https://guides.github.com/features/mastering-markdown/" target="_blank"
+                                       tabindex="-1"
+                                       class="inherit" translate="feedback.markdownSupport"></a>
+                                </div>
+                            </label>
+                        </div>
+                        
+                        
+
+                        <div class="menubox__section__content p-t-05">
+
+                            <div class="feedback__comment">
+                                <div ng-bind-html="'feedback.issueTracking' | translate | md2html"></div>
+                                <div ng-if="vm.type.QUESTION == vm.selected" ng-bind-html="'feedback.question.comment' | translate | md2html"></div>
+                            </div>
+                            <div class="clearfix rtl-bootstrap">
+                                <button ng-disabled="!vm.functionalityForm.$valid || vm.state == 'SENDING'" type="submit"
+                                        ng-click="vm.createIssue(vm.issue)"
+                                        class="btn btn-default flat pull-right" 
+                                        translate="feedback.submit">
+                                </button>
+                            </div>
+                            <div ng-if="vm.state == 'FAILED'" 
+                                class="feedback__failure"
+                                ng-bind-html="'feedback.failure' | translate | md2html">
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</aside>

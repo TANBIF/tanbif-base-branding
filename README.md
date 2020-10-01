@@ -82,14 +82,20 @@ brunch build --production
 ```
 
 Test with:
+Port 3333
 - http://localhost:3333/
 - http://localhost:3333/testPage.html
 - http://localhost:3333/errorPage.html
 
+Port 3000
+- http://localhost:3000/
+- http://localhost:3000/testPage.html
+- http://localhost:3000/errorPage.html
+
 ## Deployment and ALA configuration
 
 ```
-brunch build --production && rsync -a --delete --info=progress2 public/ tanbif-base:/srv/tanbif.ditnet.ac.tz/www/tz-ui-2020-freshwater/
+brunch build --production && rsync -a --delete --info=progress2 public/ tanbif-base:/srv/tanbif.ditnet.ac.tz/www/tz-ui-2020/
 
 ```
 

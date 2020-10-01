@@ -113,27 +113,6 @@
 
     <![endif]-->
 
-    <script>
-        function attachGoogleAnalytics() {
-            console.log('Terms accepted. Attach Google analytics');
-            (function (i, s, o, g, r, a, m) {
-                i['GoogleAnalyticsObject'] = r;
-                i[r] = i[r] || function () {
-                    (i[r].q = i[r].q || []).push(arguments)
-                }, i[r].l = 1 * new Date();
-                a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-                a.async = 1;
-                a.src = g;
-                m.parentNode.insertBefore(a, m)
-            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-            ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-            ga('send', 'pageview');
-            window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
-        }
-    </script>
-
     <noscript>
         <style>
             body {display: block !important}
@@ -183,7 +162,7 @@
             <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
                 <span class="service-menu__button hoverBox">
                     <div class="inline-block">
-                        <span class="ng-cloak" data-i18n="nav.login"></span>
+                        <span class="ng-cloak" data-i18n="nav.login">Login</span>
                     </div>
                 </span>
             </a>
@@ -242,7 +221,7 @@
                                             <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
                                         </li>
                                         <li >
-                                            <a  class="mdl-navigation__link" href="#">IPT</a>
+                                            <a  class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -318,7 +297,7 @@
                                     <ul class="mainMenu__childItem">
                                         <!--TODO: TanBif Api-->
                                         <li >
-                                            <a href="#" dir="auto">IPT
+                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
 
                                             </a>
                                         </li>
@@ -436,28 +415,28 @@
                                             <nav class="tabs">
                                                 <ul>
                                                     <!--TODO: Add Transilation-->
+                                                    <li class="tab ">
+                                                        <a href="all.html?=*"  class="ng-scope">ALL</a>
+                                                    </li>
+
+                                                    <li class="tab">
+                                                        <a href="occurrence-search.html?q=*"  translate="search.occurrences" class="ng-scope">Occurrences</a>
+                                                    </li>
+
                                                     <li class="tab isActive">
-                                                        <a href="/search" ui-sref="omniSearch({q: undefined})" class="ng-scope">ALL</a>
+                                                        <a href="species-search.html?q=*"  translate="search.species" class="ng-scope">Species</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/occurrence/search" ui-sref="occurrenceSearchTable({q:rootSearch.freeTextQuery})" translate="search.occurrences" class="ng-scope">Occurrences</a>
+                                                        <a href="datasets-search.html?q=*"  translate="search.datasets" class="ng-scope">Datasets</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/species/search" ui-sref="speciesSearchList({q:rootSearch.freeTextQuery})" translate="search.species" class="ng-scope">Species</a>
+                                                        <a href="publishers-search.html?p=*"  translate="search.publishers" class="ng-scope">Publishers</a>
                                                     </li>
 
                                                     <li class="tab">
-                                                        <a href="/dataset/search" ui-sref="datasetSearchTable({q:rootSearch.freeTextQuery})" translate="search.datasets" class="ng-scope">Datasets</a>
-                                                    </li>
-
-                                                    <li class="tab">
-                                                        <a href="/publisher/search" ui-sref="publisherSearchList({q:rootSearch.freeTextQuery})" translate="search.publishers" class="ng-scope">Publishers</a>
-                                                    </li>
-
-                                                    <li class="tab">
-                                                        <a href="/resource/search" ui-sref="resourceSearchList({q:rootSearch.freeTextQuery})" translate="search.resources" class="ng-scope">Resources</a>
+                                                        <a href="resources-search.html?q=*"  translate="search.resources" class="ng-scope">Resources</a>
                                                     </li>
 
                                                 </ul>
@@ -470,13 +449,52 @@
                             <div class="horizontal-stripe--paddingless">
                                 <div class="container--narrow">
                                     <div class="row">
-                                        <!-- ngIf: rootSearch.freeTextQuery -->
-                                        <!-- ngIf: !rootSearch.freeTextQuery --><div ng-if="!rootSearch.freeTextQuery" class="ng-scope">
-                                        <div class="emptyInfo">
-                                            <h3 translate="search.noSearchTermsEntered" class="ng-scope">No search terms entered</h3>
-                                            <p><a href="/occurrence/gallery" ui-sref="occurrenceSearchGallery()" translate="search.notSureWhatYouAreLookingFor" class="ng-scope">Not sure what you are looking for? How about looking at some pictures of species occurrences</a></p>
+                                        <div style="padding: 20px 0px;">
+                                            <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap ng-scope">
+                                                <div class="card__stripe">
+                                                    <div class="card__content">
+                                                        <!-- ngIf: result.rank --><a href="/species/search?rank=KINGDOM" ui-sref="speciesSearchList({rank:result.rank})" class="inherit searchCard__type hoverBox ng-scope" ng-if="result.rank" translate="taxonRank.KINGDOM">Kingdom</a><!-- end ngIf: result.rank -->
+                                                        <h3 class="searchCard__headline" dir="auto">
+                                                            <a ui-sref="speciesKey({speciesKey:result.key})" ng-href="/species/1" scientific-name="" key="1" name="Animalia" class="ng-isolate-scope" href="/species/1"><span ng-bind-html="vm.parsedName" class="ng-binding">Animalia</span></a>
+                                                        </h3>
+                                                    </div>
+                                                </div>
+                                                <div class="card__stripe">
+                                                    <div class="card__content searchCard__content clearfix">
+                                                        <div class="searchCard__img loaded" async-if="//api.gbif.org/v1/occurrence/search?taxon_key=1&amp;has_coordinate=true&amp;has_geospatial_issue=false">
+                                                            <div class="teaser-map--small">
+                                                                <img src="/img/tile000/basemap-grey-light2.png">
+                                                                <img ng-src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1&amp;type=TAXON&amp;resolution=4" src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1&amp;type=TAXON&amp;resolution=4">
+                                                            </div>
+                                                        </div>
+                                                        <!-- ngIf: result.key === result.nubKey && (result.rank == 'SPECIES' || result.rank == 'GENUS') -->
+                                                        <!-- ngIf: result.key !== result.nubKey && (result.rank == 'SPECIES' || result.rank == 'GENUS') -->
+
+                                                        <!-- ngIf: result.publishedIn -->
+
+                                                        <!-- ngIf: result.datasetKey && result.datasetKey != portal.constantKeys.dataset.backbone -->
+                                                        <!-- ngIf: result.acceptedKey -->
+                                                        <!-- ngIf: result.rank != 'KINGDOM' -->
+                                                        <!-- ngIf: result.highlights && result.highlights.vernacularNames && result.highlights.vernacularNames.length > 0 -->
+                                                        <!-- ngIf: result.highlights && result.highlights.descriptions && result.highlights.descriptions.length > 0 -->
+                                                        <ul class="list-chips">
+                                                            <!-- ngIf: result.taxonomicStatus --><li ng-if="result.taxonomicStatus" class="ng-scope">
+                                                            <a href="/species/search?status=ACCEPTED" ui-sref="speciesSearchList({status:result.taxonomicStatus})" translate="taxonomicStatus.ACCEPTED" class="ng-scope ng-binding">Accepted</a>
+                                                        </li><!-- end ngIf: result.taxonomicStatus -->
+                                                            <!-- ngIf: result.rank --><li ng-if="result.rank" class="ng-scope">
+                                                            <a href="/species/search?rank=KINGDOM" ui-sref="speciesSearchList({rank:result.rank})" translate="taxonRank.KINGDOM" class="ng-scope ng-binding">Kingdom</a>
+                                                        </li><!-- end ngIf: result.rank -->
+                                                            <!-- ngIf: !result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone --><li ng-if="!result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone" class="ng-scope">
+                                                            <a ui-sref="occurrenceSearchTable({taxon_key:result.key})" href="/occurrence/search?taxon_key=1">
+                                                                <span count="//api.gbif.org/v1/occurrence/search?taxon_key=1" count-translation="counts.nOccurrences" class="loaded">1,242,543,007 occurrences</span>
+                                                            </a>
+                                                        </li><!-- end ngIf: !result.datasetKey || result.datasetKey == portal.constantKeys.dataset.backbone -->
+                                                        </ul>
+                                                        <!-- ngIf: result.taxonomicStatus === 'DOUBTFUL' -->
+                                                    </div>
+                                                </div>
+                                            </article>
                                         </div>
-                                    </div><!-- end ngIf: !rootSearch.freeTextQuery -->
                                     </div>
                                 </div>
                             </div>

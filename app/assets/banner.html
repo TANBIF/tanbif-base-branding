@@ -86,7 +86,7 @@
 <link rel="icon" type="image/png" href="::headerFooterServer::/resources/favicon-96x96.png" sizes="96x96">
 <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
 <link rel="icon" type="image/png" href="::headerFooterServer::/resources/favicon-16x16.png" sizes="16x16">
-<link rel="manifest" href="manifest.json">
+<link rel="manifest" href="::headerFooterServer::/mananifest.json">
 <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4c9e45">
 <link rel="shortcut icon" href="::headerFooterServer::/resources/favicon.ico">
 <meta name="msapplication-TileColor" content="#00a300">
@@ -119,27 +119,26 @@
 <script src="::headerFooterServer::/js/app.js?DIGEST"></script>
 <script>require('js/init');</script>
 <!-- End trans -->
+    <script>
+        function attachGoogleAnalytics() {
+            console.log('Terms accepted. Attach Google analytics');
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r;
+                i[r] = i[r] || function () {
+                            (i[r].q = i[r].q || []).push(arguments)
+                        }, i[r].l = 1 * new Date();
+                a = s.createElement(o),
+                        m = s.getElementsByTagName(o)[0];
+                a.async = 1;
+                a.src = g;
+                m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
-<script>
-    function attachGoogleAnalytics() {
-        console.log('Terms accepted. Attach Google analytics');
-        (function (i, s, o, g, r, a, m) {
-            i['GoogleAnalyticsObject'] = r;
-            i[r] = i[r] || function () {
-                        (i[r].q = i[r].q || []).push(arguments)
-                    }, i[r].l = 1 * new Date();
-            a = s.createElement(o),
-                    m = s.getElementsByTagName(o)[0];
-            a.async = 1;
-            a.src = g;
-            m.parentNode.insertBefore(a, m)
-        })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-
-        ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-        ga('send', 'pageview');
-        window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
-    }
-</script>
+            ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
+            ga('send', 'pageview');
+            window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
+        }
+    </script>
 
 <noscript>
     <style>
@@ -198,7 +197,7 @@
             <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
                 <span class="service-menu__button hoverBox">
                     <div class="inline-block">
-                        <span class="ng-cloak" data-i18n="nav.login"></span>
+                        <span class="ng-cloak" data-i18n="nav.login">Login</span>
                     </div>
                 </span>
             </a>
@@ -257,7 +256,7 @@
                                             <a data-i18n="nav.images" class="mdl-navigation__link" href="https://images.tanbif.ditnet.ac.tz">Images</a>
                                         </li>
                                         <li >
-                                            <a  class="mdl-navigation__link" href="#">IPT</a>
+                                            <a  class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -281,13 +280,13 @@
                                     <ul class="mainMenu__childItem">
 
                                         <li >
-                                            <a href="/quick-start.html" dir="auto">Quick-start guide
+                                            <a href="::headerFooterServer::/quick-start.html" dir="auto">Quick-start guide
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a href="/standards.html" dir="auto">Standards
+                                            <a href="::headerFooterServer::/standards.html" dir="auto">Standards
 
                                             </a>
                                         </li>
@@ -300,13 +299,13 @@
                                     <ul class="mainMenu__childItem">
 
                                         <li >
-                                            <a href="/become-a-publisher.html" dir="auto">Become a publisher
+                                            <a href="::headerFooterServer::/become-a-publisher.html" dir="auto">Become a publisher
 
                                             </a>
                                         </li>
 
                                         <li >
-                                            <a href="/data-quality-requirements.html" dir="auto">Data quality
+                                            <a href="::headerFooterServer::/data-quality-requirements.html" dir="auto">Data quality
 
                                             </a>
                                         </li>
@@ -333,7 +332,7 @@
                                     <ul class="mainMenu__childItem">
                                         <!--TODO: TanBif Api-->
                                         <li >
-                                            <a href="#" dir="auto">IPT
+                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
 
                                             </a>
                                         </li>
@@ -396,7 +395,7 @@
                     <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
                         ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}"
                     >
-                        <a class=" mainMenu__parentItem" href="about.html" dir="auto">About</a>
+                        <a class=" mainMenu__parentItem" href="::headerFooterServer::/about.html" dir="auto">About</a>
                     </li>
 
 
