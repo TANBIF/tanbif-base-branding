@@ -156,7 +156,21 @@
         .no-js-enabled span{position:relative;top: 50%;-ms-transform: translateY(-50%);transform: translateY(-50%);}
     </style>
 </noscript>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+          crossorigin=""/>
+    <style>
+        #map{
+            /*position: absolute;*/
+            /*top: 0;*/
+            /*bottom: 0;*/
+            /*left: 0;*/
+            /*right: 0;*/
+                width: 100%;
+            height: 500px;
+        }
 
+    </style>
 
 
 
@@ -725,17 +739,19 @@
 
             </div>
         </div>
+<!--        <div class="horizontal-stripe&#45;&#45;paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">-->
 
+<!--                <map-widget filter="home.mapFilter"  class="fitSize ng-isolate-scope">-->
 
-
+<!--                </map-widget>-->
+<!--        </div>-->
     </div>
 
                 </div>
             </div>
         </div>
     </main>
-
-
+    <div id="map" ></div>
     <footer class="site-footer wrapper-horizontal-stripes">
       <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
         <center>
@@ -811,6 +827,9 @@
     window.gb.buildVersion = '1585166682129';
 
 </script>
+<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+        crossorigin=""></script>
 
 <script src="js/app.js"></script>
 
@@ -820,34 +839,6 @@
 
 <script src="js/base/pages/home.js?v=1585166682129"></script>
 <script src="js/base/pages/dashboard.js"></script>
-<script>
-    //TODO: JS for search
-    setQuery("*");
-    $(document).ready(function () {
 
-        var siteSearch = $("#siteSearchInputHome");
-        siteSearch.keyup(function () {
-            var query =  siteSearch.val().trim();
-            if (query == "")
-                query = "*";
-            setQuery(query);
-
-        });
-    });
-    function setQuery(query) {
-        $("#occurrenceSearch").attr("href","occurrence-search.html?q="+query);
-        $("#speciesSearch").attr("href","species-search.html?q="+query);
-        $("#datasetSearch").attr("href","datasets-search.html?q="+query);
-        $("#publisherSearch").attr("href","publishers-search.html?q="+query);
-        $("#resourceSearch").attr("href","resources-search.html?q="+query);
-        $("#all").attr("href","all.html?q="+query);
-        console.log(query);
-    }
-</script>
 </body>
 </html>
-<!--
-https://collections.tanbif.ditnet.ac.tz/ws/institution/count
-https://collections.tanbif.ditnet.ac.tz/ws/collection/count
-https://records-ws.tanbif.ditnet.ac.tz/occurrences/
-https://collections.ala.org.au/ws/dataResource/count -->
