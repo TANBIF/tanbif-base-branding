@@ -1842,7 +1842,7 @@
                     <div class="m-05 m-t-0">
                         <form class="search-box ng-pristine ng-valid" ng-submit="vm.searchRedirect()">
                             <input type="text" id="menuSearchBox" focus-me="vm.focus" autocomplete="off"
-                                   ng-model="vm.freeTextQuery" placeholder="Species, species, news ..."
+                                   ng-model="vm.freeTextQuery" placeholder="Occurrences, species, news ..."
                                    ng-keydown="vm.closeOnEsc($event)"
                                    class="ng-pristine ng-untouched ng-valid ng-empty">
                             <a href="" type="submit" class="inherit search-box__submit gb-icon-search2"
@@ -2062,7 +2062,7 @@
                             <div class="site-drawer__bar__title">
                                 <a href="" class="inherit ng-scope" ng-click="vm.expandContentTypeMenu = true"
                                    ng-if="!vm.expandContentTypeMenu">
-                                    <span  class="ng-scope"> Species</span>
+                                    <span translate="search.occurrences" class="ng-scope">Occurrences</span>
                                 </a>
                                 <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
                                     <div class="stripe-menu__drop-down ng-hide" ng-show="vm.expandContentTypeMenu"
@@ -2076,8 +2076,8 @@
                                             </li>
                                             <li ng-if="vm.contentType != 'species'" class="ng-scope">
                                                 <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}"
-                                                   class="ng-scope" href="/species/search">Occurrences</a>
+                                                   ui-sref-opts="{inherit: false}" translate="search.species"
+                                                   class="ng-scope" href="/species/search">Species</a>
                                             </li>
                                             <li ng-if="vm.contentType != 'datasets'" class="ng-scope">
                                                 <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
@@ -2109,7 +2109,7 @@
                     <div class="site-drawer__section ng-scope">
                         <div class="search-bar filter-group">
                             <form class="search-bar__term ng-pristine ng-valid">
-                                <input type="text" id="speciesSearch" autocomplete="off"
+                                <input type="text" id="occurrenceSearch" autocomplete="off"
                                        placeholder="Search all fields"
                                        class="ng-pristine ng-untouched ng-valid ng-empty">
                                 <a href="" type="submit" class="gb-icon-search search-bar__search"
@@ -2122,7 +2122,7 @@
                         <div class="filter-group text-center">
                             <div class="gb-btn-group">
                                 <label class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty active">Simple</label>
-                                <!--                                <label class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty">Advanced</label> todo: add advance search -->
+<!--                                <label class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty">Advanced</label>-->
                             </div>
                         </div>
 
@@ -2131,7 +2131,7 @@
                              filter-state="occurrence.occurrenceState">
                             <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
                                 <h4>
-                                    <span class="ng-scope">Species status</span>
+                                    <span class="ng-scope">Occurrence status</span>
                                     <span class="gb-icon-angle-down pull-right ng-scope"></span>
                                 </h4>
                             </a>
@@ -2152,6 +2152,122 @@
                             </div>
                         </div>
 
+                        <!--                        test-->
+                        <div class="filter-group filter-group--search rtl-bootstrap ng-isolate-scope">
+                            <a id="licenseBtn" href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
+                                <h4>
+                                    <span translate="filterNames.license" class="ng-scope">License</span>
+
+                                    <span class="gb-icon-angle-up pull-right ng-scope" ng-if="vm.filterConfig.expanded"
+                                          style=""></span>
+                                </h4>
+                            </a>
+
+                            <div class="filter-group__filter" style="display: none;" id="licenseMenu">
+
+                                <div class="is-padded overflow-hidden ng-scope" style="">
+
+                                    <div class="checkbox ng-scope"  style="">
+                                        <label>
+                                            <input type="checkbox" checklist-value="key"
+
+                                                   class="ng-scope ng-valid ng-dirty ng-valid-parse ng-not-empty ng-touched"
+                                                    style="">
+                                            <span class="filter-group__filter__name">
+                        <div class="filter-group__filter__name__bar ng-scope"
+                             style="width: 100%;"></div>
+                        <span dir="auto" translate="license.CC0_1_0" class="ng-scope ng-binding">CC0 1.0</span>
+                                        <span class="filter-group__filter__name__count ng-binding ng-scope"
+                                               style="">
+                            0
+                        </span>
+                    </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox ng-scope" >
+                                        <label>
+                                            <input type="checkbox" checklist-value="key"
+
+                                                   class="ng-scope ng-pristine ng-untouched ng-valid ng-empty"
+                                                   >
+                                            <span class="filter-group__filter__name">
+                        <div class="filter-group__filter__name__bar ng-scope"
+                             style="width: 84.3126%;"></div>
+                        <span dir="auto" translate="license.CC_BY_4_0" class="ng-scope ng-binding">CC BY 4.0</span>
+                                        <span class="filter-group__filter__name__count ng-binding ng-scope"
+                                               style="">
+                            0
+                        </span>
+                    </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox ng-scope" >
+                                        <label>
+                                            <input type="checkbox" checklist-value="key"
+
+                                                   class="ng-scope ng-pristine ng-untouched ng-valid ng-empty"
+                                                   >
+                                            <span class="filter-group__filter__name">
+                                        <div class="filter-group__filter__name__bar ng-scope"
+                                             ng-style="vm.getWidth(key)"
+                                             ng-if="vm.filterConfig.facets.hasFacets &amp;&amp; !vm.filterConfig.facets.hideBar"
+                                             style="width: 40.876%;"></div>
+                        <span dir="auto" translate="license.CC_BY_NC_4_0"
+                              class="ng-scope ng-binding">CC BY-NC 4.0</span>
+                                        <span class="filter-group__filter__name__count ng-binding ng-scope"
+                                               style="">
+                            0
+                        </span>
+                    </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox ng-scope" >
+                                        <label>
+                                            <input type="checkbox" checklist-value="key"
+
+                                                   class="ng-scope ng-pristine ng-untouched ng-valid ng-empty"
+                                                   >
+                                            <span class="filter-group__filter__name">
+                        <div class="filter-group__filter__name__bar ng-scope"
+                             style="width: 0%;"></div>
+                        <span dir="auto" translate="license.UNSPECIFIED" class="ng-scope ng-binding">Unspecified</span>
+                                        <span class="filter-group__filter__name__count ng-binding ng-scope"
+                                               style="">
+                            0
+                        </span>
+                    </span>
+                                        </label>
+                                    </div>
+                                    <div class="checkbox ng-scope" >
+                                        <label>
+                                            <input type="checkbox" checklist-value="key"
+
+                                                   class="ng-scope ng-pristine ng-untouched ng-valid ng-empty"
+                                                   >
+                                            <span class="filter-group__filter__name">
+                        <div class="filter-group__filter__name__bar ng-scope"
+                             style="width: 0%;"></div>
+                        <span dir="auto" translate="license.UNSUPPORTED" class="ng-scope ng-binding">Unsupported</span>
+                                                <span
+                                                    class="filter-group__filter__name__count ng-binding ng-scope"
+                                                     style="">
+                            0
+                        </span>
+                    </span>
+                                        </label>
+                                    </div>
+
+                                </div>
+                                <div class="site-drawer__bar ng-scope"
+                                     ng-if="vm.filterConfig.expanded &amp;&amp; vm.query.length > 0 &amp;&amp; !vm.filterConfig.singleSelect"
+                                     style="">
+                                    <a href="" class="site-drawer__bar__action" ng-click="vm.uncheckAll()">
+                                        <span translate="filters.clear" class="ng-scope">Clear</span>
+                                    </a>
+                                </div>
+
+                            </div>
+                        </div>
 
                     </div>
 
@@ -2171,14 +2287,12 @@
                                             <div class="col-xs-12">
                                                 <nav class="article-header__category article-header__category--deep">
                                                     <span class="article-header__category__upper ng-scope"
-                                                    >Search Species</span>
+                                                          translate="search.header.searchOccurrences">Search occurrences</span>
                                                     <span
-                                                            class="article-header__category__lower ng-scope"
-                                                            ng-if="occTable.hasData()">
-                            <span
-                                    class="ng-isolate-scope">
-<!--                                TODO: add total result-->
-                            </span>
+                                                        class="article-header__category__lower ng-scope"
+                                                        ng-if="occTable.hasData()">
+                            <span tx="search.nResults" tx-nr="occTable.occurrenceState.table.count"
+                                  class="ng-isolate-scope">1,578,397,860 results</span>
                         </span>
 
                                                 </nav>
@@ -2193,7 +2307,16 @@
                                             <nav class="tabs">
                                                 <ul>
                                                     <li class="tab isActive">
-                                                        <span class="ng-scope">Simple</span>
+                                                        <span translate="occurrenceSearch.table"
+                                                              class="ng-scope">Table</span>
+                                                    </li>
+
+                                                    <li class="tab">
+                                                        <a href=""
+                                                           onclick="occurrenceSearchDownload()">
+                                                            <span class="gb-icon-file-download"></span>
+                                                            <span class="ng-scope">Download</span>
+                                                        </a>
                                                     </li>
                                                 </ul>
                                             </nav>
@@ -2201,22 +2324,77 @@
                                     </div>
                                 </section>
 
-                                <div class="horizontal-stripe light-background">
+                                <section class="horizontal-stripe--paddingless lighter-background">
 
-                                    <div  class="ng-scope" style="">
-                                        <div  class="ng-scope"><div class="container--narrow ng-scope">
-                                            <div class="row">
-                                                <div class="col-xs-12" id="speciesBody">
+                                    <div class="occurrence-search__table__area rtl-bootstrap">
+                                        <div class="scrollable-y">
+                                            <div class="table-container">
+                                                <table class="table search-table smaller">
+                                                    <thead>
+                                                    <tr>
+                                                        <th class="gb-icon-more2" role="button" tabindex="0"></th>
+                                                        <th translate="ocurrenceFieldNames.scientificName"
+                                                            class="ng-scope">Scientific name
+                                                        </th>
 
+                                                        <th class="ng-scope">Country or area</th>
+                                                        <th class="ng-scope">Coordinates</th>
+                                                        <th class="ng-scope">License</th>
+                                                        <th class="ng-scope">Data provider</th>
+                                                        <th class="ng-scope">Collectors</th>
+                                                        <th class="ng-scope">Basis of record</th>
+                                                        <th class="ng-scope">Kingdom</th>
+                                                        <th class="ng-scope">Phylum</th>
+                                                        <th class="ng-scope">Class</th>
+                                                        <th class="ng-scope">Order</th>
+                                                        <th class="ng-scope">Family</th>
+                                                        <th class="ng-scope">Genus</th>
+                                                        <th class="ng-scope">Species</th>
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody id="occurrenceTbody">
+                                                    </tbody>
 
-                                                </div>
+                                                </table>
                                             </div>
                                         </div>
 
+                                        <div class="container-fluid ng-scope">
+                                            <div class="row">
+                                                <div class="col-xs-12">
+                                                    <ul class="pagination-sm pagination ng-pristine ng-untouched ng-valid ng-isolate-scope ng-not-empty">
 
+                                                        <li class="pagination-prev ng-scope disabled">
+                                                            <a href="" class="ng-binding">Previous</a>
+                                                        </li>
+                                                        <li class="pagination-page ng-scope active">
+                                                            <a href="" class="ng-binding">1</a></li>
+                                                        <li class="pagination-page ng-scope">
+                                                            <a href="" class="ng-binding">2</a>
+                                                        </li>
+                                                        <li class="pagination-page ng-scope">
+                                                            <a href="" class="ng-binding">3</a>
+                                                        </li>
+                                                        <li class="pagination-page ng-scope">
+                                                            <a href="" class="ng-binding">4</a>
+                                                        </li>
+                                                        <li class="pagination-page ng-scope">
+                                                            <a href="" class="ng-binding">5</a>
+                                                        </li>
+                                                        <li class="pagination-page ng-scope">
+                                                            <a href="" class="ng-binding">...</a>
+                                                        </li>
+
+                                                        <li class="pagination-next ng-scope"><a href=""
+                                                                                                class="ng-binding">Next</a>
+                                                        </li>
+
+                                                    </ul>
+                                                </div>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
+                                </section>
                             </div>
 
 
@@ -2407,10 +2585,10 @@ Fend
 
 <script>
     $(document).ready(function () {
-        var page_size = 10000;
+        var page_size = 20;
         var delay_time = 1000;
-        var species_body = $('#speciesBody');
-        species_body.html(`<center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center>`);
+        var occurrence_tbody = $('#occurrenceTbody');
+        occurrence_tbody.html(`<tr ><td colspan="15"><center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center></td> </tr>`);
 
         var data = window.location.search.split('?');
         if (data.length > 1) {
@@ -2420,8 +2598,8 @@ Fend
             if (query.trim() == "*" || query.trim() == "") {
                 query = "*:*"
             }
+            occurrence_tbody.val(query);
             setTimeout(function () {
-                $("#speciesSearch").val(query);
                 getData(query.trim(), page_size)
             }, delay_time);
 
@@ -2432,9 +2610,8 @@ Fend
 
         }
 
-        $("#speciesSearch").keyup(function () {
-            var query = $("#speciesSearch").val();
-            $("#speciesSearch").val("12");
+        $("#occurrenceSearch").keyup(function () {
+            var query = $("#occurrenceSearch").val();
             if (query.trim() === "*") {
                 query = "*:*";
                 console.log(query)
@@ -2448,69 +2625,82 @@ Fend
         })
 
         function getData(query, page_size) {
-            species_body.html(`<center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center>`);
+            occurrence_tbody.html(`<tr ><td colspan="15"><center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center></td> </tr>`);
             $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query + '&&pageSize=' + page_size, function (data, code, t) {
                 var html = '';
-                var result= [];
-                var i = 1;
                 data.occurrences.forEach(function (row, index) {
-                    if ("scientificName" in row) {
-                        if($.inArray(row.scientificName,result) ===-1 && i<=20){
-                            html += getUI(row, index);
-                            result.push(row.scientificName);
-                            ++i
-                        }
-                    }
+                    html += tableRowUi(row, index)
                 })
-                console.log(result)
-                species_body.html(html)
+                occurrence_tbody.html(html)
             })
         }
 
-        function getUI(row) {
+        function tableRowUi(row, index) {
+            var scientificName = '';
+            if ("scientificName" in row) {
+                scientificName = row.scientificName;
+            } else {
+                scientificName = row.raw_scientificName;
+            }
+            var institute = '';
+            if ("institutionName" in row)
+                institute = row.institutionName + "( " + row.raw_institutionCode + " )";
+            else
+                institute = row.raw_institutionCode;
 
-            return '<div  class="ng-scope">\n' +
-                '     <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap ng-scope">\n' +
-                '     <div class="card__stripe">\n' +
-                '         <div class="card__content">\n' +
-                '             <a href="#" class="inherit searchCard__type hoverBox ng-scope" >Species</a>\n' +
-                '             <h3 class="searchCard__headline" dir="auto">\n' +
-                '                 <a  class="ng-isolate-scope" href=""><span class="ng-binding"><i>'+row.scientificName+' </i></span></a>\n' +
-                '             </h3>\n' +
-                '         </div>\n' +
-                '     </div>\n' +
-                '     <div class="card__stripe">\n' +
-                '         <div class="card__content searchCard__content clearfix">\n' +
-                '             <div class="searchCard__img asyncIf--isHidden loaded" async-if="//api.gbif.org/v1/occurrence/search?taxon_key=1000005&amp;has_coordinate=true&amp;has_geospatial_issue=false">\n' +
-                '                 <div class="teaser-map--small">\n' +
-                '                     <img src="/img/tile000/basemap-grey-light2.png">\n' +
-                '                     <img ng-src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1000005&amp;type=TAXON&amp;resolution=4" src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1000005&amp;type=TAXON&amp;resolution=4">\n' +
-                '                 </div>\n' +
-                '             </div>\n' +
-                '             <div class="searchCard__meta ng-scope" >\n' +
-                '             <span  class="ng-scope">Published by</span>: <span dir="auto" class="ng-binding"> Tanzania  Biodiversity Information Facility</span>\n' +
-                '         </div>\n' +
-                '             <p class="discreet classification-list ng-binding ng-scope">\n' +
-                '                 Classification : <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.kingdom+'</span></span>' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.phylum+'</span></span> ' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.classs+'</span></span> ' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.order+'</span></span> ' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.family+'</span></span> ' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.genus+'</span></span> ' +
-                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.species+'</span></span> ' +
-                '             </p>\n' +
-                '             <ul class="list-chips">\n' +
-                '                 <li  class="ng-scope">\n' +
-                '                 <a    class="ng-scope ng-binding">Accepted</a>\n' +
-                '             </li>\n' +
-                '                 <li  class="ng-scope">\n' +
-                '                 <a    class="ng-scope ng-binding">Species</a>\n' +
-                '             </li>\n' +
-                '             </ul>\n' +
-                '         </div>\n' +
-                '     </div>\n' +
-                ' </article></ng-include>\n' +
-                ' </div>'
+            var country = 'Tanzania, United Republic of';
+            if ("country" in row)
+                country = row.country;
+
+            var collector = "-";
+            if ("collector" in row)
+                collector = row.collector;
+
+            var kingdom = "-";
+            if ("kingdom" in row)
+                kingdom = row.kingdom;
+
+            var phylum = "-";
+            if ("phylum" in row)
+                phylum = row.phylum;
+
+            var classs = "-";
+            if ("classs" in row)
+                classs = row.classs;
+
+            var order = "-";
+            if ("order" in row)
+                order = row.order;
+
+            var family = "-";
+            if ("family" in row)
+                family = row.family;
+
+            var genus = "-";
+            if ("genus" in row)
+                genus = row.genus;
+
+            var species = "-";
+            if ("species" in row)
+                species = row.species;
+
+            return '<tr  class="lastCellFlexible rtl-supported ng-scope">\n' +
+                '   <td class="table-cell table-cell--action"></td>\n' +
+                '   <td dir="auto" class="table-cell--wide"><a class="ng-binding ng-scope" href=""><i>' + scientificName + '</i></a></td>\n' +
+                '   <td dir="auto" class="table-cell--wide ng-scope"><a  class="underline ng-binding" href=""> ' + country + ' </a></td>' +
+                '   <td dir="auto" class="table-cell--normal ng-scope"><a  class="ng-binding" href="">' + row.latLong + '</a></td>\n' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + row.license + '</a></td>' +
+                '   <td dir="auto" class="table-cell--wide ng-scope"><a  class="underline ng-binding" href="">' + institute + '</a></td>' +
+                '   <td dir="auto" class="table-cell--wide ng-scope"><a  class="underline ng-binding" href="">' + collector + '</a></td>' +
+                '   <td dir="auto" class="table-cell--normal ng-scope"><a   class="ng-binding ng-scope" href="">' + row.raw_basisOfRecord + '</a></td>\n' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + kingdom + '</a></td>' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + phylum + '</a></td>' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + classs + '</a></td>' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + order + '</a></td>' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + family + '</a></td>' +
+                '   <td dir="auto" class="table-cell--narrow ng-scope" ><a  class="ng-binding" href="">' + genus + '</a></td>\n' +
+                '   <td dir="auto" class="table-cell--wide ng-scope"><a  class="ng-binding" href="">' + species + '</a></td>\n' +
+                '   </tr>';
         }
     })
 
@@ -2518,7 +2708,7 @@ Fend
 
     //menu
     $('#licenseBtn').click(function () {
-        $('#licenseMenu').slideToggle("slow")
+       $('#licenseMenu').slideToggle("slow")
     });
 </script>
 
