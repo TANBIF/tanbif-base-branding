@@ -1,15 +1,8 @@
-<!DOCTYPE html>
-
-<!--[if !IE]> -->
-<html lang="en" class="not_ie" ng-app="portal">
-<!-- <![endif]-->
-<!--[if IE]>
+<html lang="en" class="not_ie ng-scope" ng-app="portal">
 <html lang="en" class="ie" ng-app="portal">
-<![endif]-->
+<head ng-controller="headCtrl as head" class="ng-scope">
 
-<head ng-controller="headCtrl as head">
-
-    <title>TANBIF | Tanzania Biodiversity Information Facility</title>
+    <title ng-bind="head.getTitle('Search')">TANBIF | Search</title>
 
 
     <link rel="alternate" hreflang="en" href="https://tanbif.ditnet.ac.tz/"/>
@@ -39,16 +32,13 @@
     <link rel="alternate" hreflang="x-default" href="https://tanbif.ditnet.ac.tz/"/>
 
 
-    <meta property="fb:app_id" content="1534726343485342"/>
+    <meta property="fb:app_id" content=""/>
 
-    <meta property="og:title" content="TANBIF"/>
-
-
-    <meta property="og:url" content="https://tanbif.ditnet.ac.tz"/>
+    <meta property="og:title" content="Search"/>
 
 
     <meta property="og:description"
-          content="Tanzania Biodiversity Information Facility. Free and open access to biodiversity data for sustainable socioeconomic development."/>
+          content="Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."/>
 
 
     <meta charset="UTF-8">
@@ -59,80 +49,39 @@
     <!-- Set the page to the width of the device and set the zoom level -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="resources/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="resources/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="resources/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="resources/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4c9e45">
-    <link rel="shortcut icon" href="resources/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#4c9e45">
 
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/vendor.css?v=1585166682129">
+    <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v=1600936161761">
 
-    <link rel="stylesheet" type="text/css" href="css/base/shared/style/index.css?v=1585166682129">
-    <link rel="stylesheet" type="text/css" href="css/base/page/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v=1600936161761">
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
 
-    <!--[if !IE]> -->
-    <!-- <![endif]-->
-
-    <!--[if IE]>
-
-    <![endif]-->
-
-    <!--[if lt IE 9]>
-
-    <![endif]-->
-    <!-- start Trans -->
-    <style>
-        .powered {
-
-            width: 50px;
-        }
-    </style>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/vendor.js?DIGEST"></script>
-    <script src="js/app.js?DIGEST"></script>
-    <script>require('js/init');</script>
-    <script>require('js/homepage-search');</script>
-    <!-- End trans -->
-
     <script>
         function attachGoogleAnalytics() {
-            // console.log('Terms accepted. Attach Google analytics');
-            // (function (i, s, o, g, r, a, m) {
-            //     i['GoogleAnalyticsObject'] = r;
-            //     i[r] = i[r] || function () {
-            //                 (i[r].q = i[r].q || []).push(arguments)
-            //             }, i[r].l = 1 * new Date();
-            //     a = s.createElement(o),
-            //             m = s.getElementsByTagName(o)[0];
-            //     a.async = 1;
-            //     a.src = g;
-            //     m.parentNode.insertBefore(a, m)
-            // })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            //
-            // ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-            // ga('send', 'pageview');
-            // window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
+
         }
     </script>
 
@@ -166,40 +115,13 @@
             }
         </style>
     </noscript>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
-    <style>
-        #map_canvas{
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*bottom: 0;*/
-            /*left: 0;*/
-            /*right: 0;*/
-            width: 100%;
-            height: 500px;
-        }
-
-    </style>
-
-
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org/",
-            "@type": "Organization",
-            "url": "http://www.gbif.org/",
-            "logo": "https://tanbif.ditnet.ac.tz/img/logo/TANBIF50.png"
-        }
-    </script>
 
 
 </head>
-<body class="hasTransparentMenu"
-    ng-init="portal.urlPrefix='';BUILD_VERSION=1585166682129"
-    ng-class="{'hasDrawer': portal.getDrawer()}"
-    ng-controller="portalCtrl as portal">
+<body class="ng-scope hasDrawer" ng-init="portal.urlPrefix='';BUILD_VERSION=1600936161761"
+      ng-class="{'hasDrawer': portal.getDrawer()}" ng-controller="portalCtrl as portal">
 
-<div class="no-js-enabled" style="display: none"><span>We’re sorry, but TANBIF doesn’t work properly without JavaScript enabled.</span>
+<div class="no-js-enabled" style="display: none"><span>We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.</span>
 </div>
 <div class="ie-splash" style="display:none"><span>Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.</span>
 </div>
@@ -1788,323 +1710,567 @@
 <div id="site-wrapper" class="site-wrapper">
 
 
-    <div feedback></div>
-
-
-    <div notifications></div>
-
-
-    <div user-menu></div>
-
-
-    <div menu-search></div>
-
-    <div language-menu></div>
-
-
-    <main id="main" class="main" role="main" ui-view>
-        <div class="site-content">
-
-
-            <div class="site-content__page">
-                <div>
-
-                    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
-                        <div class="home__header" style="background-image: url('images/top-bg.jpg')">
-                            <div>
-                                <div class="container--desktop">
-                                    <div class="home__header__hero-text">
-                                        <div class="home__header__name">
-                                            <span data-i18n="general.orgshortname"></span> | <span
-                                                data-i18n="general.orgfullname"></span>
-                                        </div>
-                                        <h1>
-                                            Free and open access to biodiversity data for sustainable socioeconomic
-                                            development
-                                        </h1>
-                                        <div class="home__searchFilters">
-                                            <!--TODO: search link-->
-                                            <a href="" id="occurrenceSearch" class="inherit noUnderline"
-                                               ng-href="occurrence-search.html?q=*">Occurrences</a>
-                                            <a href="" id="speciesSearch" class="inherit noUnderline"
-                                               href="#">Species</a>
-                                            <a href="" id="datasetSearch" class="inherit noUnderline"
-                                               href="#">Datasets</a>
-                                            <a href="" id="publisherSearch" class="inherit noUnderline" href="#">Publishers</a>
-                                            <a href="" id="resourceSearch" class="inherit noUnderline" href="#">Resources</a>
-                                        </div>
-                                        <div class="home__header__search-bar search-box">
-                                            <form action="#"
-                                                  ng-submit="home.updateSearch()">
-                                                <input id="siteSearchInputHome" type="text" placeholder="Search"
-                                                       name="q" autocomplete="off"
-                                                       value=""
-                                                       ng-init="home.freeTextQuery == ''"
-                                                       ng-model="home.freeTextQuery"
-                                                       aria-invalid="false"
-                                                       focus-me="true">
-                                                <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                                   ng-href="#" type="submit" id="all">
-                                                    <span class="sr-only">Search</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                        <div class="home__quicklinks">
-                                            <a href="#" class="gb-button--brand--transparent">What is TANBIF?</a>
-                                            <a ng-href="#" class="gb-button--brand--transparent ng-cloak"
-                                               ng-if="home.country.countryCode"><span
-                                                    translate="homepage.aboutGbifCountry"
-                                                    translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="img_caption">
-                                        <!-- <a href="/occurrence/2576272359">Herd of impalas (<i>Aepyceros melampus</i>)</a> observed in Nyagatare, Rwanda by jordivanoort. Photo via iNaturalist (<a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>) -->
-                                    </div>
-                                </div>
-                            </div>
+    <aside id="feedback" class="feedback menubox ng-isolate-scope" ng-class="{'is-active': vm.isActive}"
+           click-outside="vm.clickedOutside()" feedback="">
+        <div class="menubox__wrapper">
+            <div class="menubox__top">
+                <div class="menubox__header">
+                    <div class="menubox__header__title-wrapper">
+                        <!-- ngIf: vm.selected -->
+                        <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                        <div class="menubox__header__title text-center">
+                            <!-- ngIf: !vm.selected --><span ng-if="!vm.selected" translate="feedback.intro.title"
+                                                             class="ng-scope">Feedback and questions</span>
+                            <!-- end ngIf: !vm.selected -->
+                            <!-- ngIf: vm.selected -->
                         </div>
-
-                        <div class="horizontal-stripe light-background p-t-05">
-                            <div class="container--desktop">
-                                <div class="home__counts">
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Occurrence records</h3>
-                                            <div id="occurrence">
-                                                <div class="lds-ellipsis" id="occurrence-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/occurrence/search">1.000,000,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#h" class="inherit noUnderline">
-                                            <h3 class="discreet">Datasets</h3>
-                                            <div id="datasets">
-                                                <div class="lds-ellipsis" id="datasets-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/dataset/search2">40,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Data Providers</h3>
-                                            <div id="institutions">
-                                                <div class="lds-ellipsis" id="institutions-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing">1,300</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Collections</h3>
-                                            <div id="collections">
-                                                <div class="lds-ellipsis" id="collections-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization">3,450</div> -->
-                                        </a>
-                                    </article>
-                                </div>
-
-
-                                <div class="home__news">
-                                    <div class="articles">
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_bid_project.html" class="card__stripe article-box__image">
-                                                <img src="/images/bid_project.jpeg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_bid_project.html" class="inherit"><p>Call for proposals for BID project support in Africa</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_young_researchers_award.html" class="card__stripe article-box__image">
-                                                <img src=/images/young_researchers.gif alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_young_researchers_awards.html" class="inherit"><p>Call for nominations to the 2021 GBIF Young Researchers Award</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/ebbe_nielsen_challenge.html" class="card__stripe article-box__image">
-                                                <img src="/images/ebbe_nielsen.png" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/ebbe_nielsen_challenge.html" class="inherit"><p>2021 Ebbe Nielsen Challenge seeks open-data innovations for biodiversity</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="card__stripe article-box__image">
-                                                <img src="/images/icymi.jpg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="inherit"><p>icymi: GBIF newsletter for March 2021</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://africanbiodiversity.org/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-3.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">Data use</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.eac.int/environment/natural-resources-management/biodiversity-forestry"
-                                                           class="inherit"><p>Biodiversity & Forestry</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-4.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                                           class="inherit"><p>Tanzania Fresh Water Biodiversity
-                                                            Information System Project</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/publishing-data"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-5.png"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/publishing-data" class="inherit">
-                                                            <p>Quick guide to publishing data through GBIF.org</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-7.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                                           class="inherit"><p>Specie List of Mammals in Tanzania </p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                    </div>
-                                </div>
-
-                            </div>
-                        </div>
-                        <!--        <div class="horizontal-stripe&#45;&#45;paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">-->
-
-                        <!--                <map-widget filter="home.mapFilter"  class="fitSize ng-isolate-scope">-->
-
-                        <!--                </map-widget>-->
-                        <!--        </div>-->
                     </div>
+                    <div class="menubox__header__description text-center">
+                        <!-- ngIf: !vm.selected --><p ng-if="!vm.selected" translate="feedback.intro.example"
+                                                      class="ng-scope">Help us resolve any issues by choosing which type
+                        of feedback you’re providing. Please submit your feedback in English, if possible. We aim to
+                        respond within 2 working days.</p><!-- end ngIf: !vm.selected -->
+                        <!-- ngIf: vm.selected && vm.selected != vm.ISSUES -->
+                        <!-- ngIf: vm.selected == vm.ISSUES -->
 
+                        <!-- ngIf: vm.selected == vm.CONFIRMATION -->
+                    </div>
+                </div>
+            </div>
+            <div class="menubox__content">
+
+
+                <!-- ngIf: vm.selected == vm.ISSUES -->
+
+
+                <!-- ngIf: !vm.selected -->
+                <div class="menubox__section menubox__section--select ng-scope" ng-if="!vm.selected">
+                    <ul>
+                        <!-- ngRepeat: type in vm.type -->
+                        <li ng-repeat="type in vm.type" class="ng-scope">
+                            <!-- ngIf: type == vm.type.CONTENT && vm.comments.count > 0 -->
+                            <a href="" class="inherit" ng-click="vm.toggle(type)">
+                                <h4 translate="feedback.data content.title" class="ng-scope">Content</h4>
+                                <p class="small ng-scope" translate="feedback.data content.example">Such as: That page
+                                    contains a typo. That species doesn’t exist. That location seems suspect. The new
+                                    URL for that organization is...</p>
+                            </a>
+                        </li><!-- end ngRepeat: type in vm.type -->
+                        <li ng-repeat="type in vm.type" class="ng-scope">
+                            <!-- ngIf: type == vm.type.CONTENT && vm.comments.count > 0 -->
+                            <a href="" class="inherit" ng-click="vm.toggle(type)">
+                                <h4 translate="feedback.bug.title" class="ng-scope">Bug</h4>
+                                <p class="small ng-scope" translate="feedback.bug.example">Such as: The search button
+                                    doesn’t work. The page doesn’t load. I can’t read this because the columns
+                                    overlap.</p>
+                            </a>
+                        </li><!-- end ngRepeat: type in vm.type -->
+                        <li ng-repeat="type in vm.type" class="ng-scope">
+                            <!-- ngIf: type == vm.type.CONTENT && vm.comments.count > 0 -->
+                            <a href="" class="inherit" ng-click="vm.toggle(type)">
+                                <h4 translate="feedback.idea.title" class="ng-scope">Idea</h4>
+                                <p class="small ng-scope" translate="feedback.idea.example">Such as: I want links to
+                                    related genetic sequence data. Show me all the open-access articles.</p>
+                            </a>
+                        </li><!-- end ngRepeat: type in vm.type -->
+                        <li ng-repeat="type in vm.type" class="ng-scope">
+                            <!-- ngIf: type == vm.type.CONTENT && vm.comments.count > 0 -->
+                            <a href="" class="inherit" ng-click="vm.toggle(type)">
+                                <h4 translate="feedback.question.title" class="ng-scope">Helpdesk</h4>
+                                <p class="small ng-scope" translate="feedback.question.example">Such as: How do you
+                                    protect data on rare species? Can you help me find all records of this species
+                                    occurring in international waters?</p>
+                            </a>
+                        </li><!-- end ngRepeat: type in vm.type -->
+                    </ul>
+                </div><!-- end ngIf: !vm.selected -->
+
+
+                <!-- ngIf: vm.type.CONTENT == vm.selected -->
+
+
+                <!-- ngIf: vm.type.QUESTION == vm.selected || vm.type.FUNCTIONALITY == vm.selected || vm.type.IDEA == vm.selected || ( (!vm.contentFeedback.type || vm.forceShowForm) && vm.type.CONTENT == vm.selected) -->
+
+
+            </div>
+        </div>
+    </aside>
+
+
+    <aside id="notifications" class="menubox menubox--notifications ng-isolate-scope"
+           ng-class="{'is-active': vm.isActive}" click-outside="vm.isActive = false" notifications="">
+        <div class="menubox__wrapper">
+            <div class="menubox__top ">
+                <div class="menubox__header">
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span translate="healthSummary.systemHealth" class="ng-scope">System health</span>
+                    </div>
+                </div>
+            </div>
+            <div class="menubox__content">
+                <div class="menubox__section menubox__section--issues">
+                    <div class="menubox__section menubox__section--select">
+                        <ul>
+                            <!-- ngRepeat: notification in vm.notifications.results -->
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
+    </aside>
+
+
+    <aside id="userMenu" class="userMenu menubox ng-isolate-scope" ng-class="{'is-active': vm.isActive}"
+           click-outside="vm.isActive = false" user-menu="">
+        <div class="menubox__wrapper">
+            <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+            <!-- ngIf: vm.isActive -->
+        </div>
+    </aside>
+
+
+    <aside id="menuSearch" class="menuSearch menubox ng-isolate-scope" ng-class="{'is-active': vm.isActive}"
+           click-outside="vm.clickedOutside()" menu-search="">
+        <div class="menubox__wrapper">
+            <div class="menubox__top">
+                <div class="menubox__header">
+                    <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                    <div class="menubox__header__title text-center">
+                        <span translate="search.search" class="ng-scope">Search</span>
+                    </div>
+                    <div class="m-05 m-t-0">
+                        <form class="search-box ng-pristine ng-valid" ng-submit="vm.searchRedirect()">
+                            <input type="text" id="menuSearchBox" focus-me="vm.focus" autocomplete="off"
+                                   ng-model="vm.freeTextQuery" placeholder="Species, species, news ..."
+                                   ng-keydown="vm.closeOnEsc($event)"
+                                   class="ng-pristine ng-untouched ng-valid ng-empty">
+                            <a href="" type="submit" class="inherit search-box__submit gb-icon-search2"
+                               ng-click="vm.searchRedirect()">
+                                <span class="sr-only ng-scope" translate="search.search">Search</span>
+                            </a>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+    <aside id="languageMenu" class="languageMenu menubox ng-isolate-scope" ng-class="{'is-active': vm.isActive}"
+           click-outside="vm.isActive = false" language-menu="">
+        <div class="menubox__wrapper">
+            <div class="menubox__top">
+                <div class="menubox__header">
+                    <div class="menubox__header__title-wrapper">
+                        <a href="" ng-click="vm.close()" class="inherit noUnderline menubox__close gb-icon-close"></a>
+                        <div class="menubox__header__title text-center">
+                            <!-- ngIf: !vm.selected --><span ng-if="!vm.selected" translate="phrases.changeLanguage"
+                                                             class="ng-scope">Change language</span>
+                            <!-- end ngIf: !vm.selected -->
+                        </div>
+                    </div>
+                    <!-- ngIf: vm.suggestedLanguage.matched && vm.suggestedLanguage.matched !== vm.chosenLocale -->
+                </div>
+            </div>
+            <div class="menubox__content">
+                <div class="menubox__section">
+                    <div class="menubox__section__content" dir="ltr">
+                        <md-radio-group ng-model="vm.chosenLocale" ng-change="vm.changeLanguage()"
+                                        class="ng-pristine ng-untouched ng-valid _md ng-not-empty" role="radiogroup"
+                                        tabindex="0" aria-activedescendant="radio_0">
+                            <!-- ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope md-checked"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_0" role="radio" aria-checked="true" value="en"
+                                             aria-label="English">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">English</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_1" role="radio" aria-checked="false" value="ar"
+                                             aria-label="العربية">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}" class="ng-scope">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding rtl-text">العربية</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_2" role="radio" aria-checked="false" value="zh"
+                                             aria-label="简体中文">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">简体中文</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_3" role="radio" aria-checked="false" value="fr"
+                                             aria-label="Français">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">Français</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_4" role="radio" aria-checked="false" value="ru"
+                                             aria-label="Русский">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">Русский</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope m-b-0"
+                                             ng-repeat="locale in vm.unLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_5" role="radio" aria-checked="false" value="es"
+                                             aria-label="Español">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">Español</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.unLanguages -->
+                            <div class="seperator m-t-1 m-b-1"></div>
+                            <!-- ngRepeat: locale in vm.otherLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.otherLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_6" role="radio" aria-checked="false" value="zh-tw"
+                                             aria-label="繁體中文">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">繁體中文</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.otherLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.otherLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_7" role="radio" aria-checked="false" value="ja" aria-label="日本語">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">日本語</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.otherLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope"
+                                             ng-repeat="locale in vm.otherLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_8" role="radio" aria-checked="false" value="pt"
+                                             aria-label="Português">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">Português</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.otherLanguages -->
+                            <md-radio-button ng-value="locale" class="md-primary ng-scope m-b-0"
+                                             ng-repeat="locale in vm.otherLanguages" ng-class="{'m-b-0': $last}"
+                                             id="radio_9" role="radio" aria-checked="false" value="uk"
+                                             aria-label="Українська">
+                                <div class="md-container md-ink-ripple" md-ink-ripple="" md-ink-ripple-checkbox="">
+                                    <div class="md-off"></div>
+                                    <div class="md-on"></div>
+                                </div>
+                                <div ng-transclude="" class="md-label">
+                                    <div ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                         class="ng-scope ltr-text">
+                                        <span ng-class="{'ltr-text': !vm.LOCALE_MAPPINGS.rtl[locale], 'rtl-text': vm.LOCALE_MAPPINGS.rtl[locale]}"
+                                              class="ng-binding ltr-text">Українська</span>
+                                    </div>
+                                </div>
+                            </md-radio-button><!-- end ngRepeat: locale in vm.otherLanguages -->
+
+                        </md-radio-group>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <main id="main" class="main ng-scope" role="main" style="">
+        <div class="viewContentWrapper ng-scope">
+            <aside class="site-drawer is-locked ng-isolate-scope" id="site-search">
+                <div class="site-drawer__content">
+                    <div class="site-drawer__header">
+                        <div class="site-drawer__bar">
+                            <a href="/search"
+                               ui-sref="omniSearch({q: vm.filter.query.q, locale: vm.filter.query.locale})"
+                               ui-sref-opts="{inherit: false}" class="gb-icon-angle-left site-drawer__bar__icon inherit"
+                               tooltip-placement="right" uib-tooltip="Everything">
+                            </a>
+                            <div class="site-drawer__bar__title">
+                                <a href="" class="inherit ng-scope" ng-click="vm.expandContentTypeMenu = true"
+                                   ng-if="!vm.expandContentTypeMenu">
+                                    <span  class="ng-scope"> Species</span>
+                                </a>
+                                <div class="stripe-menu" ng-class="{'is-expanded': vm.expandContentTypeMenu}">
+                                    <div class="stripe-menu__drop-down ng-hide" ng-show="vm.expandContentTypeMenu"
+                                         click-outside="vm.expandContentTypeMenu = false"
+                                         click-outside-unless="!vm.expandContentTypeMenu" aria-hidden="true">
+                                        <ul>
+                                            <li class="seperator--b">
+                                                <a ui-sref="omniSearch({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                                   ui-sref-opts="{inherit: false}" translate="search.everything"
+                                                   class="ng-scope" href="/search">Everything</a>
+                                            </li>
+                                            <li ng-if="vm.contentType != 'species'" class="ng-scope">
+                                                <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                                   ui-sref-opts="{inherit: false}"
+                                                   class="ng-scope" href="/species/search">Occurrences</a>
+                                            </li>
+                                            <li ng-if="vm.contentType != 'datasets'" class="ng-scope">
+                                                <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                                   ui-sref-opts="{inherit: false}" translate="search.datasets"
+                                                   class="ng-scope" href="/dataset/search">Datasets</a>
+                                            </li>
+                                            <li ng-if="vm.contentType != 'publishers'" class="ng-scope">
+                                                <a ui-sref="publisherSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                                   ui-sref-opts="{inherit: false}" translate="search.publishers"
+                                                   class="ng-scope" href="/publisher/search">Publishers</a>
+                                            </li>
+                                            <li ng-if="vm.contentType != 'cms'" class="ng-scope">
+                                                <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
+                                                   ui-sref-opts="{inherit: false}" translate="search.resources"
+                                                   class="ng-scope" href="/resource/search">Resources</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <a href="" ng-click="vm.clear()"
+                               class="gb-icon-trash discreet inherit site-drawer__bar__icon" tooltip-placement="left"
+                               uib-tooltip="Clear filters">
+                                <span class="count badge ng-binding" ng-show="vm.getFilterCount() > 0"
+                                      aria-hidden="false">1</span>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="site-drawer__section ng-scope">
+                        <div class="search-bar filter-group">
+                            <form class="search-bar__term ng-pristine ng-valid">
+                                <input type="text" id="speciesSearch" autocomplete="off"
+                                       placeholder="Search all fields"
+                                       class="ng-pristine ng-untouched ng-valid ng-empty">
+                                <a href="" type="submit" class="gb-icon-search search-bar__search"
+                                   ng-click="occurrence.search()">
+                                    <span class="sr-only ng-scope" translate="search.search">Search</span>
+                                </a>
+                            </form>
+                        </div>
+
+                        <div class="filter-group text-center">
+                            <div class="gb-btn-group">
+                                <label class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty active">Simple</label>
+<!--                                <label class="ng-pristine ng-untouched ng-valid ng-scope ng-not-empty">Advanced</label> todo: add advance search -->
+                            </div>
+                        </div>
+
+                        <div class="filter-group filter-group--search rtl-bootstrap ng-isolate-scope"
+                             filter-ternary-custom="" filter-config="occurrence.filters.occurrenceStatus"
+                             filter-state="occurrence.occurrenceState">
+                            <a href="" class="inherit" ng-click="vm.filterConfig.expanded = !vm.filterConfig.expanded">
+                                <h4>
+                                    <span class="ng-scope">Species status</span>
+                                    <span class="gb-icon-angle-down pull-right ng-scope"></span>
+                                </h4>
+                            </a>
+
+                            <div class="filter-group__filter filter-group__filter--collapsed">
+
+                                <div class="is-padded overflow-hidden ng-scope">
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="checkbox" checked="true">
+                                            <span class="filter-group__filter__name ng-scope">Present</span>
+
+                                        </label>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+            </aside>
+            <div class="site-content ng-scope">
+
+                <div class="site-content__page lighter-background">
+                    <div class="occurrence-search-results">
+                        <div ng-if="!occurrence.occurrenceState.failedRequest" class="ng-scope">
+                            <div class="wrapper-horizontal-stripes occurrence-search__table ng-scope">
+
+                                <section class="horizontal-stripe--paddingless white-background search-header">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-xs-12">
+                                                <nav class="article-header__category article-header__category--deep">
+                                                    <span class="article-header__category__upper ng-scope"
+                                                          >Search Species</span>
+                                                    <span
+                                                            class="article-header__category__lower ng-scope"
+                                                            ng-if="occTable.hasData()">
+                            <span
+                                  class="ng-isolate-scope">
+<!--                                TODO: add total result-->
+                            </span>
+                        </span>
+
+                                                </nav>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <section class="horizontal-stripe--paddingless white-background p-hidden">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <nav class="tabs">
+                                                <ul>
+                                                    <li class="tab isActive">
+                                                        <span class="ng-scope">Simple</span>
+                                                    </li>
+                                                </ul>
+                                            </nav>
+                                        </div>
+                                    </div>
+                                </section>
+
+                                <div class="horizontal-stripe light-background">
+
+                                   <div  class="ng-scope" style="">
+                                   <div  class="ng-scope"><div class="container--narrow ng-scope">
+                                    <div class="row">
+                                        <div class="col-xs-12" id="speciesBody">
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                </div>
+                                </div>
+                                </div>
+                            </div>
+
+
+                            <script type="text/ng-template" id="customTableColumns.tmpl.html" class="ng-scope">
+                                <md-dialog aria-label="Select table columns">
+                                    <md-toolbar>
+                                        <div class="md-toolbar-tools">
+                                            <h4 class="card-header" style="color:white"
+                                                translate="occurrenceSearch.selectColumns">Select table columns</h4>
+                                            <span flex></span>
+                                            <md-button class="md-icon-button" ng-click="cancel()">
+                                                <md-icon md-svg-src="img/icons/ic_close_24px.svg"
+                                                         aria-label="Close dialog"></md-icon>
+                                            </md-button>
+                                        </div>
+                                    </md-toolbar>
+                                    <md-dialog-content style="max-width:400px">
+                                        <fieldset class="md-padding">
+                                            <div layout="row" layout-wrap flex>
+                                                <div flex="100" ng-repeat="(col, val) in data.occurrenceSearchColumns">
+                                                    <md-checkbox ng-checked="val"
+                                                                 ng-click="data.occurrenceSearchColumns[col] = !data.occurrenceSearchColumns[col]"
+                                                                 aria-label="{{col}}">
+                                                        <span translate="{{ data.translationKeyOverwrites[col] || 'ocurrenceFieldNames.' + col }}"></span>
+                                                    </md-checkbox>
+                                                </div>
+                                            </div>
+                                        </fieldset>
+                                    </md-dialog-content>
+                                    <md-dialog-actions layout="row">
+                                        <span flex></span>
+                                        <md-button ng-click="hide()" translate="occurrenceSearch.done"></md-button>
+                                    </md-dialog-actions>
+                                </md-dialog>
+                            </script>
+                        </div><!-- end ngIf: !occurrence.occurrenceState.failedRequest -->
+                        <!-- ngIf: occurrence.occurrenceState.failedRequest -->
+                    </div>
+                </div>
+
+                <div class="fab hide-on-laptop">
+                    <!-- ngIf: !occurrence.showFilters --><a href="" class="gb-button--brand ng-scope"
+                                                             ng-click="occurrence.showFilters = !occurrence.showFilters"
+                                                             ng-if="!occurrence.showFilters">
+                    <span><span class="gb-icon-filters"></span><span translate="search.filters"
+                                                                     class="ng-scope">Filters</span></span>
+                </a><!-- end ngIf: !occurrence.showFilters -->
+                </div>
+
+            </div>
+        </div>
     </main>
-    <div id="map_canvas" ></div>
+
+
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
             <center>
@@ -2158,10 +2324,64 @@
     </footer>
 
 
-    <div terms></div>
-    <div gdpr></div>
+    <aside id="termsOfUse" class="ng-isolate-scope ng-hide" ng-show="!vm.userAcceptance" terms="" aria-hidden="true">
+        <div class="card card--spaced termsPopup" ng-class="{'is-shown': !vm.userAcceptance}">
+            <div class="card__stripe">
+                <div class="card__content">
+                    <h4 translate="terms.headline" class="ng-scope">Use of cookies on GBIF</h4>
+                    <div translate="terms.description" class="ng-scope">GBIF uses cookies and the like for the purposes
+                        of statistical analysis, improving the friendliness and usability of our website, tailoring
+                        content to your interests and engaging with social media. By visiting our website, you consent
+                        to our and third party use of cookies as described in our privacy and cookie policy.
+                    </div>
+                </div>
+            </div>
+            <div class="card__stripe card__stripe--actions">
+                <a href="/terms/privacy-policy" translate="terms.readTerms" class="ng-scope">Read terms</a>
+                <a href="" ng-click="vm.accept()" translate="terms.accept" class="ng-scope">Accept</a>
+            </div>
+        </div>
+    </aside>
+    <script type="text/ng-template" id="gdprModal.html" gdpr="" class="ng-isolate-scope">
+        <div class="gb-modal-header">
+            <span class="modal-title body-text" id="modal-title">We have updated our privacy policy</span>
+        </div>
+        <div class="gb-modal-body" id="modal-body">
+            <div class="gb-modal-body__content white-background">
+                <p>
+                    As the <a ng-href="http://data.europa.eu/eli/reg/2016/679/oj" target="_blank">European General Data
+                    Protection Regulation</a>, or GDPR, came into force on 25 May 2018, GBIF remains committed to
+                    openness and transparency.
+                </p>
+                <p>
+                    Registered users' login credentials enable them to access their accounts. They also enable us to
+                    support and contact them about important changes. GBIF does not barter or sell personal information
+                    or give it to advertisers.
+                </p>
+                <p>
+                    Our <a ng-href="/terms/privacy-policy" target="_blank">privacy policy</a>, which provides detailed
+                    information about how and where we use personal information, was prepared to align with the draft
+                    version of the GDPR. As we update our processes to comply with GDPR commitments, we have updated the
+                    policy to include:
+                <ul>
+                    <li>the use of ORCID-based login</li>
+                    <li>the use of Instagram for social media</li>
+                    <li>the use of MailChimp for opt-in email</li>
+                </ul>
+                </p>
+            </div>
+        </div>
+        <div class="gb-modal-footer">
+            <a href="" class="gb-button--flat pull-left" type="button" ng-click="$ctrl.cancel()">Log out</a>
+
+            <a href="" class="gb-button--primary" type="button" ng-click="$ctrl.ok()">Understood, and don't show me this
+                again</a>
+        </div>
+    </script>
 </div>
-<div gb-help-overlay></div>
+<div gb-help-overlay="" class="ng-isolate-scope"><span class="gbHelp rtl-supported">
+    <!-- ngIf: vm.show -->
+</span></div>
 
 <script type="text/ng-template" id="dropdown.html">
     <a href="" dir="auto">
@@ -2174,21 +2394,195 @@
     window.gb.locale = 'en';
 
     window.gb.urlPrefix = '';
-    window.gb.buildVersion = '1585166682129';
+    window.gb.buildVersion = '1600936161761';
 
 </script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
 
-<script src="js/app.js"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&key=AIzaSyAvxbTJ-f-OQcB-38xF8cSnSRrYNFYU-c4"></script>
-<script src="js/environment.js?v=1585166682129"></script>
-<script src="js/base/vendor.js?v=1585166682129"></script>
-<script src="js/base/custom.js?v=1585166682129"></script>
+<script src="/js/environment.js?v=1600936161761"></script>
+<script src="/js/base/vendor.js?v=1600936161761"></script>
+<script src="/js/base/custom.js?v=1600936161761"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+Fend
 
-<script src="js/base/pages/home.js?v=1585166682129"></script>
-<script src="js/base/pages/dashboard.js"></script>
+<script>
+    $(document).ready(function () {
+        var page_size = 10000;
+        var delay_time = 1000;
+        var species_body = $('#speciesBody');
+        species_body.html(`<center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center>`);
 
+        var data = window.location.search.split('?');
+        if (data.length > 1) {
+            var key = data[1].split("=")[0];
+            var query = data[1].split("=")[1];
+            console.log(query);
+            if (query.trim() == "*" || query.trim() == "") {
+                query = "*:*"
+            }
+            speciesSearch.val(query);
+            setTimeout(function () {
+                getData(query.trim(), page_size)
+            }, delay_time);
+
+        } else {
+            setTimeout(function () {
+                getData("*:*", page_size);
+            }, delay_time);
+
+        }
+
+        $("#speciesSearch").keyup(function () {
+            var query = $("#speciesSearch").val();
+            if (query.trim() === "*") {
+                query = "*:*";
+                console.log(query)
+            } else if (query.trim() === "") {
+                query = "*:*";
+                console.log(query)
+            } else {
+                console.log(query)
+            }
+            getData(query.trim(), page_size)
+        })
+
+        function getData(query, page_size) {
+            species_body.html(`<center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center>`);
+            $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query + '&&pageSize=' + page_size, function (data, code, t) {
+                var html = '';
+                var result= [];
+                var i = 1;
+                data.occurrences.forEach(function (row, index) {
+                    if ("scientificName" in row) {
+                        if($.inArray(row.scientificName,result) ===-1 && i<=20){
+                            html += getUI(row, index);
+                            result.push(row.scientificName);
+                            ++i
+                        }
+                    }
+                })
+                console.log(result)
+                species_body.html(html)
+            })
+        }
+
+        function getUI(row) {
+
+            return '<div  class="ng-scope">\n' +
+                '     <article class="card m-b-05 searchCard rtl-supported rtl-bootstrap ng-scope">\n' +
+                '     <div class="card__stripe">\n' +
+                '         <div class="card__content">\n' +
+                '             <a href="#" class="inherit searchCard__type hoverBox ng-scope" >Species</a>\n' +
+                '             <h3 class="searchCard__headline" dir="auto">\n' +
+                '                 <a  class="ng-isolate-scope" href=""><span class="ng-binding"><i>'+row.scientificName+' </i></span></a>\n' +
+                '             </h3>\n' +
+                '         </div>\n' +
+                '     </div>\n' +
+                '     <div class="card__stripe">\n' +
+                '         <div class="card__content searchCard__content clearfix">\n' +
+                '             <div class="searchCard__img asyncIf--isHidden loaded" async-if="//api.gbif.org/v1/occurrence/search?taxon_key=1000005&amp;has_coordinate=true&amp;has_geospatial_issue=false">\n' +
+                '                 <div class="teaser-map--small">\n' +
+                '                     <img src="/img/tile000/basemap-grey-light2.png">\n' +
+                '                     <img ng-src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1000005&amp;type=TAXON&amp;resolution=4" src="//api.gbif.org/v1/map/density/tile.png?x=0&amp;y=0&amp;z=0&amp;palette=yellows_reds&amp;key=1000005&amp;type=TAXON&amp;resolution=4">\n' +
+                '                 </div>\n' +
+                '             </div>\n' +
+                '             <div class="searchCard__meta ng-scope" >\n' +
+                '             <span  class="ng-scope">Published by</span>: <span dir="auto" class="ng-binding"> Tanzania  Biodiversity Information Facility</span>\n' +
+                '         </div>\n' +
+                '             <p class="discreet classification-list ng-binding ng-scope">\n' +
+                '                 Classification : <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.kingdom+'</span></span>' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.phylum+'</span></span> ' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.classs+'</span></span> ' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.order+'</span></span> ' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.family+'</span></span> ' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.genus+'</span></span> ' +
+                '               <span class="ng-scope"><span dir="ltr" ng-bind-html="result[taxa]" class="ng-binding">'+row.species+'</span></span> ' +
+                '             </p>\n' +
+                '             <ul class="list-chips">\n' +
+                '                 <li  class="ng-scope">\n' +
+                '                 <a    class="ng-scope ng-binding">Accepted</a>\n' +
+                '             </li>\n' +
+                '                 <li  class="ng-scope">\n' +
+                '                 <a    class="ng-scope ng-binding">Species</a>\n' +
+                '             </li>\n' +
+                '             </ul>\n' +
+                '         </div>\n' +
+                '     </div>\n' +
+                ' </article></ng-include>\n' +
+                ' </div>'
+        }
+    })
+
+
+
+    //menu
+    $('#licenseBtn').click(function () {
+        $('#licenseMenu').slideToggle("slow")
+    });
+</script>
+
+
+<div class="cfp-hotkeys-container fade ng-scope" ng-class="{in: helpVisible}" style="display: none;">
+    <div class="cfp-hotkeys"><!-- ngIf: !header --><h4 class="cfp-hotkeys-title ng-binding ng-scope" ng-if="!header">
+        Keyboard Shortcuts:</h4><!-- end ngIf: !header --><!-- ngIf: header -->
+        <table>
+            <tbody><!-- ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index"
+                        class="cfp-hotkeys-key ng-binding ng-scope">?</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Show / hide this help menu</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key ng-binding ng-scope">alt + f</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Site search</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope" style="">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key ng-binding ng-scope">alt + f</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Site search</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key ng-binding ng-scope">alt + enter</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Apply</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key ng-binding ng-scope">alt + →</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Next</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } -->
+            <tr ng-repeat="hotkey in hotkeys | filter:{ description: '!$$undefined$$' }" class="ng-scope">
+                <td class="cfp-hotkeys-keys"><!-- ngRepeat: key in hotkey.format() track by $index --><span
+                        ng-repeat="key in hotkey.format() track by $index" class="cfp-hotkeys-key ng-binding ng-scope">alt + ←</span>
+                    <!-- end ngRepeat: key in hotkey.format() track by $index --></td>
+                <td class="cfp-hotkeys-text ng-binding">Previous</td>
+            </tr><!-- end ngRepeat: hotkey in hotkeys | filter:{ description: '!$$undefined$$' } --></tbody>
+        </table><!-- ngIf: footer -->
+        <div class="cfp-hotkeys-close" ng-click="toggleCheatSheet()" role="button" tabindex="0">×</div>
+    </div>
+</div>
+<div class="nsc-content-camera nsc-hide" style="top: 10px; left: 10px;">
+    <div class="nsc-content-camera-buttons" flex="none" layout="row" layout-align="start start">
+        <button class="nsc-content-camera-button nsc-hide" type="button" id="nsc_video_camera_collapse">
+            <span class="nsc-icon nsc-icon-panel-collapse"></span>
+        </button>
+        <button class="nsc-content-camera-button" type="button" id="nsc_video_camera_expand">
+            <span class="nsc-icon nsc-icon-panel-expand"></span>
+        </button>
+        <button class="nsc-content-camera-button" type="button" id="nsc_video_camera_close">
+            <span class="nsc-icon nsc-icon-panel-close"></span>
+        </button>
+    </div>
+    <div class="nsc-content-camera-container">
+        <div class="nsc-content-camera-shadow"></div>
+    </div>
+</div>
 </body>
 </html>
