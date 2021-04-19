@@ -9,7 +9,7 @@
 
 <head ng-controller="headCtrl as head">
 
-    <title>TANBIF | Tanzania Biodiversity Information Facility</title>
+    <title ng-bind="head.getTitle('Search')">TANBIF | Search</title>
 
 
     <link rel="alternate" hreflang="en" href="https://tanbif.ditnet.ac.tz/"/>
@@ -39,16 +39,13 @@
     <link rel="alternate" hreflang="x-default" href="https://tanbif.ditnet.ac.tz/"/>
 
 
-    <meta property="fb:app_id" content="1534726343485342"/>
+    <meta property="fb:app_id" content=""/>
 
-    <meta property="og:title" content="TANBIF"/>
-
-
-    <meta property="og:url" content="https://tanbif.ditnet.ac.tz"/>
+    <meta property="og:title" content="Search"/>
 
 
     <meta property="og:description"
-          content="Tanzania Biodiversity Information Facility. Free and open access to biodiversity data for sustainable socioeconomic development."/>
+          content="Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."/>
 
 
     <meta charset="UTF-8">
@@ -59,37 +56,36 @@
     <!-- Set the page to the width of the device and set the zoom level -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="resources/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="resources/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="resources/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="resources/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4c9e45">
-    <link rel="shortcut icon" href="resources/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#4c9e45">
 
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/vendor.css?v=1585166682129">
+    <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v=1600936161761">
 
-    <link rel="stylesheet" type="text/css" href="css/base/shared/style/index.css?v=1585166682129">
-    <link rel="stylesheet" type="text/css" href="css/base/page/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v=1600936161761">
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!--[if !IE]> -->
     <!-- <![endif]-->
@@ -101,41 +97,11 @@
     <!--[if lt IE 9]>
 
     <![endif]-->
-    <!-- start Trans -->
-    <style>
-        .powered {
-
-            width: 50px;
-        }
-    </style>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/vendor.js?DIGEST"></script>
-    <script src="js/app.js?DIGEST"></script>
-    <script>require('js/init');</script>
-    <script>require('js/homepage-search');</script>
-    <!-- End trans -->
-
     <script>
         function attachGoogleAnalytics() {
-            // console.log('Terms accepted. Attach Google analytics');
-            // (function (i, s, o, g, r, a, m) {
-            //     i['GoogleAnalyticsObject'] = r;
-            //     i[r] = i[r] || function () {
-            //                 (i[r].q = i[r].q || []).push(arguments)
-            //             }, i[r].l = 1 * new Date();
-            //     a = s.createElement(o),
-            //             m = s.getElementsByTagName(o)[0];
-            //     a.async = 1;
-            //     a.src = g;
-            //     m.parentNode.insertBefore(a, m)
-            // })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            //
-            // ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-            // ga('send', 'pageview');
-            // window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
+
         }
     </script>
-
     <noscript>
         <style>
             body {
@@ -166,40 +132,25 @@
             }
         </style>
     </noscript>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
-    <style>
-        #map_canvas{
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*bottom: 0;*/
-            /*left: 0;*/
-            /*right: 0;*/
-            width: 100%;
-            height: 500px;
-        }
 
+    <style>
+        .container-tb {
+            width: auto !important;
+            padding: 10px 100px;
+        }
     </style>
 
 
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org/",
-            "@type": "Organization",
-            "url": "http://www.gbif.org/",
-            "logo": "https://tanbif.ditnet.ac.tz/img/logo/TANBIF50.png"
-        }
-    </script>
-
-
 </head>
-<body class="hasTransparentMenu"
-    ng-init="portal.urlPrefix='';BUILD_VERSION=1585166682129"
-    ng-class="{'hasDrawer': portal.getDrawer()}"
-    ng-controller="portalCtrl as portal">
+<body class="
 
-<div class="no-js-enabled" style="display: none"><span>We’re sorry, but TANBIF doesn’t work properly without JavaScript enabled.</span>
+
+"
+      ng-init="portal.urlPrefix='';BUILD_VERSION=1600936161761"
+      ng-class="{'hasDrawer': portal.getDrawer()}"
+      ng-controller="portalCtrl as portal">
+
+<div class="no-js-enabled" style="display: none"><span>We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.</span>
 </div>
 <div class="ie-splash" style="display:none"><span>Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.</span>
 </div>
@@ -1802,331 +1753,348 @@
     <div language-menu></div>
 
 
-    <main id="main" class="main" role="main" ui-view>
+    <main id="main" class="main ng-scope" role="main" ui-view="">
         <div class="site-content">
+
+            <div class="fab ng-isolate-scope" fab="">
+                <div ng-class="{'fab-is-expanded': vm.isExpanded}" ng-click="vm.isExpanded = !vm.isExpanded"
+                     click-outside="vm.isExpanded = false" click-outside-unless="!vm.isExpanded" role="button"
+                     tabindex="0">
+                    <ng-transclude class="fab__content">
+                        <div class="fab__trigger ng-scope">
+                            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Share"><i
+                                    class="gb-icon-share"></i></a>
+                        </div>
+                        <ul class="fab__options ng-scope">
+                            <li>
+                                <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3D4vDeTzJ4UrTuYZ8SiPVY%2F2021-ebbe-nielsen-challenge-seeks-open-data-innovations-for-biodiversity"
+                                   onclick="window.open('https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3D4vDeTzJ4UrTuYZ8SiPVY%2F2021-ebbe-nielsen-challenge-seeks-open-data-innovations-for-biodiversity', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="facebook">
+                                    <i class="gb-icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=2021%20Ebbe%20Nielsen%20Challenge%20seeks%20open-data%20innovations%20for%20biodiversity"
+                                   onclick="window.open('https://twitter.com/intent/tweet?text=2021%20Ebbe%20Nielsen%20Challenge%20seeks%20open-data%20innovations%20for%20biodiversity', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="twitter">
+                                    <i class="gb-icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.gbif.org/%2Fnews%2F3D4vDeTzJ4UrTuYZ8SiPVY%2F2021-ebbe-nielsen-challenge-seeks-open-data-innovations-for-biodiversity"
+                                   onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3D4vDeTzJ4UrTuYZ8SiPVY%2F2021-ebbe-nielsen-challenge-seeks-open-data-innovations-for-biodiversity', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="linkedin">
+                                    <i class="gb-icon-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </ng-transclude>
+                </div>
+            </div>
 
 
             <div class="site-content__page">
                 <div>
 
-                    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
-                        <div class="home__header" style="background-image: url('images/top-bg.jpg')">
-                            <div>
+                    <div>
+                        <article class="wrapper-horizontal-stripes">
+                            <div class="horizontal-stripe article-header white-background">
                                 <div class="container--desktop">
-                                    <div class="home__header__hero-text">
-                                        <div class="home__header__name">
-                                            <span data-i18n="general.orgshortname"></span> | <span
-                                                data-i18n="general.orgfullname"></span>
+                                    <header>
+                                        <nav class="article-header__category article-header__category--deep">
+                                            <span class="article-header__category__upper"><a
+                                                    href="/resource/search?contentType=news">News</a></span>
+                                            <span class="article-header__category__lower">20 January 2021</span>
+                                        </nav>
+                                        <h1 dir="auto">2021 Ebbe Nielsen Challenge seeks open-data innovations for
+                                            biodiversity</h1>
+
+                                        <div class="article-header__intro" dir="auto">
+                                            <p>Call for entries for submissions vying for €20,000 in prizes from annual
+                                                open-ended incentive competition. Deadline: <strong>2 August
+                                                    2021</strong></p>
+
                                         </div>
-                                        <h1>
-                                            Free and open access to biodiversity data for sustainable socioeconomic
-                                            development
-                                        </h1>
-                                        <div class="home__searchFilters">
-                                            <!--TODO: search link-->
-                                            <a href="" id="occurrenceSearch" class="inherit noUnderline"
-                                               ng-href="occurrence-search.html?q=*">Occurrences</a>
-                                            <a href="" id="speciesSearch" class="inherit noUnderline"
-                                               href="#">Species</a>
-                                            <a href="" id="datasetSearch" class="inherit noUnderline"
-                                               href="#">Datasets</a>
-                                            <a href="" id="publisherSearch" class="inherit noUnderline" href="#">Publishers</a>
-                                            <a href="" id="resourceSearch" class="inherit noUnderline" href="#">Resources</a>
-                                        </div>
-                                        <div class="home__header__search-bar search-box">
-                                            <form action="#"
-                                                  ng-submit="home.updateSearch()">
-                                                <input id="siteSearchInputHome" type="text" placeholder="Search"
-                                                       name="q" autocomplete="off"
-                                                       value=""
-                                                       ng-init="home.freeTextQuery == ''"
-                                                       ng-model="home.freeTextQuery"
-                                                       aria-invalid="false"
-                                                       focus-me="true">
-                                                <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                                   ng-href="#" type="submit" id="all">
-                                                    <span class="sr-only">Search</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                        <div class="home__quicklinks">
-                                            <a href="#" class="gb-button--brand--transparent">What is TANBIF?</a>
-                                            <a ng-href="#" class="gb-button--brand--transparent ng-cloak"
-                                               ng-if="home.country.countryCode"><span
-                                                    translate="homepage.aboutGbifCountry"
-                                                    translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="img_caption">
-                                        <!-- <a href="/occurrence/2576272359">Herd of impalas (<i>Aepyceros melampus</i>)</a> observed in Nyagatare, Rwanda by jordivanoort. Photo via iNaturalist (<a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>) -->
-                                    </div>
+
+                                    </header>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="horizontal-stripe light-background p-t-05">
-                            <div class="container--desktop">
-                                <div class="home__counts">
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Occurrence records</h3>
-                                            <div id="occurrence">
-                                                <div class="lds-ellipsis" id="occurrence-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/occurrence/search">1.000,000,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#h" class="inherit noUnderline">
-                                            <h3 class="discreet">Datasets</h3>
-                                            <div id="datasets">
-                                                <div class="lds-ellipsis" id="datasets-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/dataset/search2">40,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Publishing Institutions</h3>
-                                            <div id="institutions">
-                                                <div class="lds-ellipsis" id="institutions-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing">1,300</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Collections</h3>
-                                            <div id="collections">
-                                                <div class="lds-ellipsis" id="collections-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization">3,450</div> -->
-                                        </a>
-                                    </article>
-                                </div>
 
 
-                                <div class="home__news">
-                                    <div class="articles">
+                            <div class="horizontal-stripe--paddingless white-background">
+                                <figure class="heading-image">
+                                    <div class="cover-image isValid" data-width="ratio_2_8"
+                                         style="background-image: url(&quot;//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F38i3UAzRK8ABcZA7bWdX5P%2F8aeb0cadc277ac6158eaed99501b9a65%2Febbe-2021-banner.png&quot;);">
+                                        <img ng-src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F38i3UAzRK8ABcZA7bWdX5P%2F8aeb0cadc277ac6158eaed99501b9a65%2Febbe-2021-banner.png"
+                                             alt="ebbe-2021-banner" gallery-image="" class="ng-isolate-scope"
+                                             src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F38i3UAzRK8ABcZA7bWdX5P%2F8aeb0cadc277ac6158eaed99501b9a65%2Febbe-2021-banner.png">
+                                    </div>
+                                    <figcaption class="container--narrow" dir="auto">
 
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_bid_project.html" class="card__stripe article-box__image">
-                                                <img src="/images/bid_project.jpeg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_bid_project.html" class="inherit"><p>Call for proposals for BID project support in Africa</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_young_researchers_awards.html" class="card__stripe article-box__image">
-                                                <img src=/images/young_researchers.gif alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_young_researchers_awards.html" class="inherit"><p>Call for nominations to the 2021 GBIF Young Researchers Award</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/ebbe_nielsen_challenge.html" class="card__stripe article-box__image">
-                                                <img src="/images/ebbe_nielsen.png" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/ebbe_nielsen_challenge.html" class="inherit"><p>2021 Ebbe Nielsen Challenge seeks open-data innovations for biodiversity</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="card__stripe article-box__image">
-                                                <img src="/images/icymi.jpg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="inherit"><p>icymi: GBIF newsletter for March 2021</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://africanbiodiversity.org/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-3.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">Data use</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.eac.int/environment/natural-resources-management/biodiversity-forestry"
-                                                           class="inherit"><p>Biodiversity & Forestry</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
+                                    </figcaption>
+                                </figure>
+                            </div>
 
 
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-4.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                                           class="inherit"><p>Tanzania Fresh Water Biodiversity
-                                                            Information System Project</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/publishing-data"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-5.png"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/publishing-data" class="inherit">
-                                                            <p>Quick guide to publishing data through GBIF.org</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-7.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                                           class="inherit"><p>Specie List of Mammals in Tanzania </p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://bid.gbif.org/" class="card__stripe article-box__image">
-                                                <img src="images/card-img-8.png"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">Taxonomy</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://bid.gbif.org/" class="inherit"><p>BID: <em>
-                                                            Biodiversity Information for Development</em></p></a>
-                                                    </h4>
-
-
-                                                </div>
-                                            </div>
-                                        </article>
+                            <div class="horizontal-stripe white-background">
+                                <div class="container--narrow">
+                                    <div class="body-text--markdown" dir="auto">
+                                        <p>The 2021 <a href="/article/1G82GL7jw08kS0g6k6MuSa/">Ebbe Nielsen
+                                            Challenge</a> has opened with the aim of recognizing innovative entries that
+                                            leverage biodiversity data and tools from the GBIF network to advance open
+                                            science. An expert jury will judge entries on their openness and
+                                            repeatability, relevance and novelty and present a selected pool of winners
+                                            with a total of up to €20,000 in prizes.</p>
+                                        <p>Between 20 January and 2 August 2021, individuals and teams can prepare tools
+                                            and techniques that improve the access, usefulness and quality of open
+                                            biodiversity data and submit them to this annual open-ended incentive
+                                            competition.</p>
+                                        <p>Challenge entries can take any number of approaches. Entrants may choose to
+                                            develop new applications, visualizations, methods, workflows or analyses,
+                                            often (but not always) making use of the <a href="/developer/summary">GBIF
+                                                API</a> to access data. You may also build on or extend the capabilities
+                                            of existing tools and features available across the GBIF network. We
+                                            encourage entrants to review previous winners as well as previous winning
+                                            entries for ideas, problems or approaches you may wish to pursue (<a
+                                                    href="#previous">see below</a>).</p>
+                                        <p>Entries should benefit multiple stakeholder groups, including data users,
+                                            data holders and data managers. You may wish to review the <a
+                                                    href="/document/80926">GBIF Communications Strategy</a> to see how
+                                            we describe GBIF's audiences.</p>
+                                        <p>Winners will be announced at the 28th GBIF Governing Board meeting in October
+                                            2021.</p>
+                                        <p>The Challenge honours the memory of Dr <a
+                                                href="https://en.wikipedia.org/wiki/Ebbe_Nielsen">Ebbe Schmidt
+                                            Nielsen</a>, an inspirational leader in the fields of biosystematics and
+                                            biodiversity informatics and a principal founder of GBIF, who died
+                                            unexpectedly just before it came into being.</p>
+                                        <blockquote>
+                                            <p><a href="/awards/ebbe-2021-rules">Official rules: 2021 GBIF Ebbe Nielsen
+                                                Challenge</a><br>
+                                                <a href="http://j.mp/ebbe-2021">Entry form: 2021 GBIF Ebbe Nielsen
+                                                    Challenge</a></p>
+                                        </blockquote>
+                                        <p>The following summary of rules and requirements does not replace or supercede
+                                            the <a href="/awards/ebbe-2021-rules">official rules</a>. Send questions or
+                                            requests for clarifications to <a href="mailto:ENChallenge@gbif.org">ENChallenge@gbif.org</a>.
+                                        </p>
+                                        <h3>Submission deadline</h3>
+                                        <ul>
+                                            <li><strong>2 August 2021, 1600 Central European Summer Time | UTC
+                                                +2</strong></li>
+                                        </ul>
+                                        <h3>Eligibility</h3>
+                                        <p>The Challenge is open to individuals, teams of individuals, companies and
+                                            their employees, and governmental agencies and their employees.</p>
+                                        <p>The Challenge is not open to:</p>
+                                        <ul>
+                                            <li>Current staff members at the GBIF Secretariat</li>
+                                            <li>Individuals currently contracting directly with the GBIF Secretariat
+                                            </li>
+                                            <li>Members of the GBIF Science Committee</li>
+                                            <li>Heads of Delegation to GBIF</li>
+                                        </ul>
+                                        <h3>Submission requirements</h3>
+                                        <p>Entrants must complete the <a href="http://j.mp/ebbe-2021">entry form</a>,
+                                            which provides information about the entry, including:</p>
+                                        <ul>
+                                            <li>Submission name/title</li>
+                                            <li>Team member(s) names and affiliations</li>
+                                            <li>Abstract and rationale</li>
+                                            <li>Operating instructions</li>
+                                            <li>Link to visuals (prototype, demo, video, screenshots, slides, etc.)</li>
+                                            <li>Link(s) to submission materials on any appropriate website or
+                                                repository
+                                            </li>
+                                        </ul>
+                                        <p>The judges and GBIF Secretariat staff must be able to</p>
+                                        <ul>
+                                            <li>access and operate or review the submission at no cost</li>
+                                            <li>operate it on readily available hardware (if the submission is a
+                                                stand-alone application)
+                                            </li>
+                                            <li>repeat any processes or routines, if the submission is a script or other
+                                                automated solution
+                                            </li>
+                                        </ul>
+                                        <p>Entrants can prepare and document their entries on any repository or platform
+                                            you're comfortable with—<a href="https://github.com">GitHub</a>, <a
+                                                    href="https://www.datadryad.org">Dryad</a>, <a
+                                                    href="https://figshare.com">FigShare</a>, <a href="https://osf.io">Open
+                                                Science Framework</a>, <a href="http://jupyter.org">Jupyter Notebook</a>,
+                                            or use their own website.</p>
+                                        <p>By encouraging entrants to use tools that you're already familiar and
+                                            comfortable with, we hope that anyone interested in submitting can focus
+                                            squarely on questions of what, why and how—</p>
+                                        <ul>
+                                            <li>what the submission is</li>
+                                            <li>why it matters to the GBIF communities it is intended to serve</li>
+                                            <li>how it works</li>
+                                        </ul>
+                                        <h3>What should I create?</h3>
+                                        <p>The 2021 Ebbe Nielsen Challenge is deliberately open-ended, so entrants have
+                                            a broad remit for creating tools and techniques that advance in open science
+                                            and improve the access, utility or quality of GBIF-mediated data. Challenge
+                                            submissions may be new applications, visualization methods, workflows or
+                                            analyses, or they build on and extend existing tools and features.</p>
+                                        <p>It is expected that successful entries provide practical, pragmatic solutions
+                                            for the GBIF network while advancing biodiversity informatics and
+                                            biodiversity data management in relation to the GBIF mission and <a
+                                                    href="/strategic-plan">strategic plan</a>.</p>
+                                        <h3>Criteria</h3>
+                                        <p>A panel of expert judges from relevant scientific, informatics and technology
+                                            domains will evaluate submissions based on the following criteria:</p>
+                                        <ul>
+                                            <li><strong>Openness and repeatability</strong>: Are the constituent
+                                                elements of the submission, like code and content, freely available and
+                                                transparent? Are they appropriately licensed?
+                                            </li>
+                                            <li><strong>Applicability</strong>: Does the submission have sufficient
+                                                relevance and scope that the communities GBIF support can use or build
+                                                it?
+                                            </li>
+                                            <li><strong>Novelty</strong> Has a significant portion of the submission
+                                                been developed specifically for the challenge? Submissions based largely
+                                                or entirely on previously published work are not deemed to be eligible
+                                                entries.
+                                            </li>
+                                        </ul>
+                                        <p><a name="previous"></a></p>
+                                        <h3>Previous Challenge winners and entries</h3>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th></th>
+                                                <th></th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td><strong>2020</strong></td>
+                                                <td><a href="/news/AcT155L4KYZ5RxsfDnGGt/">Winners</a></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2019</strong></td>
+                                                <td><a href="/news/2mixX9oDrJI2W3AqPFOxI3/">Winners</a></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2018</strong></td>
+                                                <td><a href="/news/4TuHBNfycgO4GEMOKkMi4u/">Winners</a></td>
+                                                <td></td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2016</strong></td>
+                                                <td><a href="/news/82914/">Winners</a></td>
+                                                <td><a href="https://gbif2016.devpost.com/submissions">All entries</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td><strong>2015</strong></td>
+                                                <td><a href="/news/82409/">Winners</a></td>
+                                                <td><a href="https://gbif.devpost.com/submissions">All entries</a></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
 
 
                                     </div>
+
+
+                                    <div class="text-center m-b-1" dir="auto">
+                                        <a href="http://j.mp/ebbe-2020" class="gb-button--discreet small"><span
+                                                class="gb-icon-link"></span> Entry form: 2020 Ebbe Nielsen Challenge</a>
+                                    </div>
+
+
+                                    <div class="article-secondary">
+
+                                        <section>
+                                            <ul class="inline-document-list">
+
+                                                <li>
+                                                        <a href="https://www.gbif.org/awards/ebbe-2020-rules"
+                                                       class="inherit noUnderline">
+<!--                                                        <img src="/img/fileTypes/link.png">-->
+                                                        <div>
+                                                            <div dir="auto">
+                                                                Official rules: 2020 GBIF Ebbe Nielsen Challenge
+                                                            </div>
+                                                        </div>
+                                                    </a>
+                                                </li>
+
+
+                                            </ul>
+                                        </section>
+
+                                    </div>
+
+
+                                    <div class="article-auxiliary prose-columns smaller">
+                                        <div>
+
+
+                                            <section class="no-break">
+                                                <h3 translate="cms.auxiliary.subject" class="ng-scope">Subject</h3>
+                                                <ul class="list-chips">
+
+
+                                                    <li class="list-chips__category  uppercase-first ng-binding">
+                                                        Audiences:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <span href="/resource/search?audiences=DATA_USERS">Data users</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?audiences=BIODIVERSITY_KNOWLEDGE_EXPERTS">Biodiversity
+                                                            knowledge experts</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?audiences=GBIF_NETWORK">GBIF
+                                                            network</span>
+                                                    </li>
+
+
+                                                    <li class="list-chips__category  uppercase-first ng-binding">
+                                                        Purpose:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <span href="/resource/search?purposes=DATA_ANALYSIS">Data
+                                                            analysis</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?purposes=DATA_ACCESS">Data access</span>
+                                                    </li>
+
+                                                </ul>
+                                            </section>
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
-                        <!--        <div class="horizontal-stripe&#45;&#45;paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">-->
 
-                        <!--                <map-widget filter="home.mapFilter"  class="fitSize ng-isolate-scope">-->
-
-                        <!--                </map-widget>-->
-                        <!--        </div>-->
+                        </article>
                     </div>
+
 
                 </div>
             </div>
         </div>
     </main>
-    <div id="map_canvas" ></div>
+
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
             <center>
@@ -2135,8 +2103,6 @@
                 <a href="https://www.dit.ac.tz"> <img src="images/dit.png" style="height: 100px"></a>
                 <a href="http://www.costech.or.tz"> <img src="images/costech.jpg" style="height: 100px"></a>
                 <a href="https://jrsbiodiversity.org/"> <img src="images/jrs.png" style="height: 100px"></a>
-
-
             </center>
         </div>
         <div class="horizontal-stripe light-background site-footer__upper">
@@ -2196,21 +2162,73 @@
     window.gb.locale = 'en';
 
     window.gb.urlPrefix = '';
-    window.gb.buildVersion = '1585166682129';
+    window.gb.buildVersion = '1600936161761';
 
 </script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
 
-<script src="js/app.js"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&key=AIzaSyAvxbTJ-f-OQcB-38xF8cSnSRrYNFYU-c4"></script>
-<script src="js/environment.js?v=1585166682129"></script>
-<script src="js/base/vendor.js?v=1585166682129"></script>
-<script src="js/base/custom.js?v=1585166682129"></script>
+<script src="/js/environment.js?v=1600936161761"></script>
+<script src="/js/base/vendor.js?v=1600936161761"></script>
+<script src="/js/base/custom.js?v=1600936161761"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
 
-<script src="js/base/pages/home.js?v=1585166682129"></script>
-<script src="js/base/pages/dashboard.js"></script>
+        if (window.location.search.split('?').length > 1) {
+            var data = window.location.search.split('?')[1];
+            var key = data.split("=")[0];
+            var query = data.split("=")[1];
+            if (query == "*")
+                $('#siteSearch').val("");
+            else
+                $('#siteSearch').val(query);
+            getData(query);
+        } else {
+            getData("*");
+        }
+        $('#siteSearch').keyup(function () {
+            var q = $('#siteSearch').val();
+            if (q.trim() == "")
+                getData("*");
+            else
+                getData(q);
+        });
 
+        function getData(query) {
+            $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>Loading...</center></td></tr>');
+            $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query, function (data) {
+                let occurrences = data.occurrences;
+                var i = 1;
+
+                $("#tbody").html("");
+                if (occurrences.length == 0)
+                    $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>No data </center></td></tr>');
+                for (index in occurrences) {
+
+                    var occurrence = occurrences[index];
+                    var instName = "-"
+
+                    if ("institutionName" in occurrence)
+                        instName = occurrence.institutionName;
+                    $("#tbody").append("<tr>\n" +
+                        "    <td >" + i + "</td>\n" +
+                        "    <td >" + occurrence.scientificName + "</td>\n" +
+                        "    <td >" + occurrence.decimalLatitude + "E, " + occurrence.decimalLongitude + " S</td>\n" +
+                        "    <td >" + instName + "</td>\n" +
+                        "    <td >" + occurrence.kingdom + "</td>\n" +
+                        "    <td >" + occurrence.phylum + "</td>\n" +
+                        "    <td >" + occurrence.classs + "</td>\n" +
+                        "    <td >" + occurrence.order + "</td>\n" +
+                        "    <td >" + occurrence.family + "</td>\n" +
+                        "    <td >" + occurrence.genus + "</td>\n" +
+                        "    <td >" + occurrence.species + "</td>\n" +
+                        "</tr>");
+                    i++;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>

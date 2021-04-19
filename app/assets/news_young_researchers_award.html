@@ -9,7 +9,7 @@
 
 <head ng-controller="headCtrl as head">
 
-    <title>TANBIF | Tanzania Biodiversity Information Facility</title>
+    <title ng-bind="head.getTitle('Search')">TANBIF | Search</title>
 
 
     <link rel="alternate" hreflang="en" href="https://tanbif.ditnet.ac.tz/"/>
@@ -39,16 +39,13 @@
     <link rel="alternate" hreflang="x-default" href="https://tanbif.ditnet.ac.tz/"/>
 
 
-    <meta property="fb:app_id" content="1534726343485342"/>
+    <meta property="fb:app_id" content=""/>
 
-    <meta property="og:title" content="TANBIF"/>
-
-
-    <meta property="og:url" content="https://tanbif.ditnet.ac.tz"/>
+    <meta property="og:title" content="Search"/>
 
 
     <meta property="og:description"
-          content="Tanzania Biodiversity Information Facility. Free and open access to biodiversity data for sustainable socioeconomic development."/>
+          content="Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."/>
 
 
     <meta charset="UTF-8">
@@ -59,37 +56,36 @@
     <!-- Set the page to the width of the device and set the zoom level -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <link rel="apple-touch-icon" sizes="57x57" href="apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon-180x180.png">
-    <link rel="icon" type="image/png" href="resources/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="resources/favicon-194x194.png" sizes="194x194">
-    <link rel="icon" type="image/png" href="resources/favicon-96x96.png" sizes="96x96">
-    <link rel="icon" type="image/png" href="android-chrome-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="resources/favicon-16x16.png" sizes="16x16">
-    <link rel="manifest" href="manifest.json">
-    <link rel="mask-icon" href="safari-pinned-tab.svg" color="#4c9e45">
-    <link rel="shortcut icon" href="resources/favicon.ico">
+    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
+    <link rel="icon" type="image/png" href="/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="/favicon-194x194.png" sizes="194x194">
+    <link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96">
+    <link rel="icon" type="image/png" href="/android-chrome-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="/favicon-16x16.png" sizes="16x16">
+    <link rel="manifest" href="/manifest.json">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4c9e45">
+    <link rel="shortcut icon" href="/favicon.ico">
     <meta name="msapplication-TileColor" content="#00a300">
-    <meta name="msapplication-TileImage" content="mstile-144x144.png">
+    <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#4c9e45">
 
-    <link rel="stylesheet" href="css/app.css">
-    <link rel="stylesheet" type="text/css" href="css/vendor/vendor.css?v=1585166682129">
+    <link rel="stylesheet" type="text/css" href="/css/vendor/vendor.css?v=1600936161761">
 
-    <link rel="stylesheet" type="text/css" href="css/base/shared/style/index.css?v=1585166682129">
-    <link rel="stylesheet" type="text/css" href="css/base/page/dashboard.css">
+    <link rel="stylesheet" type="text/css" href="/css/base/shared/style/index.css?v=1600936161761">
 
 
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!--[if !IE]> -->
     <!-- <![endif]-->
@@ -101,41 +97,11 @@
     <!--[if lt IE 9]>
 
     <![endif]-->
-    <!-- start Trans -->
-    <style>
-        .powered {
-
-            width: 50px;
-        }
-    </style>
-    <script src="js/jquery.min.js"></script>
-    <script src="js/vendor.js?DIGEST"></script>
-    <script src="js/app.js?DIGEST"></script>
-    <script>require('js/init');</script>
-    <script>require('js/homepage-search');</script>
-    <!-- End trans -->
-
     <script>
         function attachGoogleAnalytics() {
-            // console.log('Terms accepted. Attach Google analytics');
-            // (function (i, s, o, g, r, a, m) {
-            //     i['GoogleAnalyticsObject'] = r;
-            //     i[r] = i[r] || function () {
-            //                 (i[r].q = i[r].q || []).push(arguments)
-            //             }, i[r].l = 1 * new Date();
-            //     a = s.createElement(o),
-            //             m = s.getElementsByTagName(o)[0];
-            //     a.async = 1;
-            //     a.src = g;
-            //     m.parentNode.insertBefore(a, m)
-            // })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
-            //
-            // ga('create', 'UA-42057855-4', {'siteSpeedSampleRate': 10});
-            // ga('send', 'pageview');
-            // window.gbifHasSentGoogleAnalyticsForThisUrl = window.location.href;
+
         }
     </script>
-
     <noscript>
         <style>
             body {
@@ -166,40 +132,25 @@
             }
         </style>
     </noscript>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
-          integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
-          crossorigin=""/>
-    <style>
-        #map_canvas{
-            /*position: absolute;*/
-            /*top: 0;*/
-            /*bottom: 0;*/
-            /*left: 0;*/
-            /*right: 0;*/
-            width: 100%;
-            height: 500px;
-        }
 
+    <style>
+        .container-tb {
+            width: auto !important;
+            padding: 10px 100px;
+        }
     </style>
 
 
-    <script type="application/ld+json">
-        {
-            "@context": "http://schema.org/",
-            "@type": "Organization",
-            "url": "http://www.gbif.org/",
-            "logo": "https://tanbif.ditnet.ac.tz/img/logo/TANBIF50.png"
-        }
-    </script>
-
-
 </head>
-<body class="hasTransparentMenu"
-    ng-init="portal.urlPrefix='';BUILD_VERSION=1585166682129"
-    ng-class="{'hasDrawer': portal.getDrawer()}"
-    ng-controller="portalCtrl as portal">
+<body class="
 
-<div class="no-js-enabled" style="display: none"><span>We’re sorry, but TANBIF doesn’t work properly without JavaScript enabled.</span>
+
+"
+      ng-init="portal.urlPrefix='';BUILD_VERSION=1600936161761"
+      ng-class="{'hasDrawer': portal.getDrawer()}"
+      ng-controller="portalCtrl as portal">
+
+<div class="no-js-enabled" style="display: none"><span>We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.</span>
 </div>
 <div class="ie-splash" style="display:none"><span>Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.</span>
 </div>
@@ -1802,331 +1753,561 @@
     <div language-menu></div>
 
 
-    <main id="main" class="main" role="main" ui-view>
+    <main id="main" class="main ng-scope" role="main" ui-view="">
         <div class="site-content">
+
+            <div class="fab ng-isolate-scope" fab="">
+                <div ng-class="{'fab-is-expanded': vm.isExpanded}" ng-click="vm.isExpanded = !vm.isExpanded"
+                     click-outside="vm.isExpanded = false" click-outside-unless="!vm.isExpanded" role="button"
+                     tabindex="0">
+                    <ng-transclude class="fab__content">
+                        <div class="fab__trigger ng-scope">
+                            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Share"><i
+                                    class="gb-icon-share"></i></a>
+                        </div>
+                        <ul class="fab__options ng-scope">
+                            <li>
+                                <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F6SrTuANNJyRweO9c6lSx85%2Fcall-for-nominations-to-the-2021-gbif-young-researchers-award"
+                                   onclick="window.open('https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F6SrTuANNJyRweO9c6lSx85%2Fcall-for-nominations-to-the-2021-gbif-young-researchers-award', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="facebook">
+                                    <i class="gb-icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=Call%20for%20nominations%20to%20the%202021%20GBIF%20Young%20Researchers%20Award"
+                                   onclick="window.open('https://twitter.com/intent/tweet?text=Call%20for%20nominations%20to%20the%202021%20GBIF%20Young%20Researchers%20Award', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="twitter">
+                                    <i class="gb-icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.gbif.org/%2Fnews%2F6SrTuANNJyRweO9c6lSx85%2Fcall-for-nominations-to-the-2021-gbif-young-researchers-award"
+                                   onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F6SrTuANNJyRweO9c6lSx85%2Fcall-for-nominations-to-the-2021-gbif-young-researchers-award', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="linkedin">
+                                    <i class="gb-icon-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </ng-transclude>
+                </div>
+            </div>
 
 
             <div class="site-content__page">
                 <div>
 
-                    <div class="wrapper-horizontal-stripes home" ng-controller="homeCtrl as home">
-                        <div class="home__header" style="background-image: url('images/top-bg.jpg')">
-                            <div>
+                    <div>
+                        <article class="wrapper-horizontal-stripes">
+                            <div class="horizontal-stripe article-header white-background">
                                 <div class="container--desktop">
-                                    <div class="home__header__hero-text">
-                                        <div class="home__header__name">
-                                            <span data-i18n="general.orgshortname"></span> | <span
-                                                data-i18n="general.orgfullname"></span>
+                                    <header>
+                                        <nav class="article-header__category article-header__category--deep">
+                                            <span class="article-header__category__upper"><a
+                                                    href="/resource/search?contentType=news">News</a></span>
+                                            <span class="article-header__category__lower">12 January 2021</span>
+                                        </nav>
+                                        <h1 dir="auto">Call for nominations to the 2021 GBIF Young Researchers
+                                            Award</h1>
+
+                                        <div class="article-header__intro" dir="auto">
+                                            <p><strong>21 June 2021 deadline</strong> for nominating graduate students
+                                                whose innovative research relies on biodiversity data from the GBIF
+                                                network</p>
+
                                         </div>
-                                        <h1>
-                                            Free and open access to biodiversity data for sustainable socioeconomic
-                                            development
-                                        </h1>
-                                        <div class="home__searchFilters">
-                                            <!--TODO: search link-->
-                                            <a href="" id="occurrenceSearch" class="inherit noUnderline"
-                                               ng-href="occurrence-search.html?q=*">Occurrences</a>
-                                            <a href="" id="speciesSearch" class="inherit noUnderline"
-                                               href="#">Species</a>
-                                            <a href="" id="datasetSearch" class="inherit noUnderline"
-                                               href="#">Datasets</a>
-                                            <a href="" id="publisherSearch" class="inherit noUnderline" href="#">Publishers</a>
-                                            <a href="" id="resourceSearch" class="inherit noUnderline" href="#">Resources</a>
-                                        </div>
-                                        <div class="home__header__search-bar search-box">
-                                            <form action="#"
-                                                  ng-submit="home.updateSearch()">
-                                                <input id="siteSearchInputHome" type="text" placeholder="Search"
-                                                       name="q" autocomplete="off"
-                                                       value=""
-                                                       ng-init="home.freeTextQuery == ''"
-                                                       ng-model="home.freeTextQuery"
-                                                       aria-invalid="false"
-                                                       focus-me="true">
-                                                <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                                   ng-href="#" type="submit" id="all">
-                                                    <span class="sr-only">Search</span>
-                                                </a>
-                                            </form>
-                                        </div>
-                                        <div class="home__quicklinks">
-                                            <a href="#" class="gb-button--brand--transparent">What is TANBIF?</a>
-                                            <a ng-href="#" class="gb-button--brand--transparent ng-cloak"
-                                               ng-if="home.country.countryCode"><span
-                                                    translate="homepage.aboutGbifCountry"
-                                                    translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
-                                        </div>
-                                    </div>
-                                    <div class="img_caption">
-                                        <!-- <a href="/occurrence/2576272359">Herd of impalas (<i>Aepyceros melampus</i>)</a> observed in Nyagatare, Rwanda by jordivanoort. Photo via iNaturalist (<a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC 4.0</a>) -->
-                                    </div>
+
+                                    </header>
                                 </div>
                             </div>
-                        </div>
-
-                        <div class="horizontal-stripe light-background p-t-05">
-                            <div class="container--desktop">
-                                <div class="home__counts">
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Occurrence records</h3>
-                                            <div id="occurrence">
-                                                <div class="lds-ellipsis" id="occurrence-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/occurrence/search">1.000,000,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#h" class="inherit noUnderline">
-                                            <h3 class="discreet">Datasets</h3>
-                                            <div id="datasets">
-                                                <div class="lds-ellipsis" id="datasets-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/dataset/search2">40,000</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Publishing Institutions</h3>
-                                            <div id="institutions">
-                                                <div class="lds-ellipsis" id="institutions-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization" subtract="//api.gbif.org/v1/organization/nonPublishing">1,300</div> -->
-                                        </a>
-                                    </article>
-                                    <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Collections</h3>
-                                            <div id="collections">
-                                                <div class="lds-ellipsis" id="collections-lds">
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                    <div></div>
-                                                </div>
-                                            </div>
-                                            <!-- <div count="//api.gbif.org/v1/organization">3,450</div> -->
-                                        </a>
-                                    </article>
-                                </div>
 
 
-                                <div class="home__news">
-                                    <div class="articles">
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_bid_project.html" class="card__stripe article-box__image">
-                                                <img src="/images/bid_project.jpeg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_bid_project.html" class="inherit"><p>Call for proposals for BID project support in Africa</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/news_young_researchers_awards.html" class="card__stripe article-box__image">
-                                                <img src=/images/young_researchers.gif alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/news_young_researchers_awards.html" class="inherit"><p>Call for nominations to the 2021 GBIF Young Researchers Award</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="/ebbe_nielsen_challenge.html" class="card__stripe article-box__image">
-                                                <img src="/images/ebbe_nielsen.png" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="/ebbe_nielsen_challenge.html" class="inherit"><p>2021 Ebbe Nielsen Challenge seeks open-data innovations for biodiversity</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="card__stripe article-box__image">
-                                                <img src="/images/icymi.jpg" alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://mailchi.mp/gbif/gbif-newsletter-march-2021" class="inherit"><p>icymi: GBIF newsletter for March 2021</p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://africanbiodiversity.org/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-3.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">Data use</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.eac.int/environment/natural-resources-management/biodiversity-forestry"
-                                                           class="inherit"><p>Biodiversity & Forestry</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
+                            <div class="horizontal-stripe--paddingless white-background">
+                                <figure class="heading-image">
+                                    <div class="cover-image isValid" data-width="ratio_2_8"
+                                         style="background-image: url(&quot;//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F3ipInwpc4YjDFRNsdZyEsV%2F7bf13ea836c80db81c900e8b8039fa50%2FHolacanthella-paucispinosa-iNat-damienbr-hero.gif&quot;);">
+                                        <img ng-src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F3ipInwpc4YjDFRNsdZyEsV%2F7bf13ea836c80db81c900e8b8039fa50%2FHolacanthella-paucispinosa-iNat-damienbr-hero.gif"
+                                             alt="Holacanthella-paucispinosa-iNat-damienbr-hero" gallery-image=""
+                                             class="ng-isolate-scope"
+                                             src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F3ipInwpc4YjDFRNsdZyEsV%2F7bf13ea836c80db81c900e8b8039fa50%2FHolacanthella-paucispinosa-iNat-damienbr-hero.gif">
+                                    </div>
+                                    <figcaption class="container--narrow" dir="auto">
+                                        <em>Holacanthella paucispinosa</em>—a short-legged springtail—observed in
+                                        Mokoreta, Southland, New Zealand. Photo 2020 Damien Brouste via <a
+                                            href="/occurrence/2596401310">iNaturalist Research-grade Observations</a>,
+                                        licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC
+                                        4.0</a>.
+                                    </figcaption>
+                                </figure>
+                            </div>
 
 
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-4.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                                           class="inherit"><p>Tanzania Fresh Water Biodiversity
-                                                            Information System Project</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://www.gbif.org/publishing-data"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-5.png"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/publishing-data" class="inherit">
-                                                            <p>Quick guide to publishing data through GBIF.org</p></a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://jrsbiodiversity.org/grants/suaplanning/"
-                                               class="card__stripe article-box__image">
-                                                <img src="images/card-img-7.jpg"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">News</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://www.gbif.org/dataset/d3a00072-72b7-4894-96c4-ecd008892eb4"
-                                                           class="inherit"><p>Specie List of Mammals in Tanzania </p>
-                                                        </a>
-                                                    </h4>
-
-                                                </div>
-                                            </div>
-                                        </article>
-
-
-                                        <article class="card card--spaced card--flexible article-box hoverBox">
-
-                                            <a href="https://bid.gbif.org/" class="card__stripe article-box__image">
-                                                <img src="images/card-img-8.png"
-                                                     alt="" class="article-thumb">
-                                                <span class="article-box__type">Taxonomy</span>
-                                            </a>
-
-                                            <div class="card__stripe--expandable inherit">
-                                                <div class="card__content">
-                                                    <h4 class="article-box__title">
-                                                        <a href="https://bid.gbif.org/" class="inherit"><p>BID: <em>
-                                                            Biodiversity Information for Development</em></p></a>
-                                                    </h4>
-
-
-                                                </div>
-                                            </div>
-                                        </article>
+                            <div class="horizontal-stripe white-background">
+                                <div class="container--narrow">
+                                    <div class="body-text--markdown" dir="auto">
+                                        <p>On behalf of the network of national Participants, the GBIF Secretariat is
+                                            pleased to invite nominations for the <a href="/young-researchers-award">2021
+                                                Young Researchers Award</a>. This annual programme aims to foster and
+                                            recognize innovative research and discovery in biodiversity informatics by
+                                            graduate students whose master’s and doctoral studies rely on GBIF-mediated
+                                            data.</p>
+                                        <p>The 2021 programme will provide a pair of €5,000 prizes recognizing the work
+                                            of two early-career researchers—preferably, one master’s and one PhD
+                                            candidate—nominated by the heads of delegation and node managers from <a
+                                                    href="/the-gbif-network">GBIF Participant countries</a>.</p>
+                                        <p>A jury organized by <a href="/contact-us/directory?group=scienceCommittee">GBIF
+                                            Science Committee</a> will select two award recipients from the pool of
+                                            nominees whose names are received by the GBIF Secretariat by <strong>21 June
+                                                2021</strong>. The winners will be announced in early fall 2021.</p>
+                                        <h3>National deadlines for 2021</h3>
+                                        <p>While the deadline for receipt of nominations at the GBIF Secretariat is 21
+                                            June, <strong>local deadlines do apply</strong>!</p>
+                                        <table class="table">
+                                            <thead>
+                                            <tr>
+                                                <th></th>
+                                                <th>Country</th>
+                                                <th>Deadline</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <td>🇬🇧</td>
+                                                <td><a href="http://bit.ly/yra2021-gb">United Kingdom</a></td>
+                                                <td><strong>30 May 2021</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>🇦🇷</td>
+                                                <td><a href="http://bit.ly/yra2021-ar">Argentina</a></td>
+                                                <td><strong>31 May 2021</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>🇦🇺</td>
+                                                <td><a href="http://bit.ly/yra2021-au">Australia</a></td>
+                                                <td><strong>31 May 2021</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>🇨🇴</td>
+                                                <td><a href="http://bit.ly/yra2021-co">Colombia</a></td>
+                                                <td><strong>31 May 2021</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>🇪🇸</td>
+                                                <td><a href="http://bit.ly/yra2021-es">Spain</a></td>
+                                                <td><strong>31 May 2021</strong></td>
+                                            </tr>
+                                            <tr>
+                                                <td>🇺🇸</td>
+                                                <td><a href="/country/US/participation">United States</a></td>
+                                                <td><strong>31 May 2021</strong></td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                        <p>We will post other national deadlines here as and when we receive them and
+                                            post notifications through the <a href="https://www.twitter.com/GBIF">GBIF
+                                                Twitter</a> feed using the hashtag <a
+                                                    href="https://twitter.com/hashtag/YoungResearchers">#YoungResearchers</a>.
+                                        </p>
+                                        <h3>Eligibility</h3>
+                                        <p>Candidates must be enrolled in a university graduate programme to be eligible
+                                            for the award. Candidates must be <strong>either</strong></p>
+                                        <blockquote>
+                                            <p>a) citizens of a country participating in GBIF</p>
+                                        </blockquote>
+                                        <p><strong>or</strong></p>
+                                        <blockquote>
+                                            <p>b) students at an institution located in a GBIF participant country</p>
+                                        </blockquote>
+                                        <p>Nominations can come from the GBIF delegation or node of
+                                            <strong>either</strong> the candidate's country of citizenship
+                                            <strong>or</strong> the country of the candidate’s host institution.</p>
+                                        <h3>Submission process and deadlines</h3>
+                                        <p>Students seeking nomination must apply to the Head of Delegation or node
+                                            manager of a GBIF Voting or Associate Participant country (<a
+                                                    href="/the-gbif-network">see the complete list</a>). National
+                                            participants are responsible for establishing their own deadlines and
+                                            processes for receiving and processing student applications. As a result,
+                                            graduate students who seek nomination should consult the websites of their
+                                            national GBIF Participants or contact the Head of Delegation or node manager
+                                            directly.</p>
+                                        <p>Student proposals are first reviewed and prioritized at the national level.
+                                            GBIF national nodes are encouraged to work closely with the academic
+                                            communities and higher education institutions in their countries and to
+                                            reach out to relevant university programmes and research groups.</p>
+                                        <p>National Heads of Delegation and/or node managers may submit a maximum of two
+                                            nominees per country to the GBIF Secretariat to <a
+                                                    href="mailto:youngresearchersaward@gbif.org">youngresearchersaward@GBIF.org</a>
+                                            by the deadline for submissions: <strong>21 June 2021</strong>. Heads of
+                                            Delegations and node managers will ensure that submissions are complete and
+                                            include all the elements listed below. Submissions of incomplete proposals
+                                            will not be considered.</p>
+                                        <h3>Award nomination packet</h3>
+                                        <p>Candidates should prepare their proposal and nomination packets to
+                                            include:</p>
+                                        <ol>
+                                            <li><strong>Research summary</strong> (<em>200 words</em>)</li>
+                                            <li><strong>Project description</strong> (<em>maximum 5 pages, 12-point
+                                                Arial</em>) that describes<br>
+                                                a. The need for the research and the question(s) it addresses.<br>
+                                                b. <strong>The role of data accessed through GBIF in addressing these
+                                                    questions</strong>. Research proposals must clearly demonstrate how
+                                                the study incorporates data mobilized through GBIF. Students with
+                                                questions about GBIF-enabled data should work with academic advisors,
+                                                their GBIF national node, the GBIF Secretariat or members of the Science
+                                                Committee to increase their understanding.<br>
+                                                c. The research scope, plan, methodologies, relevant literature
+                                                citations and timetable.<br>
+                                                d. If relevant, a description or an excerpt from a data management plan
+                                                that outlines how data related to the research is published or will be
+                                                prepared for publication through the GBIF network to GBIF.org.
+                                            </li>
+                                            <li><strong>Curriculum vitae</strong> of the student applicant including
+                                                full contact information at the home institution.
+                                            </li>
+                                            <li><strong>Supporting documents</strong><br>
+                                                a. An official letter from the student’s faculty mentor/supervisor
+                                                certifying that the applicant is a student in good standing in the
+                                                graduate programme of the university.<br>
+                                                b. At least one, and no more than three, letters of support from
+                                                established researchers active in a field that encompasses and
+                                                incorporates biodiversity informatics (e.g., genetics, species
+                                                composition and traits, biogeography, ecology, systematics, et al.)
+                                            </li>
+                                        </ol>
+                                        <h3>Selection process and criteria</h3>
+                                        <p>The <a href="/contact-us/directory?group=scienceCommittee">GBIF Science
+                                            Committee</a> will review the nominations and select winners of the Young
+                                            Researchers Awards.</p>
+                                        <p>The criteria for the awards include:</p>
+                                        <ul>
+                                            <li>Originality and innovation</li>
+                                            <li>Use of and strategic significance for data accessed through GBIF</li>
+                                            <li>Measurable effectiveness and impact in advancing biodiversity
+                                                informatics and/or the conservation of biological diversity
+                                            </li>
+                                        </ul>
+                                        <p>Proposals that are not selected may be updated and resubmitted for
+                                            consideration in subsequent years.</p>
+                                        <p>Awardees are expected to acknowledge GBIF support when disseminate research
+                                            results via peer-reviewed publications, presentations at professional
+                                            meetings, and other media.</p>
 
 
                                     </div>
+
+
+                                    <div class="article-auxiliary prose-columns smaller">
+                                        <div>
+
+
+                                            <section class="no-break">
+                                                <h3 translate="cms.auxiliary.subject" class="ng-scope">Subject</h3>
+                                                <ul class="list-chips">
+
+
+                                                    <li class="list-chips__category uppercase-first ng-binding">
+                                                        Country or area of coverage:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AO">Angola</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AR">Argentina</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AM">Armenia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BY">Belarus</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=KH">Cambodia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CM">Cameroon</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CO">Colombia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CD">Congo,
+                                                            Democratic Republic of the</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=EC">Ecuador</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GH">Ghana</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=JP">Japan</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=KE">Kenya</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ML">Mali</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NE">Niger</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NG">Nigeria</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SS">South
+                                                            Sudan</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=UG">Uganda</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GB">United Kingdom
+                                                            of Great Britain and Northern Ireland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=UZ">Uzbekistan</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=VN">Viet Nam</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ZW">Zimbabwe</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AD">Andorra</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AU">Australia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BE">Belgium</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BJ">Benin</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BR">Brazil</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CA">Canada</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CF">Central
+                                                            African Republic</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CL">Chile</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CR">Costa Rica</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=DK">Denmark</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=EE">Estonia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=FI">Finland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=FR">France</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=DE">Germany</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GN">Guinea</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=IS">Iceland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=IE">Ireland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=KR">Korea,
+                                                            Republic of</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=LR">Liberia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=LU">Luxembourg</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MG">Madagascar</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MW">Malawi</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MR">Mauritania</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MX">Mexico</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NL">Netherlands</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NZ">New
+                                                            Zealand</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NO">Norway</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=PE">Peru</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=PL">Poland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=PT">Portugal</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SK">Slovakia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SI">Slovenia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ZA">South
+                                                            Africa</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ES">Spain</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SE">Sweden</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CH">Switzerland</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TZ">Tanzania,
+                                                            United Republic of</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TG">Togo</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TO">Tonga</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=US">United States
+                                                            of America</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=UY">Uruguay</span>
+                                                    </li>
+
+
+                                                    <li class="list-chips__category  uppercase-first ng-binding">
+                                                        Audiences:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <a href="/resource/search?audiences=BIODIVERSITY_KNOWLEDGE_EXPERTS">Biodiversity
+                                                            knowledge experts</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/resource/search?audiences=GBIF_NETWORK">GBIF
+                                                            network</a>
+                                                    </li>
+
+                                                    <li>
+                                                        <a href="/resource/search?audiences=PUBLIC_STAKEHOLDERS">Public
+                                                            stakeholders</a>
+                                                    </li>
+
+
+                                                </ul>
+                                            </section>
+
+
+                                        </div>
+                                    </div>
+
                                 </div>
-
                             </div>
-                        </div>
-                        <!--        <div class="horizontal-stripe&#45;&#45;paddingless light-background seperator" style="width:100%;height:0px;padding-bottom:40%;position:relative;">-->
 
-                        <!--                <map-widget filter="home.mapFilter"  class="fitSize ng-isolate-scope">-->
-
-                        <!--                </map-widget>-->
-                        <!--        </div>-->
+                        </article>
                     </div>
+
 
                 </div>
             </div>
         </div>
     </main>
-    <div id="map_canvas" ></div>
+
+
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
             <center>
@@ -2135,8 +2316,6 @@
                 <a href="https://www.dit.ac.tz"> <img src="images/dit.png" style="height: 100px"></a>
                 <a href="http://www.costech.or.tz"> <img src="images/costech.jpg" style="height: 100px"></a>
                 <a href="https://jrsbiodiversity.org/"> <img src="images/jrs.png" style="height: 100px"></a>
-
-
             </center>
         </div>
         <div class="horizontal-stripe light-background site-footer__upper">
@@ -2196,21 +2375,73 @@
     window.gb.locale = 'en';
 
     window.gb.urlPrefix = '';
-    window.gb.buildVersion = '1585166682129';
+    window.gb.buildVersion = '1600936161761';
 
 </script>
-<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
-        integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
-        crossorigin=""></script>
 
-<script src="js/app.js"></script>
-<script type="text/javascript" src="https://maps.google.com/maps/api/js?sensor=true&key=AIzaSyAvxbTJ-f-OQcB-38xF8cSnSRrYNFYU-c4"></script>
-<script src="js/environment.js?v=1585166682129"></script>
-<script src="js/base/vendor.js?v=1585166682129"></script>
-<script src="js/base/custom.js?v=1585166682129"></script>
+<script src="/js/environment.js?v=1600936161761"></script>
+<script src="/js/base/vendor.js?v=1600936161761"></script>
+<script src="/js/base/custom.js?v=1600936161761"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
 
-<script src="js/base/pages/home.js?v=1585166682129"></script>
-<script src="js/base/pages/dashboard.js"></script>
+        if (window.location.search.split('?').length > 1) {
+            var data = window.location.search.split('?')[1];
+            var key = data.split("=")[0];
+            var query = data.split("=")[1];
+            if (query == "*")
+                $('#siteSearch').val("");
+            else
+                $('#siteSearch').val(query);
+            getData(query);
+        } else {
+            getData("*");
+        }
+        $('#siteSearch').keyup(function () {
+            var q = $('#siteSearch').val();
+            if (q.trim() == "")
+                getData("*");
+            else
+                getData(q);
+        });
 
+        function getData(query) {
+            $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>Loading...</center></td></tr>');
+            $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query, function (data) {
+                let occurrences = data.occurrences;
+                var i = 1;
+
+                $("#tbody").html("");
+                if (occurrences.length == 0)
+                    $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>No data </center></td></tr>');
+                for (index in occurrences) {
+
+                    var occurrence = occurrences[index];
+                    var instName = "-"
+
+                    if ("institutionName" in occurrence)
+                        instName = occurrence.institutionName;
+                    $("#tbody").append("<tr>\n" +
+                        "    <td >" + i + "</td>\n" +
+                        "    <td >" + occurrence.scientificName + "</td>\n" +
+                        "    <td >" + occurrence.decimalLatitude + "E, " + occurrence.decimalLongitude + " S</td>\n" +
+                        "    <td >" + instName + "</td>\n" +
+                        "    <td >" + occurrence.kingdom + "</td>\n" +
+                        "    <td >" + occurrence.phylum + "</td>\n" +
+                        "    <td >" + occurrence.classs + "</td>\n" +
+                        "    <td >" + occurrence.order + "</td>\n" +
+                        "    <td >" + occurrence.family + "</td>\n" +
+                        "    <td >" + occurrence.genus + "</td>\n" +
+                        "    <td >" + occurrence.species + "</td>\n" +
+                        "</tr>");
+                    i++;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
