@@ -9,21 +9,45 @@
 
 <head ng-controller="headCtrl as head">
 
-    <title>TANBIF | Search</title>
+    <title ng-bind="head.getTitle('Search')">TANBIF | Search</title>
 
 
     <link rel="alternate" hreflang="en" href="https://tanbif.ditnet.ac.tz/"/>
+
+
     <link rel="alternate" hreflang="zh" href="https://tanbif.ditnet.ac.tz/zh/"/>
+
+
     <link rel="alternate" hreflang="zh-tw" href="https://tanbif.ditnet.ac.tz/zh-tw/"/>
+
+
     <link rel="alternate" hreflang="fr" href="https://tanbif.ditnet.ac.tz/fr/"/>
+
+
     <link rel="alternate" hreflang="ja" href="https://tanbif.ditnet.ac.tz/ja/"/>
+
+
     <link rel="alternate" hreflang="pt" href="https://tanbif.ditnet.ac.tz/pt/"/>
+
+
     <link rel="alternate" hreflang="ru" href="https://tanbif.ditnet.ac.tz/ru/"/>
+
+
     <link rel="alternate" hreflang="es" href="https://tanbif.ditnet.ac.tz/es/"/>
+
+
     <link rel="alternate" hreflang="x-default" href="https://tanbif.ditnet.ac.tz/"/>
+
+
     <meta property="fb:app_id" content=""/>
+
     <meta property="og:title" content="Search"/>
-    <meta property="og:description" content="Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."/>
+
+
+    <meta property="og:description"
+          content="Search for occurrences in Global Biodiversity Information Facility. Free and Open Access to Biodiversity Data."/>
+
+
     <meta charset="UTF-8">
 
     <!-- If IE use the latest rendering engine -->
@@ -31,6 +55,7 @@
 
     <!-- Set the page to the width of the device and set the zoom level -->
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
     <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
@@ -60,6 +85,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i"
           rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=PT+Serif:400i" rel="stylesheet">
+    <link href="//cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css" rel="stylesheet">
 
     <!--[if !IE]> -->
     <!-- <![endif]-->
@@ -71,7 +97,11 @@
     <!--[if lt IE 9]>
 
     <![endif]-->
+    <script>
+        function attachGoogleAnalytics() {
 
+        }
+    </script>
     <noscript>
         <style>
             body {
@@ -102,6 +132,13 @@
             }
         </style>
     </noscript>
+
+    <style>
+        .container-tb {
+            width: auto !important;
+            padding: 10px 100px;
+        }
+    </style>
 
 
 </head>
@@ -1716,153 +1753,584 @@
     <div language-menu></div>
 
 
-    <main id="main" class="main" role="main" ui-view>
+    <main id="main" class="main ng-scope" role="main" ui-view="">
         <div class="site-content">
+
+            <div class="fab ng-isolate-scope" fab="">
+                <div ng-class="{'fab-is-expanded': vm.isExpanded}" ng-click="vm.isExpanded = !vm.isExpanded"
+                     click-outside="vm.isExpanded = false" click-outside-unless="!vm.isExpanded" role="button"
+                     tabindex="0">
+                    <ng-transclude class="fab__content">
+                        <div class="fab__trigger ng-scope">
+                            <a href="" class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="Share"><i
+                                    class="gb-icon-share"></i></a>
+                        </div>
+                        <ul class="fab__options ng-scope">
+                            <li>
+                                <a href="https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3Rjfr2mlTH0xLxt5wKNvPA%2Fcall-for-proposals-for-bid-project-support-in-africa"
+                                   onclick="window.open('https://www.facebook.com/sharer.php?u=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3Rjfr2mlTH0xLxt5wKNvPA%2Fcall-for-proposals-for-bid-project-support-in-africa', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="facebook">
+                                    <i class="gb-icon-facebook"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://twitter.com/intent/tweet?text=Call%20for%20proposals%20for%20BID%20project%20support%20in%20Africa"
+                                   onclick="window.open('https://twitter.com/intent/tweet?text=Call%20for%20proposals%20for%20BID%20project%20support%20in%20Africa', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="twitter">
+                                    <i class="gb-icon-twitter"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https://www.gbif.org/%2Fnews%2F3Rjfr2mlTH0xLxt5wKNvPA%2Fcall-for-proposals-for-bid-project-support-in-africa"
+                                   onclick="window.open('https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A%2F%2Fwww.gbif.org/%2Fnews%2F3Rjfr2mlTH0xLxt5wKNvPA%2Fcall-for-proposals-for-bid-project-support-in-africa', 'newwindow', 'width=600, height=350'); return false;"
+                                   class="action-flow btn btn-lg btn-highlight btn-circle" tooltip="linkedin">
+                                    <i class="gb-icon-linkedin"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </ng-transclude>
+                </div>
+            </div>
+
+
             <div class="site-content__page">
                 <div>
-                    <div class="omni-search-results light-background">
-                        <div class="wrapper-horizontal-stripes">
-                            <div class="horizontal-stripe--paddingless bare-background p-t-1 seperator--b">
-                                <div class="container--narrow">
-                                    <div class="row">
-                                        <div class="col-xs-12">
-                                            <form class="search-box ng-pristine ng-valid"
-                                                  ng-submit="rootSearch.updateSearch()">
-                                                <input type="text" id="siteSearch" autocomplete="off"
-                                                       ng-init="rootSearch.freeTextQuery == ''"
-                                                       ng-model="rootSearch.freeTextQuery"
-                                                       placeholder="Occurrences, species, news ..."
-                                                       ng-keydown="rootSearch.closeOnEsc($event)"
-                                                       class="ng-pristine ng-valid ng-empty ng-touched"
-                                                       aria-invalid="false" style="">
-                                                <a href="" type="submit" style="cursor:pointer"
-                                                   class="search-box__submit gb-icon-search2 inherit"
-                                                   ng-click="rootSearch.updateSearch()">
-                                                    <span class="sr-only ng-scope"
-                                                          translate="search.search">Search</span>
-                                                </a>
-                                            </form>
+
+                    <div>
+                        <article class="wrapper-horizontal-stripes">
+                            <div class="horizontal-stripe article-header white-background">
+                                <div class="container--desktop">
+                                    <header>
+                                        <nav class="article-header__category article-header__category--deep">
+                                            <span class="article-header__category__upper"><a
+                                                    href="/resource/search?contentType=news">News</a></span>
+                                            <span class="article-header__category__lower">14 April 2021</span>
+                                        </nav>
+                                        <h1 dir="auto">Call for proposals for BID project support in Africa</h1>
+
+                                        <div class="article-header__intro" dir="auto">
+                                            <p>The GBIF Secretariat seeks applications from in-region individuals and
+                                                institutions to provide project support in sub-Saharan Africa for the
+                                                Biodiversity Information for Development programme: <strong>DEADLINE 12
+                                                    May 2021</strong></p>
+
                                         </div>
 
-                                        <div class="col-xs-12">
-                                            <nav class="tabs">
-                                                <ul>
-                                                    <!--TODO: Add Transilation-->
-                                                    <li class="tab ">
-                                                        <a href="all.html?=*" class="ng-scope">ALL</a>
+                                    </header>
+                                </div>
+                            </div>
+
+
+                            <div class="horizontal-stripe--paddingless white-background">
+                                <figure class="heading-image">
+                                    <div class="cover-image isValid" data-width="ratio_2_8"
+                                         style="background-image: url(&quot;//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5KJubTALbro15SiiPGevni%2F7135ee3ecc80ecd1b19d4f4442ba70e0%2FMusa-acuminata-iNat-Ishukan2-hero.jpg&quot;);">
+                                        <img ng-src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5KJubTALbro15SiiPGevni%2F7135ee3ecc80ecd1b19d4f4442ba70e0%2FMusa-acuminata-iNat-Ishukan2-hero.jpg"
+                                             alt="Musa-acuminata-iNat-Ishukan2-hero" gallery-image=""
+                                             class="ng-isolate-scope"
+                                             src="//api.gbif.org/v1/image/unsafe/1170x422/http:%2F%2Fimages.ctfassets.net%2Fuo17ejk9rkwj%2F5KJubTALbro15SiiPGevni%2F7135ee3ecc80ecd1b19d4f4442ba70e0%2FMusa-acuminata-iNat-Ishukan2-hero.jpg">
+                                    </div>
+                                    <figcaption class="container--narrow" dir="auto">
+                                        Cavendish banana (<em>Musa acuminata</em>), Sudan. Photo 2021 lshukan via <a
+                                            href="/occurrence/3018005868">iNaturalist Research-grade Observations</a>,
+                                        licensed under <a href="http://creativecommons.org/licenses/by-nc/4.0/">CC BY-NC
+                                        4.0</a>.
+                                    </figcaption>
+                                </figure>
+                            </div>
+
+
+                            <div class="horizontal-stripe white-background">
+                                <div class="container--narrow">
+                                    <div class="body-text--markdown" dir="auto">
+                                        <p>The GBIF Secretariat is seeking contractors to support the team developing a
+                                            community of practice in sub-Saharan Africa through the European
+                                            Union-funded Biodiversity Information for Development (BID) programme.
+                                            Individuals and institutions located in <a
+                                                    href="/article/y4yos8JwOVccTRuS1kYRD/">BID-eligible countries in the
+                                                region</a> will support these efforts by:</p>
+                                        <ul>
+                                            <li>Providing technical help-desk assistance, training and mentoring to
+                                                support project teams in meeting their goals and objectives on
+                                                mobilization and use of biodiversity data
+                                            </li>
+                                            <li>Facilitating exchange of guidance, best practices and expertise between
+                                                the project teams and other volunteer experts from the broader GBIF
+                                                community
+                                            </li>
+                                            <li>Encouraging project-team members’ long-term engagement in the GBIF
+                                                network
+                                            </li>
+                                        </ul>
+                                        <h3>About BID</h3>
+                                        <p><a href="/programme/82243/">Biodiversity Information for Development</a>, or
+                                            BID, is a programme funded by the <a href="https://europa.eu">European
+                                                Union</a> and led by GBIF. The programme aims to enhance capacity for
+                                            effective mobilization and use of biodiversity data in support of decision-
+                                            and policymaking for sustainable development.</p>
+                                        <p><a href="/news/82375">Funding from BID's first phase</a> supported capacity
+                                            enhancement activities and projects to mobilize biodiversity data and to
+                                            strengthen national and regional biodiversity information facilities. The
+                                            programme’s second phase opened in 2020 with a <a href="/bid-africa-2020">call
+                                                for project proposals from sub-Saharan Africa</a>. A set of 19 selected
+                                            projects under four different grant types will start in April 2021 and run
+                                            for two years.</p>
+                                        <p>GBIF places strong emphasis on capacity enhancement to support the project
+                                            teams in achieving their goals, recognizing that there are significant
+                                            challenges to successful implementation of what are often first-time data
+                                            mobilization projects.</p>
+                                        <h3>The role of the project support contractors</h3>
+                                        <p>During BID’s second phase, the regional support contractors will apply their
+                                            skills and experience in sub-Saharan Africa to provide on-going assistance
+                                            to the project teams. As well as supplementing the project support already
+                                            provided by GBIF Secretariat, the contractors will also address the
+                                            challenges of coordinating project work due to the impacts of the COVID-19
+                                            pandemic.</p>
+                                        <p>The regional project support approach centres on developing a community of
+                                            practice involving the members of the funded project teams and the broader
+                                            GBIF community. The contracted roles will complement but not replace the <a
+                                                    href="/mentors">volunteer mentors</a>, who remain an essential
+                                            component of GBIF’s capacity enhancement activities. While either
+                                            individuals or organizations may apply to provide support on a contractual
+                                            basis, the aim is to create a team of dedicated individuals enhancing the
+                                            work of the GBIF Secretariat through their presence in and knowledge of the
+                                            target region.</p>
+                                        <p>GBIF’s <a href="/the-gbif-network">regional sub-committees</a> serve as
+                                            platforms for communication, coordination and collaboration among GBIF
+                                            Participant nodes at the regional level. The contractors will work in
+                                            collaboration with the GBIF Participant nodes and the elected Regional
+                                            Representatives to strengthen the coordination of regional participation in
+                                            GBIF.</p>
+                                        <h3>Scope of work</h3>
+                                        <p>The contracted individuals or institutions will support the BID coordination
+                                            team at the GBIF Secretariat and have responsibility for delivering:</p>
+                                        <ol>
+                                            <li>Regular group meetings with the project teams, supporting the
+                                                development of the community of practice
+                                            </li>
+                                            <li>Help desk assistance as the primary technical point of contact assisting
+                                                with regional data mobilization and data quality issues, in coordination
+                                                with the relevant GBIF Participant nodes and the GBIF Secretariat Data
+                                                Products team
+                                            </li>
+                                            <li>Project mentoring focused on technical support for implementing the
+                                                project teams’ data mobilization plans
+                                            </li>
+                                            <li>Support for BID capacity enhancement workshops and project-level
+                                                replication workshops following the projects’ knowledge dissemination
+                                                plans
+                                            </li>
+                                            <li>In coordination with GBIF regional representatives and relevant GBIF
+                                                Participant nodes, support in recruiting and assigning appropriate
+                                                mentors to strengthen the community of practice
+                                            </li>
+                                            <li>Recommendations on future development of the community of practice,
+                                                including identification of key capacity needs and training
+                                                opportunities
+                                            </li>
+                                            <li>Bi-monthly status reports for the BID community of practice summarizing
+                                                activities undertaken personally and by the community, in addition to
+                                                participating in regular BID planning meetings involving the GBIF
+                                                Secretariat and other regional contractors.
+                                            </li>
+                                        </ol>
+                                        <h3>Required skills and experience</h3>
+                                        <p>The ideal contractor would already have substantial experience in data
+                                            mobilization and publishing through GBIF, and a solid working knowledge
+                                            of:</p>
+                                        <ul>
+                                            <li>The content, structure and components of the GBIF data infrastructure
+                                            </li>
+                                            <li>The GBIF <a href="/ipt">Integrated Publishing Toolkit</a> (IPT)</li>
+                                            <li>Relevant standards for data exchange (Darwin Core Archive and EML)</li>
+                                        </ul>
+                                        <p><strong>Other required skills</strong></p>
+                                        <ul>
+                                            <li>We are looking for both Francophone and Anglophone consultants. Fluency
+                                                in English is required as it is the working language of the Secretariat.
+                                                Additional language skills will be considered an advantage.
+                                            </li>
+                                            <li>Familiarity with the GBIF network</li>
+                                            <li>Strong communication skills and the ability to provide clear guidance,
+                                                for example, on technical issues related to data publishing
+                                            </li>
+                                            <li>The ability to work independently and as part of a team</li>
+                                        </ul>
+                                        <p>In addition, the following skills will be considered beneficial in carrying
+                                            out the work defined effectively:</p>
+                                        <ul>
+                                            <li>Basic project management skills, for example having successfully
+                                                delivered funded projects
+                                            </li>
+                                            <li>Experience in training or mentoring</li>
+                                            <li>Experience in setting up and/or updating an IPT</li>
+                                            <li>Relational databases and SQL</li>
+                                            <li>Experience with data processing, working with large data bases</li>
+                                            <li>Basic understanding of JSON web services and their use</li>
+                                            <li>Knowledge of R or Python and APIs</li>
+                                        </ul>
+                                        <h3>Schedule and time commitments</h3>
+                                        <p>We expect the contracted work to take no less than 50 per cent full-time
+                                            equivalent over the contract period. For applications from institutions, we
+                                            require that the specific contractor is named in the contract and committed
+                                            to this work for a minimum period of one year, with clear plans for handover
+                                            should the role be transferred to another individual within the institution
+                                            after that time.</p>
+                                        <p>We expect to issue contracts for regional project support up to two full time
+                                            equivalents for the Africa region.</p>
+                                        <blockquote>
+                                            <p>Deadline for submission of questions: <strong>5 May 2021</strong><br>
+                                                Deadline for submission of proposals: <strong>12 May 2021</strong><br>
+                                                Expected start of the contract: <strong>ASAP</strong>, ideally no later
+                                                than August 2021<br>
+                                                Duration of the contract: <strong>24 months</strong><br>
+                                                Delivery of the first report: <strong>31 August 2021</strong> preferred
+                                            </p>
+                                        </blockquote>
+                                        <h3>Location</h3>
+                                        <p>It is expected that the work is carried out at the home base or host
+                                            institution of the selected candidate. Applicants must be individuals or
+                                            institutions located in the <a href="/article/y4yos8JwOVccTRuS1kYRD/">BID
+                                                eligible countries in the region</a>. Please note that applications from
+                                            overseas territories in the region are not eligible.</p>
+                                        <p>Applications from countries or organizations that already participate in GBIF
+                                            must include a statement of endorsement from the GBIF Head of Delegation or
+                                            Node Manager. Contact information for representatives of GBIF Participant
+                                            countries and organizations can be found on the Participant tab of the
+                                            country pages or from the <a href="/the-gbif-network">Participant list</a>.
+                                        </p>
+                                        <h3>Application procedure</h3>
+                                        <p>Applications must be submitted in English through the <a
+                                                href="https://gbif.fluxx.io/">GBIF Grants Portal</a> before the stated
+                                            deadline. When completing your application form on the GBIF Grants Portal,
+                                            you must upload:</p>
+                                        <ol>
+                                            <li>A full CV for the individual submitting the application, or for the
+                                                individual who would be assigned to the work for institutional
+                                                applications.
+                                            </li>
+                                            <li>A letter of support from the host institution, where applicable,
+                                                indicating links to the GBIF Participant node if located in a country or
+                                                linked to an organization that already participates in GBIF.
+                                            </li>
+                                            <li>For applications from countries or organizations that already
+                                                participate in GBIF, a statement of endorsement from the GBIF Head of
+                                                Delegation or Node Manager. This can take the form of a letter stating
+                                                at a minimum that the Head of Delegation or Node Manager is aware of the
+                                                application and that it appears to fall within the scope of the call.
+                                            </li>
+                                        </ol>
+                                        <p>Questions on the application procedure may be directed to <a
+                                                href="mailto:BID_support@gbif.org">BID_support@gbif.org</a>.</p>
+                                        <h3>About the GBIF Grants Portal</h3>
+                                        <p><strong>We highly recommended that applicants create an account in the <a
+                                                href="https://gbif.fluxx.io/user_sessions/new">GBIF Grants Portal</a> as
+                                            early as possible</strong>, as the account verification process can take up
+                                            to two working days.</p>
+                                        <p>Note that if you already have an account in the GBIF Grants Portal, you
+                                            should use your existing login information. You should <strong>not</strong>
+                                            create a new account to apply to this call.</p>
+                                        <p>If you need to create an account in the GBIF Grants Portal and you are <em>not</em>
+                                            currently affiliated with an organization:</p>
+                                        <ol>
+                                            <li>Go to the GBIF Grants Portal and click on “create an account now”.</li>
+                                            <li>Choose “yes” when asked if you represent or are affiliated with an
+                                                organization or an institution.
+                                            </li>
+                                            <li>Complete the form indicating your primary contact information.</li>
+                                            <li>In the <code>Organization Information</code> section, indicate the
+                                                following under organization’s name: ‘Your first name-your last
+                                                name-Consultant’ and then replicate the information provided in the
+                                                “Primary Contact Information” section of the form.
+                                            </li>
+                                        </ol>
+                                        <h3>Selection process</h3>
+                                        <p>A selection committee will involve GBIF Secretariat staff, members of the BID
+                                            steering committee and GBIF Participant Node Managers Committee.</p>
+                                        <p>The applications will be screened to ensure that they meet general
+                                            eligibility criteria. Those that pass these tests will be scored against the
+                                            following selection criteria:</p>
+                                        <ul>
+                                            <li>Demonstration of required skills</li>
+                                            <li>Previous relevant experience</li>
+                                            <li>Appreciation of the task</li>
+                                            <li>Potential for lasting impact on the capacity within the region</li>
+                                            <li>Value for money</li>
+                                        </ul>
+                                        <p>The selection committee will then evaluate the concept notes based on
+                                            scoring. The committee may also take the following criteria into account to
+                                            ensure that the final selection includes a balance in:</p>
+                                        <ul>
+                                            <li>Geographic spread of applicants within the region</li>
+                                            <li>Language skills within the region</li>
+                                            <li>Complementary skill set within the region, e.g. balance of technical and
+                                                project management skills
+                                            </li>
+                                        </ul>
+                                        <p>Short-listed candidates will be invited to interview in May and June 2021.
+                                            Candidates will be expected to demonstrate their skills in data mobilization
+                                            through a practical exercise.</p>
+                                        <hr>
+                                        <p>
+                                            <img src="//images.ctfassets.net/uo17ejk9rkwj/ZM2kbuCIzpIaflYUCa3ab/b8b2abc18456f023c6e17ec6b8a6336c/flag-yellow-sm.jpg">
+                                            &nbsp;<em>This programme is funded by the <a href="http://www.europa.eu">European
+                                            Union</a>.</em></p>
+
+
+                                    </div>
+
+
+                                    <div class="article-auxiliary prose-columns smaller">
+                                        <div>
+
+
+                                            <section class="no-break">
+                                                <h3 translate="cms.auxiliary.subject" class="ng-scope">Subject</h3>
+                                                <ul class="list-chips">
+
+
+                                                    <li class="list-chips__category uppercase-first ng-binding">
+                                                        Country or area of coverage:
                                                     </li>
 
-                                                    <li class="tab">
-                                                        <a href="occurrence-search.html?q=*"
-                                                           translate="search.occurrences"
-                                                           class="ng-scope">Occurrences</a>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=AO">Angola</span>
                                                     </li>
 
-                                                    <li class="tab">
-                                                        <a href="species-search.html?q=*" translate="search.species"
-                                                           class="ng-scope">Species</a>
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BJ">Benin</span>
                                                     </li>
 
-                                                    <li class="tab">
-                                                        <a href="datasets-search.html?q=*" translate="search.datasets"
-                                                           class="ng-scope">Datasets</a>
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BW">Botswana</span>
                                                     </li>
 
-                                                    <li class="tab isActive">
-                                                        <a href="publishers-search.html?p=*"
-                                                           translate="search.publishers" class="ng-scope">Publishers</a>
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BF">Burkina
+                                                            Faso</span>
                                                     </li>
 
-                                                    <li class="tab">
-                                                        <a href="resources-search.html?q=*" translate="search.resources"
-                                                           class="ng-scope">Resources</a>
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=BI">Burundi</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CM">Cameroon</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CV">Cabo Verde</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CF">Central
+                                                            African Republic</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TD">Chad</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=KM">Comoros</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CD">Congo,
+                                                            Democratic Republic of the</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CG">Congo</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=CI">Côte
+                                                            d’Ivoire</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=DJ">Djibouti</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GQ">Equatorial
+                                                            Guinea</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ER">Eritrea</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SZ">Eswatini</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ET">Ethiopia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GA">Gabon</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GM">Gambia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GH">Ghana</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GN">Guinea</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=GW">Guinea-Bissau</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=KE">Kenya</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=LS">Lesotho</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=LR">Liberia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MG">Madagascar</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MW">Malawi</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ML">Mali</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MR">Mauritania</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=MZ">Mozambique</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NA">Namibia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NE">Niger</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=NG">Nigeria</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=RW">Rwanda</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ST">Sao Tome and
+                                                            Principe</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SN">Senegal</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SC">Seychelles</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SL">Sierra
+                                                            Leone</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SO">Somalia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SS">South
+                                                            Sudan</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=SD">Sudan</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TZ">Tanzania,
+                                                            United Republic of</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=TG">Togo</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=UG">Uganda</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ZM">Zambia</span>
+                                                    </li>
+
+                                                    <li>
+                                                        <span href="/resource/search?countriesOfCoverage=ZW">Zimbabwe</span>
+                                                    </li>
+
+
+                                                    <li class="list-chips__category  uppercase-first ng-binding">
+                                                        Audiences:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <a href="/resource/search?audiences=GBIF_NETWORK">GBIF
+                                                            network</a>
+                                                    </li>
+
+
+                                                    <li class="list-chips__category  uppercase-first ng-binding">
+                                                        Purpose:
+                                                    </li>
+
+
+                                                    <li>
+                                                        <a href="/resource/search?purposes=CAPACITY_ENHANCEMENT">Capacity
+                                                            enhancement</a>
                                                     </li>
 
                                                 </ul>
-                                            </nav>
+                                            </section>
+
+
                                         </div>
                                     </div>
 
                                 </div>
                             </div>
-                            <div class="horizontal-stripe--paddingless">
-                                <div class="container--narrow">
-                                    <div class="row">
-                                        <div style="padding: 20px 0px">
-                                            <div class="card m-b-05 searchCard searchCard--publisher rtl-supported ng-scope">
-                                                <div class="card__stripe">
-                                                    <div class="card__content">
-                                                        <!-- ngIf: result.created | isNew --><span
-                                                            class="searchCard__type ng-scope"
-                                                            ng-if="result.created | isNew"
-                                                            translate="publisher.newPublisher">New publisher</span>
-                                                        <!-- end ngIf: result.created | isNew -->
-                                                        <h3 class="searchCard__headline" dir="auto">
-                                                            <a ui-sref="publisherKey({key:result.key})"
-                                                               href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed"
-                                                               class="ng-binding">
-                                                                Wildlife Conservation Society - Chile (WCS-Chile)
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="card__stripe">
-                                                    <div class="card__content searchCard__content clearfix rtl-bootstrap">
-                                                        <a ui-sref="publisherKey({key:result.key})"
-                                                           href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed"
-                                                           class="pull-right">
-                                                            <!-- ngIf: result.logoUrl --><img
-                                                                class="searchCard__img--noCrop ng-scope"
-                                                                ng-src="//api.gbif.org/v1/image/unsafe/128x/https%3A%2F%2Fchile.wcs.org%2FPortals%2F134%2FWCS%2520sin%2520fondo.png%3Fver%3D2020-09-04-134427-417"
-                                                                ng-if="result.logoUrl"
-                                                                src="//api.gbif.org/v1/image/unsafe/128x/https%3A%2F%2Fchile.wcs.org%2FPortals%2F134%2FWCS%2520sin%2520fondo.png%3Fver%3D2020-09-04-134427-417">
-                                                            <!-- end ngIf: result.logoUrl -->
-                                                        </a>
-                                                        <!-- ngIf: result.created -->
-                                                        <div class="searchCard__meta ng-scope" ng-if="result.created">
-                                                            <span translate="publisher.joinedAgo"
-                                                                  translate-values="{TIME_AGO: (result.created | momentFromNow)}"
-                                                                  class="ng-scope">Joined a month ago</span>
-                                                        </div><!-- end ngIf: result.created -->
-                                                        <!-- ngIf: result._contact.email[0] -->
-                                                        <p dir="auto" class="ng-binding">
-                                                            WCS es una organización con presencia global y más de 120
-                                                            años de experiencia, cuya misión es proteger los paisajes y
-                                                            la vida silvestres a través de la ciencia (investigación),
-                                                            acciones de conservació…
-                                                        </p>
-                                                        <ul class="list-chips">
-                                                            <!-- ngIf: result.numPublishedDatasets -->
-                                                            <!-- ngIf: result.country -->
-                                                            <li ng-if="result.country" class="ng-scope">
-                                                                <a href="/publisher/search?country=CL"
-                                                                   ui-sref=".({country:result.country})"
-                                                                   translate="country.CL" class="ng-scope ng-binding">Chile</a>
-                                                            </li><!-- end ngIf: result.country -->
-                                                            <li class="asyncIf--isHidden loaded"
-                                                                async-if="/api/resource/search?contentType=literature&amp;publishingOrganizationKey=19e1c2ff-6122-4b75-97ac-a708eabff5ed">
-                                                                <a ui-sref="resourceSearchList({publishingOrganizationKey:result.key, contentType:'literature'})"
-                                                                   href="/resource/search?contentType=literature&amp;publishingOrganizationKey=19e1c2ff-6122-4b75-97ac-a708eabff5ed"><span
-                                                                        count="/api/resource/search?contentType=literature&amp;publishingOrganizationKey=19e1c2ff-6122-4b75-97ac-a708eabff5ed"
-                                                                        count-translation="counts.nCitations"
-                                                                        class="loaded">0 citations</span></a>
-                                                            </li>
-                                                        </ul>
 
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+                        </article>
                     </div>
+
+
                 </div>
             </div>
         </div>
     </main>
-
 
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
@@ -1872,8 +2340,6 @@
                 <a href="https://www.dit.ac.tz"> <img src="images/dit.png" style="height: 100px"></a>
                 <a href="http://www.costech.or.tz"> <img src="images/costech.jpg" style="height: 100px"></a>
                 <a href="https://jrsbiodiversity.org/"> <img src="images/jrs.png" style="height: 100px"></a>
-
-
             </center>
         </div>
         <div class="horizontal-stripe light-background site-footer__upper">
@@ -1927,11 +2393,7 @@
         <span ng-bind-html="match.label | uibTypeaheadHighlight:query"></span>
     </a>
 </script>
-<script>
-    function attachGoogleAnalytics() {
 
-    }
-</script>
 <script>
     window.gb = window.gb || {};
     window.gb.locale = 'en';
@@ -1944,7 +2406,66 @@
 <script src="/js/environment.js?v=1600936161761"></script>
 <script src="/js/base/vendor.js?v=1600936161761"></script>
 <script src="/js/base/custom.js?v=1600936161761"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"
+        integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
+<script src="//cdn.datatables.net/1.10.22/js/jquery.dataTables.min.js"></script>
+<script>
+    $(document).ready(function () {
 
+        if (window.location.search.split('?').length > 1) {
+            var data = window.location.search.split('?')[1];
+            var key = data.split("=")[0];
+            var query = data.split("=")[1];
+            if (query == "*")
+                $('#siteSearch').val("");
+            else
+                $('#siteSearch').val(query);
+            getData(query);
+        } else {
+            getData("*");
+        }
+        $('#siteSearch').keyup(function () {
+            var q = $('#siteSearch').val();
+            if (q.trim() == "")
+                getData("*");
+            else
+                getData(q);
+        });
 
+        function getData(query) {
+            $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>Loading...</center></td></tr>');
+            $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query, function (data) {
+                let occurrences = data.occurrences;
+                var i = 1;
+
+                $("#tbody").html("");
+                if (occurrences.length == 0)
+                    $("#tbody").html('<tr><td colspan="101" style="align-content: center"><center>No data </center></td></tr>');
+                for (index in occurrences) {
+
+                    var occurrence = occurrences[index];
+                    var instName = "-"
+
+                    if ("institutionName" in occurrence)
+                        instName = occurrence.institutionName;
+                    $("#tbody").append("<tr>\n" +
+                        "    <td >" + i + "</td>\n" +
+                        "    <td >" + occurrence.scientificName + "</td>\n" +
+                        "    <td >" + occurrence.decimalLatitude + "E, " + occurrence.decimalLongitude + " S</td>\n" +
+                        "    <td >" + instName + "</td>\n" +
+                        "    <td >" + occurrence.kingdom + "</td>\n" +
+                        "    <td >" + occurrence.phylum + "</td>\n" +
+                        "    <td >" + occurrence.classs + "</td>\n" +
+                        "    <td >" + occurrence.order + "</td>\n" +
+                        "    <td >" + occurrence.family + "</td>\n" +
+                        "    <td >" + occurrence.genus + "</td>\n" +
+                        "    <td >" + occurrence.species + "</td>\n" +
+                        "</tr>");
+                    i++;
+                }
+            });
+        }
+    });
+</script>
 </body>
 </html>
