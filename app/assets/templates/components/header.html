@@ -1,0 +1,245 @@
+
+<div class="no-js-enabled" style="display: none"><span>We’re sorry, but GBIF doesn’t work properly without JavaScript enabled.</span>
+</div>
+<div class="ie-splash" style="display:none"><span>Our website has detected that you are using an outdated insecure browser that will prevent you from using the site. We suggest you upgrade to a modern browser.</span>
+</div>
+
+<div class="stickyNav rtl-supported"
+     ng-class="{'mobileMenu--active': nav.mobileMenuActive, 'mainMenu--firstLevelActive': nav.activeMenu, hasOffset: nav.scrollOffset > 0}"
+     ng-controller="navCtrl as nav">
+    <div class="stickyNav__container">
+        <a href="https://tanbif.ditnet.ac.tz" id="block-logo" class="gbif-logo">
+
+            <img src="/images/tanbif-logo.svg" style="width: 67px; height: 38px;">
+
+        </a>
+
+        <div class="stickyNav__actions">
+            <a href=""
+               class="stickyNav__actions__action gb-icon-heartbeat stickyNav__actions__action--notification ng-cloak"
+               ng-click="nav.toggleNotifications()" ng-if="nav.notifications.count > 0"
+               ng-class="{'is-info': nav.notifications.severity == 'INFO'}"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-heartbeat" ng-href="#"
+               ng-if="!nav.notifications || nav.notifications.count == 0"></a>
+
+            <a href="" class="stickyNav__actions__action gb-icon-translate" ng-click="nav.toggleLanguage()"></a>
+
+            <a href="" class="stickyNav__actions__action gb-icon-search2" ng-click="nav.toggleSearch()"></a>
+            <a href="" class="stickyNav__actions__action gb-icon-bubble" ng-click="nav.toggleFeedback()"
+               ng-class="{'stickyNav__actions__action--notification': nav.commentCount}"></a>
+            <a href="" class="stickyNav__actions__menu gb-icon-menu" ng-click="nav.toggleMobileMenu()"
+               ng-class="{'gb-icon-close_L': nav.mobileMenuActive, 'gb-icon-menu': !nav.mobileMenuActive}"></a>
+            <a class="stickyNav__actions__login" href="" ng-click="nav.toggleUserMenu()">
+                <span class="service-menu__button hoverBox">
+                    <div class="inline-block">
+                        <span class="ng-cloak" data-i18n="nav.login">Login</span>
+                    </div>
+                </span>
+            </a>
+        </div>
+        <div class="mainNavigation" ng-class="{'isActive': nav.mobileMenuActive}">
+            <nav class="mainMenu" click-outside="nav.toggleMenu()">
+                <ul>
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Get data'}"
+                    >
+                        <a class="mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Get data')" dir="auto">Our Services</a>
+
+                        <!-- <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a> -->
+                        <ul class="mainMenu__childGroup">
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Species</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li>
+                                            <a data-i18n="nav.species" class="mdl-navigation__link"
+                                               href="https://species.tanbif.ditnet.ac.tz">Species</a>
+                                        </li>
+                                        <li>
+                                            <a data-i18n="nav.species-lists" class="mdl-navigation__link"
+                                               href="https://lists.tanbif.ditnet.ac.tz">Species Lists</a>
+                                        </li>
+                                        <li>
+                                            <a data-i18n="nav.spatial" class="mdl-navigation__link"
+                                               href="https://spatial.tanbif.ditnet.ac.tz">Spatial Portal</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Collections</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li>
+                                            <a data-i18n="nav.collectory" class="mdl-navigation__link"
+                                               href="https://collections.tanbif.ditnet.ac.tz">Collections</a>
+                                        </li>
+                                        <li>
+                                            <a data-i18n="nav.datasets" class="mdl-navigation__link"
+                                               href="https://collections.tanbif.ditnet.ac.tz/datasets">Datasets</a>
+                                        </li>
+                                        <li>
+                                            <a data-i18n="nav.regions" class="mdl-navigation__link"
+                                               href="https://regions.tanbif.ditnet.ac.tz">Regions</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Other </h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li>
+                                            <a data-i18n="nav.biocache" class="mdl-navigation__link"
+                                               href="https://records.tanbif.ditnet.ac.tz/">Occurrences</a>
+                                        </li>
+                                        <li>
+                                            <a data-i18n="nav.images" class="mdl-navigation__link"
+                                               href="https://images.tanbif.ditnet.ac.tz">Images</a>
+                                        </li>
+                                        <li>
+                                            <a class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+                        </ul>
+                    </li>
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'How-to'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a>
+                        <ul class="mainMenu__childGroup">
+
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Share data</h2>
+                                    <ul class="mainMenu__childItem">
+
+                                        <li>
+                                            <a href="/quick-start.html" dir="auto">Quick-start guide
+
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/standards.html" dir="auto">Standards
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Publisher</h2>
+                                    <ul class="mainMenu__childItem">
+
+                                        <li>
+                                            <a href="/become-a-publisher.html" dir="auto">Become a publisher
+
+                                            </a>
+                                        </li>
+
+                                        <li>
+                                            <a href="/data-quality-requirements.html" dir="auto">Data quality
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Tools'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Tools')" dir="auto">Tools</a>
+                        <ul class="mainMenu__childGroup">
+
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Publishers</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <!--TODO: TanBif Api-->
+                                        <li>
+                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
+
+                        </ul>
+                    </li>
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Community'}"
+                    >
+                        <a class=" mainMenu__parentItem" href=""
+                           ng-click="nav.toggleMenu('Community')" dir="auto">Community</a>
+                        <ul class="mainMenu__childGroup">
+
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Network</h2>
+                                    <ul class="mainMenu__childItem">
+
+                                        <li>
+                                            <a href="https://github.com/TANBIF" dir="auto">GitHub
+
+                                            </a>
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </li>
+
+                            <!--                                        <li class="mainMenu__columns" >-->
+                            <!--                                            <nav><h2 dir="auto">Volunteers</h2>-->
+                            <!--                                                <ul class="mainMenu__childItem">-->
+
+
+                            <!--                                                </ul>-->
+                            <!--                                            </nav>-->
+                            <!--                                        </li>-->
+
+                            <!--                                        <li class="mainMenu__columns" >-->
+                            <!--                                            <nav><h2 dir="auto">Activities</h2>-->
+                            <!--                                                <ul class="mainMenu__childItem">-->
+
+                            <!--                                                       -->
+                            <!--                                                </ul>-->
+                            <!--                                            </nav>-->
+                            <!--                                        </li>-->
+
+                        </ul>
+                    </li>
+
+
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}"
+                    >
+                        <a class=" mainMenu__parentItem" href="about.html" dir="auto">About</a>
+                    </li>
+
+
+                    <li class="mainMenu__firstLevel hide-on-laptop">
+                        <a class="mainMenu__parentItem" dir="auto" href="/user/profile"><span
+                                translate="profile.userProfile">User profile</span> <span ng-bind="nav.loginGreeting"
+                                                                                          class="mainMenu__greenText m-l-1"></span></a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</div>

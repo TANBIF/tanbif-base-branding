@@ -8,7 +8,8 @@ const settings = require('./app/js/settings.js');
 const toReplace = [/index\.html$/,      // index can be used as your main LA page
                    /errorPage\.html/,   // An error page that can be used in your infrastructure
                    /testPage\.html$/,   // testPate is just for text some headings, buttons, etc
-                   /testSmall\.html$/]; // testSmall is for test the footer with small contents
+                   /testSmall\.html$/, // testSmall is for test the footer with small contents
+                    /publishers-search\.html$/];
 
 const toReplaceOthers = [/banner\.html$/,
                          /footer\.html$/,
@@ -65,6 +66,22 @@ exports.plugins = {
         // console.log("Replacing head");
         return fs.readFileSync('app/assets/head.html', 'utf8');
       }}},
+      { files: toReplace, match: { find: '{{ HEAD }}', replace: () => {
+            // console.log("Replacing head");
+            return fs.readFileSync('app/assets/templates/components/head.html', 'utf8');
+          }}},
+      { files: toReplace, match: { find: '{{ HEADER }}', replace: () => {
+            // console.log("Replacing head");
+            return fs.readFileSync('app/assets/templates/components/header.html', 'utf8');
+          }}},
+      { files: toReplace, match: { find: '{{ FOOTER }}', replace: () => {
+            // console.log("Replacing head");
+            return fs.readFileSync('app/assets/templates/components/footer.html', 'utf8');
+          }}},
+      { files: toReplace, match: { find: '{{ SCRIPTS }}', replace: () => {
+            // console.log("Replacing head");
+            return fs.readFileSync('app/assets/templates/components/scripts.html', 'utf8');
+          }}},
       { files: toReplace, match: { find: 'BANNER_HERE', replace: () => {
         // console.log("Replacing banner");
         return fs.readFileSync('app/assets/banner.html', 'utf8');

@@ -4,3 +4,4 @@ node_modules
 ./public/*
 /public/*
 public/*
+.DS_Store
