@@ -99,57 +99,53 @@
                             <div class="horizontal-stripe--paddingless">
                                 <div class="container--narrow">
                                     <div class="row">
-                                        <div style="padding: 20px 0px">
-                                            <div id="body" class="card m-b-05 searchCard searchCard--publisher rtl-supported">
-                                                <div class="card__stripe">
-                                                    <div class="card__content">
-                                                        <!-- ngIf: result.created | isNew --><span
-                                                            class="searchCard__type ng-scope"
-                                                            ng-if="result.created | isNew"
-                                                            translate="publisher.newPublisher">New publisher</span>
-                                                        <!-- end ngIf: result.created | isNew -->
-                                                        <h3 class="searchCard__headline" dir="auto">
-                                                            <a ui-sref="publisherKey({key:result.key})"
-                                                               href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed"
-                                                               class="ng-binding">
-                                                                Wildlife Conservation Society - Chile (WCS-Chile)
-                                                            </a>
-                                                        </h3>
-                                                    </div>
-                                                </div>
-                                                <div class="card__stripe">
-                                                    <div class="card__content searchCard__content clearfix rtl-bootstrap">
-                                                        <a
-                                                           href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed"
-                                                           class="pull-right">
-                                                            <img class="searchCard__img--noCrop"
-                                                                src="//api.gbif.org/v1/image/unsafe/128x/https%3A%2F%2Fchile.wcs.org%2FPortals%2F134%2FWCS%2520sin%2520fondo.png%3Fver%3D2020-09-04-134427-417" />
-                                                        </a>
-                                                        <div class="searchCard__meta">
-                                                            <span>Joined a month ago</span>
-                                                        </div>
-                                                        <p>
-                                                            WCS es una organización con presencia global y más de 120
-                                                            años de experiencia, cuya misión es proteger los paisajes y
-                                                            la vida silvestres a través de la ciencia (investigación),
-                                                            acciones de conservació…
-                                                        </p>
-                                                        <ul class="list-chips">
-                                                            <li>
-                                                                <a href="/publisher/search?country=CL">Chile</a>
-                                                            </li>
-                                                            <li>
-
-                                                                <a href="/resource/search?contentType=literature&amp;publishingOrganizationKey=19e1c2ff-6122-4b75-97ac-a708eabff5ed"><span>0 citations</span></a>
-                                                            </li>
-                                                        </ul>
-
-                                                    </div>
-                                                </div>
-                                            </div>
-
+                                        <div style="padding: 20px 0px" id="body">
                                             <template id="template">
-                                                <h6></h6>
+                                                <div class="card m-b-05 searchCard searchCard--publisher rtl-supported">
+                                                    <div class="card__stripe">
+                                                        <div class="card__content">
+                                                            <!-- ngIf: result.created | isNew --><span
+                                                                class="searchCard__type ng-scope"
+                                                                ng-if="result.created | isNew"
+                                                                translate="publisher.newPublisher">New publisher</span>
+                                                            <!-- end ngIf: result.created | isNew -->
+                                                            <h3 class="searchCard__headline" dir="auto">
+                                                                <a href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed">
+
+                                                                </a>
+                                                            </h3>
+                                                        </div>
+                                                    </div>
+<!--                                                    <div class="card__stripe">-->
+<!--                                                        <div class="card__content searchCard__content clearfix rtl-bootstrap">-->
+<!--                                                            <a-->
+<!--                                                                    href="/publisher/19e1c2ff-6122-4b75-97ac-a708eabff5ed"-->
+<!--                                                                    class="pull-right">-->
+<!--                                                                <img class="searchCard__img&#45;&#45;noCrop"-->
+<!--                                                                     src="//api.gbif.org/v1/image/unsafe/128x/https%3A%2F%2Fchile.wcs.org%2FPortals%2F134%2FWCS%2520sin%2520fondo.png%3Fver%3D2020-09-04-134427-417" />-->
+<!--                                                            </a>-->
+<!--                                                            <div class="searchCard__meta">-->
+<!--                                                                <span>Joined a month ago</span>-->
+<!--                                                            </div>-->
+<!--                                                            <p>-->
+<!--                                                                WCS es una organización con presencia global y más de 120-->
+<!--                                                                años de experiencia, cuya misión es proteger los paisajes y-->
+<!--                                                                la vida silvestres a través de la ciencia (investigación),-->
+<!--                                                                acciones de conservació…-->
+<!--                                                            </p>-->
+<!--                                                            <ul class="list-chips">-->
+<!--                                                                <li>-->
+<!--                                                                    <a href="/publisher/search?country=CL">Chile</a>-->
+<!--                                                                </li>-->
+<!--                                                                <li>-->
+
+<!--                                                                    <a href="/resource/search?contentType=literature&amp;publishingOrganizationKey=19e1c2ff-6122-4b75-97ac-a708eabff5ed"><span>0 citations</span></a>-->
+<!--                                                                </li>-->
+<!--                                                            </ul>-->
+
+<!--                                                        </div>-->
+<!--                                                    </div>-->
+                                                </div>
                                             </template>
                                         </div>
 
@@ -182,17 +178,18 @@
 
             response.data.forEach((obj) => {
                 console.log(obj)
+                var template = document.querySelector('#template')
+                var body = document.querySelector('#body')
+
+                // Clone the new row and insert it into the table
+                var clone = template.content.cloneNode(true);
+                var h3 = clone.querySelectorAll("h3");
+                h3[0].textContent = obj.name;
+
+                body.appendChild(clone);
             })
 
-            var template = document.querySelector('#template')
-            var body = document.querySelector('#body')
 
-            // Clone the new row and insert it into the table
-            var clone = template.content.cloneNode(true);
-            var h6 = clone.querySelectorAll("h6");
-            h6[0].textContent = "Meshack";
-
-            body.appendChild(clone);
             // response.map(key, item => {
             //     console.log(item.name)
             // })
