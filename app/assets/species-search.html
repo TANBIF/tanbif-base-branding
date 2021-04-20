@@ -2069,30 +2069,14 @@
                                          click-outside="vm.expandContentTypeMenu = false"
                                          click-outside-unless="!vm.expandContentTypeMenu" aria-hidden="true">
                                         <ul>
-                                            <li class="seperator--b">
-                                                <a ui-sref="omniSearch({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.everything"
-                                                   class="ng-scope" href="/search">Everything</a>
+                                            <li  class="ng-scope">
+                                                <a class="ng-scope" href="occurrence-search.html?=*">Occurrences</a>
                                             </li>
-                                            <li ng-if="vm.contentType != 'species'" class="ng-scope">
-                                                <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}"
-                                                   class="ng-scope" href="/species/search">Occurrences</a>
+                                            <li  class="ng-scope">
+                                                <a class="ng-scope" href="https://collections.tanbif.ditnet.ac.tz/datasets#filters=contains:">Datasets</a>
                                             </li>
-                                            <li ng-if="vm.contentType != 'datasets'" class="ng-scope">
-                                                <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.datasets"
-                                                   class="ng-scope" href="/dataset/search">Datasets</a>
-                                            </li>
-                                            <li ng-if="vm.contentType != 'publishers'" class="ng-scope">
-                                                <a ui-sref="publisherSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.publishers"
-                                                   class="ng-scope" href="/publisher/search">Publishers</a>
-                                            </li>
-                                            <li ng-if="vm.contentType != 'cms'" class="ng-scope">
-                                                <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.resources"
-                                                   class="ng-scope" href="/resource/search">Resources</a>
+                                            <li  class="ng-scope">
+                                                <a class="ng-scope" href="publishers-search.html?q=*">Publishers</a>
                                             </li>
                                         </ul>
                                     </div>
@@ -2170,16 +2154,13 @@
                                         <div class="row">
                                             <div class="col-xs-12">
                                                 <nav class="article-header__category article-header__category--deep">
-                                                    <span class="article-header__category__upper ng-scope"
-                                                    >Search Species</span>
-                                                    <span
-                                                            class="article-header__category__lower ng-scope"
-                                                            ng-if="occTable.hasData()">
-                            <span
-                                    class="ng-isolate-scope">
-<!--                                TODO: add total result-->
-                            </span>
-                        </span>
+                                                    <span class="article-header__category__upper ng-scope">Search Species</span>
+                                                    <span class="article-header__category__lower ng-scope">
+                                                        <span id="speciesSearchResult" class="ng-isolate-scope">
+                                                            0 result
+                            <!--                                TODO: add total result-->
+                                                        </span>
+                                                    </span>
 
                                                 </nav>
                                             </div>
@@ -2434,7 +2415,6 @@ Fend
 
         $("#speciesSearch").keyup(function () {
             var query = $("#speciesSearch").val();
-            $("#speciesSearch").val("12");
             if (query.trim() === "*") {
                 query = "*:*";
                 console.log(query)
@@ -2448,21 +2428,27 @@ Fend
         })
 
         function getData(query, page_size) {
+            $('#speciesSearchResult').html('0 result');
             species_body.html(`<center><img src="images/ring.svg" style="width: 30px;height: 30px;"></center>`);
             $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=' + query + '&&pageSize=' + page_size, function (data, code, t) {
                 var html = '';
                 var result= [];
                 var i = 1;
+                var count = 0;
                 data.occurrences.forEach(function (row, index) {
+                    if($.inArray(row.scientificName,result) ===-1)
+                        ++count;
                     if ("scientificName" in row) {
                         if($.inArray(row.scientificName,result) ===-1 && i<=20){
                             html += getUI(row, index);
                             result.push(row.scientificName);
-                            ++i
+                            ++i;
                         }
+
                     }
                 })
-                console.log(result)
+                $('#speciesSearchResult').html(count+' result');
+                console.log(count)
                 species_body.html(html)
             })
         }

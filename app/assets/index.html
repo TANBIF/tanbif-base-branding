@@ -1824,14 +1824,10 @@
                                         </h1>
                                         <div class="home__searchFilters">
                                             <!--TODO: search link-->
-                                            <a href="" id="occurrenceSearch" class="inherit noUnderline"
-                                               ng-href="occurrence-search.html?q=*">Occurrences</a>
-                                            <a href="" id="speciesSearch" class="inherit noUnderline"
-                                               href="#">Species</a>
-                                            <a href="" id="datasetSearch" class="inherit noUnderline"
-                                               href="#">Datasets</a>
-                                            <a href="" id="publisherSearch" class="inherit noUnderline" href="#">Publishers</a>
-                                            <a href="" id="resourceSearch" class="inherit noUnderline" href="#">Resources</a>
+                                            <a href="occurrence-search.html?q=*" id="occurrenceSearch" class="inherit noUnderline">Occurrences</a>
+                                            <a href="species-search-test.html?q=*" id="speciesSearch" class="inherit noUnderline" >Species</a>
+                                            <a href="https://collections.tanbif.ditnet.ac.tz/datasets#filters=contains:" id="datasetSearch" class="inherit noUnderline" >Datasets</a>
+                                            <a href="publishers-search.html?q=*" id="publisherSearch" class="inherit noUnderline" >Publishers</a>
                                         </div>
                                         <div class="home__header__search-bar search-box">
                                             <form action="#"
@@ -1844,17 +1840,14 @@
                                                        aria-invalid="false"
                                                        focus-me="true">
                                                 <a class="search-box__submit gb-icon-search2 inherit noUnderline"
-                                                   ng-href="#" type="submit" id="all">
+                                                   href="occurrence-search.html?q=*" type="submit" id="all">
+<!--                                                    todo: change to all search-->
                                                     <span class="sr-only">Search</span>
                                                 </a>
                                             </form>
                                         </div>
                                         <div class="home__quicklinks">
-                                            <a href="#" class="gb-button--brand--transparent">What is TANBIF?</a>
-                                            <a ng-href="#" class="gb-button--brand--transparent ng-cloak"
-                                               ng-if="home.country.countryCode"><span
-                                                    translate="homepage.aboutGbifCountry"
-                                                    translate-values="{COUNTRY: (('country.' + home.country.countryCode) | translate) }"></span></a>
+                                            <a href="about.html" class="gb-button--brand--transparent">What is TANBIF?</a>
                                         </div>
                                     </div>
                                     <div class="img_caption">
@@ -1911,7 +1904,7 @@
                                     </article>
                                     <article class="article-box article-box--stats">
                                         <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Collections</h3>
+                                            <h3 class="discreet">Download</h3>
                                             <div id="collections">
                                                 <div class="lds-ellipsis" id="collections-lds">
                                                     <div></div>
@@ -2127,6 +2120,18 @@
         </div>
     </main>
     <div id="map_canvas" ></div>
+    <!-- todo: control -->
+    <div class="col-sm-12" style="height: 40px;padding-bottom: 10px; ">
+        <div class="col-sm-7"></div>
+        <div class="col-sm-2 " style="margin-top: 10px;"><label></label></div>
+        <div class="col-sm-3">
+
+            <select class="form-control" id="mapController" aria-label="Default select example">
+                <option value="" selected>View by Data Provider</option>
+            </select>
+        </div>
+    </div>
+    <!-- todo: control -->
     <footer class="site-footer wrapper-horizontal-stripes">
         <div class="light-background seperator" style="height: 180px; background: #f0f0f0; padding: 10px; ">
             <center>
