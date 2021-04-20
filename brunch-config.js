@@ -38,7 +38,7 @@ exports.plugins = {
   // This do some var substition in js code:
   jscc: {
     values: {
-      _LOCALES_URL: process.env.NODE_ENV === 'development' ? 'http://localhost:3333': settings.baseFooterUrl
+      _LOCALES_URL: process.env.NODE_ENV === 'development' ? 'http://localhost:3000': settings.baseFooterUrl
     }
   },
   babel: {presets: ['latest']},

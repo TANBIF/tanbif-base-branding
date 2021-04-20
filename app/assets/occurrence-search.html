@@ -2069,30 +2069,15 @@
                                          click-outside="vm.expandContentTypeMenu = false"
                                          click-outside-unless="!vm.expandContentTypeMenu" aria-hidden="true">
                                         <ul>
-                                            <li class="seperator--b">
-                                                <a ui-sref="omniSearch({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.everything"
-                                                   class="ng-scope" href="/search">Everything</a>
+
+                                            <li  class="ng-scope">
+                                                <a class="ng-scope" href="species-search.html?q=*">Species</a>
                                             </li>
-                                            <li ng-if="vm.contentType != 'species'" class="ng-scope">
-                                                <a ui-sref="speciesSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.species"
-                                                   class="ng-scope" href="/species/search">Species</a>
+                                            <li  class="ng-scope">
+                                                <a class="ng-scope" href="https://collections.tanbif.ditnet.ac.tz/datasets#filters=contains:">Datasets</a>
                                             </li>
-                                            <li ng-if="vm.contentType != 'datasets'" class="ng-scope">
-                                                <a ui-sref="datasetSearchTable({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.datasets"
-                                                   class="ng-scope" href="/dataset/search">Datasets</a>
-                                            </li>
-                                            <li ng-if="vm.contentType != 'publishers'" class="ng-scope">
-                                                <a ui-sref="publisherSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.publishers"
-                                                   class="ng-scope" href="/publisher/search">Publishers</a>
-                                            </li>
-                                            <li ng-if="vm.contentType != 'cms'" class="ng-scope">
-                                                <a ui-sref="resourceSearchList({q:vm.filter.query.q, locale: vm.filter.query.locale})"
-                                                   ui-sref-opts="{inherit: false}" translate="search.resources"
-                                                   class="ng-scope" href="/resource/search">Resources</a>
+                                            <li class="ng-scope">
+                                                <a class="ng-scope" href="publishers-search.html">Publishers</a>
                                             </li>
                                         </ul>
                                     </div>
