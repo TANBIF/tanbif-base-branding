@@ -95,7 +95,7 @@ function loadMap(setting) {
             $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=*:*&&pageSize=' + page_size, function (data, code, t) {
                 var opt='';
                 if (setting === 0) 
-                     opt =' <option value="" selected>View by Data Provider</option>';
+                     opt =' <option value="" selected>All Data Provider</option>';
 
                 var insts = [];
                 data.occurrences.forEach(function (row, index) {

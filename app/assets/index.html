@@ -210,7 +210,6 @@
      ng-controller="navCtrl as nav">
     <div class="stickyNav__container">
         <a href="https://tanbif.ditnet.ac.tz" id="block-logo" class="gbif-logo">
-
             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
                  preserveAspectRatio="xMidYMid meet" viewBox="0 0 550 550" width="550" height="550">
                 <defs>
@@ -1596,15 +1595,15 @@
                                     <ul class="mainMenu__childItem">
                                         <li>
                                             <a data-i18n="nav.species" class="mdl-navigation__link"
-                                               href="https://species.tanbif.ditnet.ac.tz">Species</a>
+                                               href="https://species.tanbif.ditnet.ac.tz" target="_blank">Species</a>
                                         </li>
                                         <li>
                                             <a data-i18n="nav.species-lists" class="mdl-navigation__link"
-                                               href="https://lists.tanbif.ditnet.ac.tz">Species Lists</a>
+                                               href="https://lists.tanbif.ditnet.ac.tz" target="_blank">Species Lists</a>
                                         </li>
                                         <li>
                                             <a data-i18n="nav.spatial" class="mdl-navigation__link"
-                                               href="https://spatial.tanbif.ditnet.ac.tz">Spatial Portal</a>
+                                               href="https://spatial.tanbif.ditnet.ac.tz" target="_blank">Spatial Portal</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -1614,15 +1613,15 @@
                                     <ul class="mainMenu__childItem">
                                         <li>
                                             <a data-i18n="nav.collectory" class="mdl-navigation__link"
-                                               href="https://collections.tanbif.ditnet.ac.tz">Collections</a>
+                                               href="https://collections.tanbif.ditnet.ac.tz" target="_blank">Collections</a>
                                         </li>
                                         <li>
                                             <a data-i18n="nav.datasets" class="mdl-navigation__link"
-                                               href="https://collections.tanbif.ditnet.ac.tz/datasets">Datasets</a>
+                                               href="https://collections.tanbif.ditnet.ac.tz/datasets" target="_blank">Datasets</a>
                                         </li>
                                         <li>
                                             <a data-i18n="nav.regions" class="mdl-navigation__link"
-                                               href="https://regions.tanbif.ditnet.ac.tz">Regions</a>
+                                               href="https://regions.tanbif.ditnet.ac.tz" target="_blank">Regions</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -1632,14 +1631,14 @@
                                     <ul class="mainMenu__childItem">
                                         <li>
                                             <a data-i18n="nav.biocache" class="mdl-navigation__link"
-                                               href="https://records.tanbif.ditnet.ac.tz/">Occurrences</a>
+                                               href="https://records.tanbif.ditnet.ac.tz/" target="_blank">Occurrences</a>
                                         </li>
                                         <li>
                                             <a data-i18n="nav.images" class="mdl-navigation__link"
-                                               href="https://images.tanbif.ditnet.ac.tz">Images</a>
+                                               href="https://images.tanbif.ditnet.ac.tz" target="_blank">Images</a>
                                         </li>
                                         <li>
-                                            <a class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/">IPT</a>
+                                            <a class="mdl-navigation__link" href="http://41.93.33.31:8080/ipt/" target="_blank">IPT</a>
                                         </li>
                                     </ul>
                                 </nav>
@@ -1649,12 +1648,9 @@
 
 
                     <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'How-to'}"
-                    >
-                        <a class=" mainMenu__parentItem" href=""
-                           ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a>
+                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'How-to'}">
+                        <a class=" mainMenu__parentItem" href="" ng-click="nav.toggleMenu('How-to')" dir="auto">How-to</a>
                         <ul class="mainMenu__childGroup">
-
                             <li class="mainMenu__columns">
                                 <nav><h2 dir="auto">Share data</h2>
                                     <ul class="mainMenu__childItem">
@@ -1698,9 +1694,7 @@
                     </li>
 
 
-                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Tools'}"
-                    >
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >" ng-class="{'mainMenu--childActive': nav.activeMenu == 'Tools'}">
                         <a class=" mainMenu__parentItem" href=""
                            ng-click="nav.toggleMenu('Tools')" dir="auto">Tools</a>
                         <ul class="mainMenu__childGroup">
@@ -1710,7 +1704,12 @@
                                     <ul class="mainMenu__childItem">
                                         <!--TODO: TanBif Api-->
                                         <li>
-                                            <a href="http://41.93.33.31:8080/ipt/" dir="auto">IPT
+                                            <a href="http://41.93.33.31:8080/ipt/" target="_blank" dir="auto">IPT
+
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="http://conversion.tanbif.ditnet.ac.tz/" target="_blank" dir="auto">Data converter
 
                                             </a>
                                         </li>
@@ -1722,11 +1721,10 @@
                     </li>
 
 
-                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'Community'}"
-                    >
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >" ng-class="{'mainMenu--childActive': nav.activeMenu == 'Community'}">
                         <a class=" mainMenu__parentItem" href=""
                            ng-click="nav.toggleMenu('Community')" dir="auto">Community</a>
+
                         <ul class="mainMenu__childGroup">
 
                             <li class="mainMenu__columns">
@@ -1743,31 +1741,28 @@
                                 </nav>
                             </li>
 
-                            <!--                                        <li class="mainMenu__columns" >-->
-                            <!--                                            <nav><h2 dir="auto">Volunteers</h2>-->
-                            <!--                                                <ul class="mainMenu__childItem">-->
+                            <li class="mainMenu__columns">
+                                <nav><h2 dir="auto">Volunteers</h2>
+                                    <ul class="mainMenu__childItem">
+                                        <li>
+                                            <a href="http://conversion.tanbif.ditnet.ac.tz/public/ambassadors" dir="auto">Ambassadors
 
+                                            </a>
+                                        </li>
 
-                            <!--                                                </ul>-->
-                            <!--                                            </nav>-->
-                            <!--                                        </li>-->
+                                        <li>
+                                            <a href="http://conversion.tanbif.ditnet.ac.tz/public/experts" dir="auto">Experts
 
-                            <!--                                        <li class="mainMenu__columns" >-->
-                            <!--                                            <nav><h2 dir="auto">Activities</h2>-->
-                            <!--                                                <ul class="mainMenu__childItem">-->
-
-                            <!--                                                       -->
-                            <!--                                                </ul>-->
-                            <!--                                            </nav>-->
-                            <!--                                        </li>-->
-
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </li>
                         </ul>
                     </li>
 
 
-                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >"
-                        ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}"
-                    >
+                    <li class="mainMenu--hasChild mainMenu__firstLevel mainMenu--hasGrandChild >" ng-class="{'mainMenu--childActive': nav.activeMenu == 'About'}">
                         <a class=" mainMenu__parentItem" href="about.html" dir="auto">About</a>
                     </li>
 
@@ -1861,7 +1856,7 @@
                             <div class="container--desktop">
                                 <div class="home__counts">
                                     <article class="article-box article-box--stats">
-                                        <a href="http://localhost:3000/occurrence-search.html?q=*" class="inherit noUnderline">
+                                        <a href="occurrence-search.html?q=*" class="inherit noUnderline">
                                             <h3 class="discreet">Occurrence records</h3>
                                             <div id="occurrence">
                                                 <div class="lds-ellipsis" id="occurrence-lds">
@@ -1903,8 +1898,7 @@
                                         </span>
                                     </article>
                                     <article class="article-box article-box--stats">
-                                        <a ng-href="#" class="inherit noUnderline">
-                                            <h3 class="discreet">Download</h3>
+                                            <h3 class="discreet">Publisher Country</h3>
                                             <div id="collections">
                                                 <div class="lds-ellipsis" id="collections-lds">
                                                     <div></div>
@@ -1914,7 +1908,6 @@
                                                 </div>
                                             </div>
                                             <!-- <div count="//api.gbif.org/v1/organization">3,450</div> -->
-                                        </a>
                                     </article>
                                 </div>
 
@@ -2099,13 +2092,13 @@
     </main>
     <div id="map_canvas" ></div>
     <!-- todo: control -->
-    <div class="col-sm-12" style="height: 40px;padding-bottom: 10px; ">
+    <div class="col-sm-12" style="padding:0px">
         <div class="col-sm-7"></div>
-        <div class="col-sm-2 " style="margin-top: 10px;"><label></label></div>
-        <div class="col-sm-3">
+        <div class="col-sm-2 " ></div>
+        <div class="col-sm-3" style="padding:0px">
 
             <select class="form-control" id="mapController" aria-label="Default select example">
-                <option value="" selected>View by Data Provider</option>
+                <option value="" selected>All Data Provider</option>
             </select>
         </div>
     </div>
