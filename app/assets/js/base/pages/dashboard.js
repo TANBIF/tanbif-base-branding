@@ -1,26 +1,26 @@
 setQuery("*");
 $(document).ready(function () {
     $.ajax({
-        url: "https://records-ws.tanbif.ditnet.ac.tz/occurrences?jsoncallback=?",
+        url: "https://records-ws.tanbif.costech.or.tz/occurrences?jsoncallback=?",
         success: function (result) {
             $("#occurrence").html(result.totalRecords);
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.ditnet.ac.tz/ws/dataResource/count",
+        url: "http://collections.tanbif.costech.or.tz/ws/dataResource/count",
         success: function (result) {
             $("#datasets").html(result.total);
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.ditnet.ac.tz/ws/institution/count",
+        url: "http://collections.tanbif.costech.or.tz/ws/institution/count",
         crossDomain: !0,
         success: function (result) {
             $("#institutions").html(result.total);
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.ditnet.ac.tz/ws/collection/count",
+        url: "http://collections.tanbif.costech.or.tz/ws/collection/count",
         crossDomain: !0,
         success: function (result) {
             $("#collections").html(0);//todo:: create api for download and fix codes
@@ -94,7 +94,7 @@ function loadMap(setting) {
             var page_size=result.totalRecords
             $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=*:*&&pageSize=' + page_size, function (data, code, t) {
                 var opt='';
-                if (setting === 0) 
+                if (setting === 0)
                      opt =' <option value="" selected>All Data Provider</option>';
 
                 var insts = [];
@@ -197,7 +197,7 @@ function loadMap(setting) {
 
                 });
                 console.log(insts)
-                if(setting ===0) 
+                if(setting ===0)
                     $('#mapController').html(opt)
             })
         },
