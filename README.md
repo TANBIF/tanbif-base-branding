@@ -61,7 +61,7 @@ This is using https://brunch.io instead of gulp and using [ALA commonui-bs3-2019
 ```
 # First use:
 
-git clone --recurse-submodule https://github.com/TANBIF/tanbif-base-branding.git
+git clone --recurse-submodule git@github.com:TANBIF/tanbif-base-branding.git
 
 # install yarn with or similar:
 # https://classic.yarnpkg.com/en/docs/install/#debian-stable
