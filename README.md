@@ -95,7 +95,7 @@ Port 3000
 ## Deployment and ALA configuration
 
 ```
-brunch build --production && rsync -a --delete --info=progress2 public/ tanbif-base:/srv/tanbif.ditnet.ac.tz/www/tz-ui-2020/
+brunch build --production && rsync -a --delete --info=progress2 public/ tanbif-base:/srv/tanbif.costech.or.tz/www/tz-ui-2020/
 
 ```
 

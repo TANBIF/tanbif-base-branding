@@ -59,7 +59,7 @@ function initialize() {}
 function setQuery(query) {
     $("#occurrenceSearch").attr("href", "occurrence-search.html?q=" + query);
     $("#speciesSearch").attr("href", "species-search.html?q=" + query);
-    $("#datasetSearch").attr("href", "https://collections.tanbif.ditnet.ac.tz/datasets#filters=contains:" + query);
+    $("#datasetSearch").attr("href", "https://collections.tanbif.costech.or.tz/datasets#filters=contains:" + query);
     $("#publisherSearch").attr("href", "publishers-search.html?q=" + query);
     $("#resourceSearch").attr("href", "resources-search.html?q=" + query);
     $("#all").attr("href", "occurrence-search.html?q=" + query);//todo: change to all search
@@ -89,10 +89,10 @@ $('#mapController').change(function () {
 function loadMap(setting) {
     layerGroup.clearLayers();
     $.ajax({
-        url: "https://records-ws.tanbif.ditnet.ac.tz/occurrences?jsoncallback=?",
+        url: "https://records-ws.tanbif.costech.or.tz/occurrences?jsoncallback=?",
         success: function (result) {
             var page_size=result.totalRecords
-            $.get('https://records-ws.tanbif.ditnet.ac.tz/occurrences/search?q=*:*&&pageSize=' + page_size, function (data, code, t) {
+            $.get('https://records-ws.tanbif.costech.or.tz/occurrences/search?q=*:*&&pageSize=' + page_size, function (data, code, t) {
                 var opt='';
                 if (setting === 0)
                      opt =' <option value="" selected>All Data Provider</option>';
