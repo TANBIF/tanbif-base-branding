@@ -2,23 +2,23 @@ module.exports = {
   isDevel: true,
   inMante: true, // set to true and deploy if you want to set a maintenance message in all the services
   enabledLangs: ['en', 'sw'],
-  mainDomain: 'tanbif.ditnet.ac.tz', // used for cookies (without http/https)
-  mainLAUrl: 'https://tanbif.ditnet.ac.tz',
-  baseFooterUrl: 'https://tanbif.ditnet.ac.tz',
+  mainDomain: 'tanbif.costech.or.tz', // used for cookies (without http/https)
+  mainLAUrl: 'https://tanbif.costech.or.tz',
+  baseFooterUrl: 'https://tanbif.costech.or.tz',
   services: {
-    collectory: { url: 'https://collections.tanbif.ditnet.ac.tz', title: 'Collections' },
-    biocache: { url: 'https://tanbif.ditnet.ac.tz', title: 'Occurrence records' },
-    bie: { url: 'https://species.tanbif.ditnet.ac.tz', title: 'Species' },
-    regions: { url: 'https://regions.tanbif.ditnet.ac.tz', title: 'Regions' },
-    lists: { url: 'https://lists.tanbif.ditnet.ac.tz', title: 'Species List' },
-    spatial: { url: 'https://spatial.tanbif.ditnet.ac.tz', title: 'Spatial Portal' },
-    images: { url: 'https://images.tanbif.ditnet.ac.tz', title: 'Images Service' },
-    cas: { url: 'https://auth.tanbif.ditnet.ac.tz', title: 'CAS' }
+    collectory: { url: 'https://collections.tanbif.costech.or.tz', title: 'Collections' },
+    biocache: { url: 'https://tanbif.costech.or.tz', title: 'Occurrence records' },
+    bie: { url: 'https://species.tanbif.costech.or.tz', title: 'Species' },
+    regions: { url: 'https://regions.tanbif.costech.or.tz', title: 'Regions' },
+    lists: { url: 'https://lists.tanbif.costech.or.tz', title: 'Species List' },
+    spatial: { url: 'https://spatial.tanbif.costech.or.tz', title: 'Spatial Portal' },
+    images: { url: 'https://images.tanbif.costech.or.tz', title: 'Images Service' },
+    cas: { url: 'https://auth.tanbif.costech.or.tz', title: 'CAS' }
   },
   otherLinks: [
-    { title: 'Datasets', url: 'https://collections.tanbif.ditnet.ac.tz/datasets' },
-    { title: 'Explore your area', url: 'http://records.tanbif.ditnet.ac.tz/explore/your-area/' },
-    { title: 'Datasets', url: 'https://collections.tanbif.ditnet.ac.tz/datasets' },
+    { title: 'Datasets', url: 'https://collections.tanbif.costech.or.tz/datasets' },
+    { title: 'Explore your area', url: 'http://records.tanbif.costech.or.tz/explore/your-area/' },
+    { title: 'Datasets', url: 'https://collections.tanbif.costech.or.tz/datasets' },
     { title: 'twitter', url: '', icon: 'twitter' }
   ]
 }
