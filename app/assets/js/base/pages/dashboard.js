@@ -7,20 +7,20 @@ $(document).ready(function () {
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.costech.or.tz/ws/dataResource/count",
+        url: "https://collections.tanbif.costech.or.tz/ws/dataResource/count",
         success: function (result) {
             $("#datasets").html(result.total);
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.costech.or.tz/ws/institution/count",
+        url: "https://collections.tanbif.costech.or.tz/ws/institution/count",
         crossDomain: !0,
         success: function (result) {
             $("#institutions").html(result.total);
         },
     });
     $.ajax({
-        url: "http://collections.tanbif.costech.or.tz/ws/collection/count",
+        url: "https://collections.tanbif.costech.or.tz/ws/collection/count",
         crossDomain: !0,
         success: function (result) {
             $("#collections").html(0);//todo:: create api for download and fix codes
